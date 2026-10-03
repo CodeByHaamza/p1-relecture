@@ -3,6 +3,7 @@
   "zone": "dialogues",
   "nom": "E0_001",
   "repliques": 99,
+  "lisibles": 99,
   "traduites": 99,
   "locuteurs": [
    "Arbre Agastya",
@@ -29,6 +30,7 @@
   "zone": "dialogues",
   "nom": "E0_002",
   "repliques": 92,
+  "lisibles": 91,
   "traduites": 92,
   "locuteurs": [
    "Ayase",
@@ -53,6 +55,7 @@
   "zone": "dialogues",
   "nom": "E0_003",
   "repliques": 40,
+  "lisibles": 40,
   "traduites": 40,
   "locuteurs": [
    "Elly",
@@ -69,6 +72,7 @@
   "zone": "dialogues",
   "nom": "E0_004",
   "repliques": 100,
+  "lisibles": 96,
   "traduites": 100,
   "locuteurs": []
  },
@@ -76,6 +80,7 @@
   "zone": "dialogues",
   "nom": "E0_005",
   "repliques": 100,
+  "lisibles": 97,
   "traduites": 100,
   "locuteurs": []
  },
@@ -83,6 +88,7 @@
   "zone": "dialogues",
   "nom": "E0_006",
   "repliques": 18,
+  "lisibles": 18,
   "traduites": 18,
   "locuteurs": [
    "Mark"
@@ -92,6 +98,7 @@
   "zone": "dialogues",
   "nom": "E0_007",
   "repliques": 97,
+  "lisibles": 89,
   "traduites": 97,
   "locuteurs": [
    "Elly",
@@ -109,6 +116,7 @@
   "zone": "dialogues",
   "nom": "E0_008",
   "repliques": 93,
+  "lisibles": 92,
   "traduites": 93,
   "locuteurs": [
    "Blessé",
@@ -134,6 +142,7 @@
   "zone": "dialogues",
   "nom": "E0_009",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": [
    "Elly",
@@ -151,6 +160,7 @@
   "zone": "dialogues",
   "nom": "E0_010",
   "repliques": 86,
+  "lisibles": 86,
   "traduites": 86,
   "locuteurs": [
    "Elly",
@@ -171,6 +181,7 @@
   "zone": "dialogues",
   "nom": "E0_011",
   "repliques": 67,
+  "lisibles": 67,
   "traduites": 67,
   "locuteurs": [
    "Adjoint Hanya",
@@ -188,6 +199,7 @@
   "zone": "dialogues",
   "nom": "E0_012",
   "repliques": 55,
+  "lisibles": 55,
   "traduites": 55,
   "locuteurs": [
    "Ayase",
@@ -199,6 +211,7 @@
   "zone": "dialogues",
   "nom": "E0_013",
   "repliques": 85,
+  "lisibles": 85,
   "traduites": 85,
   "locuteurs": [
    "Ayase",
@@ -213,6 +226,7 @@
   "zone": "dialogues",
   "nom": "E0_014",
   "repliques": 91,
+  "lisibles": 91,
   "traduites": 91,
   "locuteurs": [
    "Brown",
@@ -229,6 +243,7 @@
   "zone": "dialogues",
   "nom": "E0_015",
   "repliques": 66,
+  "lisibles": 66,
   "traduites": 66,
   "locuteurs": [
    "Ayase",
@@ -243,6 +258,7 @@
   "zone": "dialogues",
   "nom": "E0_016",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": [
    "Ayase",
@@ -258,6 +274,7 @@
   "zone": "dialogues",
   "nom": "E0_017",
   "repliques": 56,
+  "lisibles": 56,
   "traduites": 56,
   "locuteurs": [
    "Ayase",
@@ -276,6 +293,7 @@
   "zone": "dialogues",
   "nom": "E0_018",
   "repliques": 83,
+  "lisibles": 82,
   "traduites": 83,
   "locuteurs": [
    "Ayase",
@@ -295,6 +313,7 @@
   "zone": "dialogues",
   "nom": "E0_019",
   "repliques": 58,
+  "lisibles": 58,
   "traduites": 58,
   "locuteurs": [
    "Ayase",
@@ -312,6 +331,7 @@
   "zone": "dialogues",
   "nom": "E0_020",
   "repliques": 87,
+  "lisibles": 87,
   "traduites": 87,
   "locuteurs": [
    "Ayase",
@@ -332,6 +352,7 @@
   "zone": "dialogues",
   "nom": "E0_021",
   "repliques": 89,
+  "lisibles": 89,
   "traduites": 89,
   "locuteurs": [
    "Aki",
@@ -351,6 +372,7 @@
   "zone": "dialogues",
   "nom": "E0_022",
   "repliques": 52,
+  "lisibles": 52,
   "traduites": 52,
   "locuteurs": [
    "Aki",
@@ -368,6 +390,7 @@
   "zone": "dialogues",
   "nom": "E0_023",
   "repliques": 65,
+  "lisibles": 64,
   "traduites": 65,
   "locuteurs": [
    "Ayase",
@@ -387,6 +410,7 @@
   "zone": "dialogues",
   "nom": "E0_024",
   "repliques": 96,
+  "lisibles": 96,
   "traduites": 96,
   "locuteurs": [
    "Ayase",
@@ -404,6 +428,7 @@
   "zone": "dialogues",
   "nom": "E0_025",
   "repliques": 93,
+  "lisibles": 93,
   "traduites": 93,
   "locuteurs": [
    "Aki",
@@ -423,6 +448,7 @@
   "zone": "dialogues",
   "nom": "E0_026",
   "repliques": 77,
+  "lisibles": 77,
   "traduites": 77,
   "locuteurs": [
    "Ayase",
@@ -444,6 +470,7 @@
   "zone": "dialogues",
   "nom": "E0_027",
   "repliques": 40,
+  "lisibles": 40,
   "traduites": 40,
   "locuteurs": [
    "Ayase",
@@ -460,6 +487,7 @@
   "zone": "dialogues",
   "nom": "E0_028",
   "repliques": 78,
+  "lisibles": 78,
   "traduites": 78,
   "locuteurs": [
    "Ayase",
@@ -477,6 +505,7 @@
   "zone": "dialogues",
   "nom": "E0_029",
   "repliques": 55,
+  "lisibles": 53,
   "traduites": 55,
   "locuteurs": [
    "Aki",
@@ -496,6 +525,7 @@
   "zone": "dialogues",
   "nom": "E0_030",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": [
    "Aki",
@@ -515,6 +545,7 @@
   "zone": "dialogues",
   "nom": "E0_031",
   "repliques": 74,
+  "lisibles": 73,
   "traduites": 74,
   "locuteurs": [
    "Aki",
@@ -533,6 +564,7 @@
   "zone": "dialogues",
   "nom": "E0_032",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": [
    "Ayase",
@@ -550,6 +582,7 @@
   "zone": "dialogues",
   "nom": "E0_033",
   "repliques": 74,
+  "lisibles": 74,
   "traduites": 74,
   "locuteurs": [
    "Ayase",
@@ -566,6 +599,7 @@
   "zone": "dialogues",
   "nom": "E0_034",
   "repliques": 70,
+  "lisibles": 70,
   "traduites": 70,
   "locuteurs": [
    "Aki",
@@ -584,6 +618,7 @@
   "zone": "dialogues",
   "nom": "E0_035",
   "repliques": 57,
+  "lisibles": 57,
   "traduites": 57,
   "locuteurs": [
    "Ayase",
@@ -599,6 +634,7 @@
   "zone": "dialogues",
   "nom": "E0_036",
   "repliques": 53,
+  "lisibles": 53,
   "traduites": 53,
   "locuteurs": [
    "Ayase",
@@ -616,6 +652,7 @@
   "zone": "dialogues",
   "nom": "E0_037",
   "repliques": 99,
+  "lisibles": 99,
   "traduites": 99,
   "locuteurs": [
    "Ayase",
@@ -633,6 +670,7 @@
   "zone": "dialogues",
   "nom": "E0_038",
   "repliques": 79,
+  "lisibles": 77,
   "traduites": 79,
   "locuteurs": [
    "Aki",
@@ -650,6 +688,7 @@
   "zone": "dialogues",
   "nom": "E0_039",
   "repliques": 56,
+  "lisibles": 56,
   "traduites": 56,
   "locuteurs": [
    "Ayase",
@@ -666,6 +705,7 @@
   "zone": "dialogues",
   "nom": "E0_040",
   "repliques": 89,
+  "lisibles": 89,
   "traduites": 89,
   "locuteurs": [
    "Ayase",
@@ -681,6 +721,7 @@
   "zone": "dialogues",
   "nom": "E0_041",
   "repliques": 89,
+  "lisibles": 88,
   "traduites": 89,
   "locuteurs": [
    "Ayase",
@@ -696,6 +737,7 @@
   "zone": "dialogues",
   "nom": "E0_042",
   "repliques": 82,
+  "lisibles": 82,
   "traduites": 82,
   "locuteurs": [
    "Ayase",
@@ -713,6 +755,7 @@
   "zone": "dialogues",
   "nom": "E0_043",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": [
    "Ayase",
@@ -729,6 +772,7 @@
   "zone": "dialogues",
   "nom": "E0_044",
   "repliques": 100,
+  "lisibles": 99,
   "traduites": 100,
   "locuteurs": [
    "Ayase",
@@ -746,6 +790,7 @@
   "zone": "dialogues",
   "nom": "E0_045",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": [
    "(*APODO_HEROE*)",
@@ -759,6 +804,7 @@
   "zone": "dialogues",
   "nom": "E0_046",
   "repliques": 92,
+  "lisibles": 91,
   "traduites": 92,
   "locuteurs": [
    "Ayase",
@@ -779,6 +825,7 @@
   "zone": "dialogues",
   "nom": "E0_047",
   "repliques": 69,
+  "lisibles": 68,
   "traduites": 69,
   "locuteurs": [
    "Ayase",
@@ -798,6 +845,7 @@
   "zone": "dialogues",
   "nom": "E0_048",
   "repliques": 50,
+  "lisibles": 50,
   "traduites": 50,
   "locuteurs": [
    "Brown",
@@ -812,6 +860,7 @@
   "zone": "dialogues",
   "nom": "E1_001",
   "repliques": 80,
+  "lisibles": 77,
   "traduites": 77,
   "locuteurs": [
    "Ayase",
@@ -826,6 +875,7 @@
   "zone": "dialogues",
   "nom": "E1_002",
   "repliques": 100,
+  "lisibles": 98,
   "traduites": 99,
   "locuteurs": [
    "Ayase",
@@ -842,6 +892,7 @@
   "zone": "dialogues",
   "nom": "E1_003",
   "repliques": 94,
+  "lisibles": 94,
   "traduites": 94,
   "locuteurs": [
    "Ayase",
@@ -857,6 +908,7 @@
   "zone": "dialogues",
   "nom": "E1_004",
   "repliques": 87,
+  "lisibles": 87,
   "traduites": 87,
   "locuteurs": [
    "Ayase",
@@ -872,6 +924,7 @@
   "zone": "dialogues",
   "nom": "E1_005",
   "repliques": 81,
+  "lisibles": 76,
   "traduites": 76,
   "locuteurs": [
    "Ayase",
@@ -889,6 +942,7 @@
   "zone": "dialogues",
   "nom": "E1_006",
   "repliques": 77,
+  "lisibles": 73,
   "traduites": 74,
   "locuteurs": [
    "Ayase",
@@ -906,6 +960,7 @@
   "zone": "dialogues",
   "nom": "E1_007",
   "repliques": 97,
+  "lisibles": 97,
   "traduites": 97,
   "locuteurs": [
    "Adjoint Hanya",
@@ -924,6 +979,7 @@
   "zone": "dialogues",
   "nom": "E1_008",
   "repliques": 74,
+  "lisibles": 74,
   "traduites": 74,
   "locuteurs": [
    "Ayase",
@@ -941,6 +997,7 @@
   "zone": "dialogues",
   "nom": "E1_009",
   "repliques": 75,
+  "lisibles": 74,
   "traduites": 75,
   "locuteurs": [
    "Ayase",
@@ -960,6 +1017,7 @@
   "zone": "dialogues",
   "nom": "E1_010",
   "repliques": 63,
+  "lisibles": 63,
   "traduites": 63,
   "locuteurs": [
    "Ayase",
@@ -975,6 +1033,7 @@
   "zone": "dialogues",
   "nom": "E1_011",
   "repliques": 87,
+  "lisibles": 87,
   "traduites": 87,
   "locuteurs": [
    "Ayase",
@@ -991,6 +1050,7 @@
   "zone": "dialogues",
   "nom": "E1_012",
   "repliques": 83,
+  "lisibles": 83,
   "traduites": 83,
   "locuteurs": [
    "Adjoint Hanya",
@@ -1006,6 +1066,7 @@
   "zone": "dialogues",
   "nom": "E1_013",
   "repliques": 60,
+  "lisibles": 60,
   "traduites": 60,
   "locuteurs": [
    "Ayase",
@@ -1021,6 +1082,7 @@
   "zone": "dialogues",
   "nom": "E1_014",
   "repliques": 43,
+  "lisibles": 43,
   "traduites": 43,
   "locuteurs": [
    "Ayase",
@@ -1035,6 +1097,7 @@
   "zone": "dialogues",
   "nom": "E1_015",
   "repliques": 65,
+  "lisibles": 65,
   "traduites": 65,
   "locuteurs": [
    "Ayase",
@@ -1051,6 +1114,7 @@
   "zone": "dialogues",
   "nom": "E1_016",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": [
    "Ayase",
@@ -1068,6 +1132,7 @@
   "zone": "dialogues",
   "nom": "E1_017",
   "repliques": 38,
+  "lisibles": 38,
   "traduites": 38,
   "locuteurs": [
    "Ayase",
@@ -1083,6 +1148,7 @@
   "zone": "dialogues",
   "nom": "E1_018",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": [
    "Ayase",
@@ -1097,6 +1163,7 @@
   "zone": "dialogues",
   "nom": "E1_019",
   "repliques": 46,
+  "lisibles": 46,
   "traduites": 46,
   "locuteurs": [
    "Ayase",
@@ -1110,6 +1177,7 @@
   "zone": "dialogues",
   "nom": "E1_020",
   "repliques": 67,
+  "lisibles": 67,
   "traduites": 67,
   "locuteurs": [
    "Ayase",
@@ -1124,6 +1192,7 @@
   "zone": "dialogues",
   "nom": "E1_021",
   "repliques": 66,
+  "lisibles": 66,
   "traduites": 66,
   "locuteurs": [
    "Ayase",
@@ -1139,6 +1208,7 @@
   "zone": "dialogues",
   "nom": "E1_022",
   "repliques": 95,
+  "lisibles": 95,
   "traduites": 95,
   "locuteurs": [
    "Ayase",
@@ -1153,6 +1223,7 @@
   "zone": "dialogues",
   "nom": "E1_023",
   "repliques": 96,
+  "lisibles": 96,
   "traduites": 96,
   "locuteurs": [
    "Ayase",
@@ -1170,6 +1241,7 @@
   "zone": "dialogues",
   "nom": "E1_024",
   "repliques": 93,
+  "lisibles": 93,
   "traduites": 93,
   "locuteurs": [
    "Ayase",
@@ -1185,6 +1257,7 @@
   "zone": "dialogues",
   "nom": "E1_025",
   "repliques": 86,
+  "lisibles": 85,
   "traduites": 86,
   "locuteurs": [
    "Ayase",
@@ -1199,6 +1272,7 @@
   "zone": "dialogues",
   "nom": "E1_026",
   "repliques": 97,
+  "lisibles": 96,
   "traduites": 97,
   "locuteurs": [
    "Ayase",
@@ -1219,6 +1293,7 @@
   "zone": "dialogues",
   "nom": "E1_027",
   "repliques": 89,
+  "lisibles": 88,
   "traduites": 89,
   "locuteurs": [
    "Arbre Agastya",
@@ -1238,6 +1313,7 @@
   "zone": "dialogues",
   "nom": "E1_028",
   "repliques": 79,
+  "lisibles": 79,
   "traduites": 79,
   "locuteurs": [
    "Ayase",
@@ -1253,6 +1329,7 @@
   "zone": "dialogues",
   "nom": "E1_029",
   "repliques": 99,
+  "lisibles": 99,
   "traduites": 99,
   "locuteurs": [
    "Ayase",
@@ -1271,6 +1348,7 @@
   "zone": "dialogues",
   "nom": "E1_030",
   "repliques": 96,
+  "lisibles": 96,
   "traduites": 96,
   "locuteurs": [
    "Ayase",
@@ -1291,6 +1369,7 @@
   "zone": "dialogues",
   "nom": "E1_031",
   "repliques": 97,
+  "lisibles": 97,
   "traduites": 97,
   "locuteurs": [
    "Adjoint Hanya",
@@ -1317,6 +1396,7 @@
   "zone": "dialogues",
   "nom": "E2_001",
   "repliques": 95,
+  "lisibles": 95,
   "traduites": 95,
   "locuteurs": [
    "Archer",
@@ -1341,6 +1421,7 @@
   "zone": "dialogues",
   "nom": "E2_002",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": [
    "Accro au jeu",
@@ -1365,6 +1446,7 @@
   "zone": "dialogues",
   "nom": "E2_003",
   "repliques": 96,
+  "lisibles": 96,
   "traduites": 96,
   "locuteurs": [
    "Docteur",
@@ -1386,6 +1468,7 @@
   "zone": "dialogues",
   "nom": "E2_004",
   "repliques": 97,
+  "lisibles": 92,
   "traduites": 97,
   "locuteurs": [
    "Accro au jeu",
@@ -1405,6 +1488,7 @@
   "zone": "dialogues",
   "nom": "E2_005",
   "repliques": 92,
+  "lisibles": 92,
   "traduites": 92,
   "locuteurs": [
    "Arbre Agastya",
@@ -1424,6 +1508,7 @@
   "zone": "dialogues",
   "nom": "E2_006",
   "repliques": 92,
+  "lisibles": 87,
   "traduites": 92,
   "locuteurs": [
    "Ayase",
@@ -1448,6 +1533,7 @@
   "zone": "dialogues",
   "nom": "E2_007",
   "repliques": 99,
+  "lisibles": 94,
   "traduites": 99,
   "locuteurs": [
    "Amoureuse",
@@ -1477,6 +1563,7 @@
   "zone": "dialogues",
   "nom": "E2_008",
   "repliques": 99,
+  "lisibles": 99,
   "traduites": 99,
   "locuteurs": [
    "Accro au jeu",
@@ -1502,6 +1589,7 @@
   "zone": "dialogues",
   "nom": "E2_009",
   "repliques": 97,
+  "lisibles": 96,
   "traduites": 97,
   "locuteurs": [
    "Ayase",
@@ -1524,6 +1612,7 @@
   "zone": "dialogues",
   "nom": "E2_010",
   "repliques": 97,
+  "lisibles": 96,
   "traduites": 97,
   "locuteurs": [
    "Adjoint Hanya",
@@ -1546,6 +1635,7 @@
   "zone": "dialogues",
   "nom": "E2_011",
   "repliques": 90,
+  "lisibles": 90,
   "traduites": 90,
   "locuteurs": [
    "Ayase",
@@ -1565,6 +1655,7 @@
   "zone": "dialogues",
   "nom": "E2_012",
   "repliques": 91,
+  "lisibles": 87,
   "traduites": 91,
   "locuteurs": [
    "Ayase",
@@ -1588,6 +1679,7 @@
   "zone": "dialogues",
   "nom": "E2_013",
   "repliques": 88,
+  "lisibles": 88,
   "traduites": 88,
   "locuteurs": [
    "Ayase",
@@ -1609,6 +1701,7 @@
   "zone": "dialogues",
   "nom": "E2_014",
   "repliques": 95,
+  "lisibles": 90,
   "traduites": 95,
   "locuteurs": [
    "Ayase",
@@ -1629,6 +1722,7 @@
   "zone": "dialogues",
   "nom": "E2_015",
   "repliques": 91,
+  "lisibles": 91,
   "traduites": 91,
   "locuteurs": [
    "Ayase",
@@ -1647,6 +1741,7 @@
   "zone": "dialogues",
   "nom": "E2_016",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": [
    "Ayase",
@@ -1673,6 +1768,7 @@
   "zone": "dialogues",
   "nom": "E2_017",
   "repliques": 80,
+  "lisibles": 80,
   "traduites": 80,
   "locuteurs": [
    "Adjoint Hanya",
@@ -1695,6 +1791,7 @@
   "zone": "dialogues",
   "nom": "E3_001",
   "repliques": 93,
+  "lisibles": 93,
   "traduites": 93,
   "locuteurs": [
    "Accro au jeu",
@@ -1717,6 +1814,7 @@
   "zone": "dialogues",
   "nom": "E3_002",
   "repliques": 97,
+  "lisibles": 97,
   "traduites": 97,
   "locuteurs": [
    "Ayase",
@@ -1737,6 +1835,7 @@
   "zone": "dialogues",
   "nom": "E3_003",
   "repliques": 70,
+  "lisibles": 70,
   "traduites": 70,
   "locuteurs": [
    "Ayase",
@@ -1754,6 +1853,7 @@
   "zone": "dialogues",
   "nom": "E3_004",
   "repliques": 95,
+  "lisibles": 95,
   "traduites": 95,
   "locuteurs": [
    "Ayase",
@@ -1772,6 +1872,7 @@
   "zone": "dialogues",
   "nom": "E3_005",
   "repliques": 97,
+  "lisibles": 97,
   "traduites": 97,
   "locuteurs": [
    "Ayase",
@@ -1788,6 +1889,7 @@
   "zone": "dialogues",
   "nom": "E3_006",
   "repliques": 98,
+  "lisibles": 98,
   "traduites": 98,
   "locuteurs": [
    "Arbre Agastya",
@@ -1813,6 +1915,7 @@
   "zone": "dialogues",
   "nom": "E3_007",
   "repliques": 96,
+  "lisibles": 96,
   "traduites": 96,
   "locuteurs": [
    "Ayase",
@@ -1828,6 +1931,7 @@
   "zone": "dialogues",
   "nom": "E3_008",
   "repliques": 66,
+  "lisibles": 66,
   "traduites": 66,
   "locuteurs": [
    "Arbre Agastya",
@@ -1842,6 +1946,7 @@
   "zone": "donjons",
   "nom": "DNG_001",
   "repliques": 99,
+  "lisibles": 99,
   "traduites": 99,
   "locuteurs": [
    "Ayase",
@@ -1855,6 +1960,7 @@
   "zone": "donjons",
   "nom": "DNG_002",
   "repliques": 31,
+  "lisibles": 31,
   "traduites": 31,
   "locuteurs": [
    "Ayase",
@@ -1865,6 +1971,7 @@
   "zone": "eboot",
   "nom": "EBOOT_001",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -1872,6 +1979,7 @@
   "zone": "eboot",
   "nom": "EBOOT_002",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -1879,6 +1987,7 @@
   "zone": "eboot",
   "nom": "EBOOT_003",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -1886,6 +1995,7 @@
   "zone": "eboot",
   "nom": "EBOOT_004",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -1893,6 +2003,7 @@
   "zone": "eboot",
   "nom": "EBOOT_005",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -1900,6 +2011,7 @@
   "zone": "eboot",
   "nom": "EBOOT_006",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -1907,6 +2019,7 @@
   "zone": "eboot",
   "nom": "EBOOT_007",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -1914,6 +2027,7 @@
   "zone": "eboot",
   "nom": "EBOOT_008",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -1921,6 +2035,7 @@
   "zone": "eboot",
   "nom": "EBOOT_009",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -1928,6 +2043,7 @@
   "zone": "eboot",
   "nom": "EBOOT_010",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -1935,6 +2051,7 @@
   "zone": "eboot",
   "nom": "EBOOT_011",
   "repliques": 60,
+  "lisibles": 60,
   "traduites": 60,
   "locuteurs": []
  },
@@ -1942,6 +2059,7 @@
   "zone": "eboot",
   "nom": "EBOOT_012",
   "repliques": 58,
+  "lisibles": 58,
   "traduites": 58,
   "locuteurs": []
  },
@@ -1949,6 +2067,7 @@
   "zone": "eboot",
   "nom": "EBOOT_013",
   "repliques": 82,
+  "lisibles": 81,
   "traduites": 82,
   "locuteurs": []
  },
@@ -1956,6 +2075,7 @@
   "zone": "eboot",
   "nom": "EBOOT_014",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -1963,6 +2083,7 @@
   "zone": "eboot",
   "nom": "EBOOT_015",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -1970,6 +2091,7 @@
   "zone": "eboot",
   "nom": "EBOOT_016",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -1977,6 +2099,7 @@
   "zone": "eboot",
   "nom": "EBOOT_017",
   "repliques": 18,
+  "lisibles": 18,
   "traduites": 18,
   "locuteurs": []
  },
@@ -1984,6 +2107,7 @@
   "zone": "eboot",
   "nom": "EBOOT_018",
   "repliques": 100,
+  "lisibles": 98,
   "traduites": 100,
   "locuteurs": []
  },
@@ -1991,6 +2115,7 @@
   "zone": "eboot",
   "nom": "EBOOT_019",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -1998,6 +2123,7 @@
   "zone": "eboot",
   "nom": "EBOOT_020",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2005,6 +2131,7 @@
   "zone": "eboot",
   "nom": "EBOOT_021",
   "repliques": 100,
+  "lisibles": 99,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2012,6 +2139,7 @@
   "zone": "eboot",
   "nom": "EBOOT_022",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2019,6 +2147,7 @@
   "zone": "eboot",
   "nom": "EBOOT_023",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2026,6 +2155,7 @@
   "zone": "eboot",
   "nom": "EBOOT_024",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2033,6 +2163,7 @@
   "zone": "eboot",
   "nom": "EBOOT_025",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2040,6 +2171,7 @@
   "zone": "eboot",
   "nom": "EBOOT_026",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2047,6 +2179,7 @@
   "zone": "eboot",
   "nom": "EBOOT_027",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2054,6 +2187,7 @@
   "zone": "eboot",
   "nom": "EBOOT_028",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2061,6 +2195,7 @@
   "zone": "eboot",
   "nom": "EBOOT_029",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2068,6 +2203,7 @@
   "zone": "eboot",
   "nom": "EBOOT_030",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2075,6 +2211,7 @@
   "zone": "eboot",
   "nom": "EBOOT_031",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2082,6 +2219,7 @@
   "zone": "eboot",
   "nom": "EBOOT_032",
   "repliques": 38,
+  "lisibles": 38,
   "traduites": 38,
   "locuteurs": []
  },
@@ -2089,6 +2227,7 @@
   "zone": "negociations",
   "nom": "ALIEN_001",
   "repliques": 100,
+  "lisibles": 0,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2096,6 +2235,7 @@
   "zone": "negociations",
   "nom": "ALIEN_002",
   "repliques": 5,
+  "lisibles": 1,
   "traduites": 5,
   "locuteurs": []
  },
@@ -2103,6 +2243,7 @@
   "zone": "negociations",
   "nom": "BASKET_001",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2110,6 +2251,7 @@
   "zone": "negociations",
   "nom": "BASKET_002",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2117,6 +2259,7 @@
   "zone": "negociations",
   "nom": "BASKET_003",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2124,6 +2267,7 @@
   "zone": "negociations",
   "nom": "BASKET_004",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2131,6 +2275,7 @@
   "zone": "negociations",
   "nom": "BASKET_005",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2138,6 +2283,7 @@
   "zone": "negociations",
   "nom": "BASKET_006",
   "repliques": 100,
+  "lisibles": 99,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2145,6 +2291,7 @@
   "zone": "negociations",
   "nom": "BASKET_007",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2152,6 +2299,7 @@
   "zone": "negociations",
   "nom": "BASKET_008",
   "repliques": 56,
+  "lisibles": 55,
   "traduites": 56,
   "locuteurs": []
  },
@@ -2159,6 +2307,7 @@
   "zone": "negociations",
   "nom": "DOPPEL_001",
   "repliques": 100,
+  "lisibles": 99,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2166,6 +2315,7 @@
   "zone": "negociations",
   "nom": "DOPPEL_002",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2173,6 +2323,7 @@
   "zone": "negociations",
   "nom": "DOPPEL_003",
   "repliques": 14,
+  "lisibles": 14,
   "traduites": 14,
   "locuteurs": []
  },
@@ -2180,6 +2331,7 @@
   "zone": "negociations",
   "nom": "ETC_001",
   "repliques": 100,
+  "lisibles": 94,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2187,6 +2339,7 @@
   "zone": "negociations",
   "nom": "ETC_002",
   "repliques": 100,
+  "lisibles": 99,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2194,6 +2347,7 @@
   "zone": "negociations",
   "nom": "ETC_003",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2201,6 +2355,7 @@
   "zone": "negociations",
   "nom": "ETC_004",
   "repliques": 24,
+  "lisibles": 24,
   "traduites": 24,
   "locuteurs": []
  },
@@ -2208,6 +2363,7 @@
   "zone": "negociations",
   "nom": "GAKI_001",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2215,6 +2371,7 @@
   "zone": "negociations",
   "nom": "GAKI_002",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2222,6 +2379,7 @@
   "zone": "negociations",
   "nom": "GAKI_003",
   "repliques": 28,
+  "lisibles": 28,
   "traduites": 28,
   "locuteurs": []
  },
@@ -2229,6 +2387,7 @@
   "zone": "negociations",
   "nom": "HIHO_001",
   "repliques": 100,
+  "lisibles": 99,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2236,6 +2395,7 @@
   "zone": "negociations",
   "nom": "HIHO_002",
   "repliques": 100,
+  "lisibles": 99,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2243,6 +2403,7 @@
   "zone": "negociations",
   "nom": "HIHO_003",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2250,6 +2411,7 @@
   "zone": "negociations",
   "nom": "HIHO_004",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2257,6 +2419,7 @@
   "zone": "negociations",
   "nom": "HIHO_005",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2264,6 +2427,7 @@
   "zone": "negociations",
   "nom": "HIHO_006",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2271,6 +2435,7 @@
   "zone": "negociations",
   "nom": "HIHO_007",
   "repliques": 68,
+  "lisibles": 67,
   "traduites": 68,
   "locuteurs": []
  },
@@ -2278,6 +2443,7 @@
   "zone": "negociations",
   "nom": "KEMONO_001",
   "repliques": 100,
+  "lisibles": 93,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2285,6 +2451,7 @@
   "zone": "negociations",
   "nom": "KEMONO_002",
   "repliques": 100,
+  "lisibles": 96,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2292,6 +2459,7 @@
   "zone": "negociations",
   "nom": "KEMONO_003",
   "repliques": 100,
+  "lisibles": 95,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2299,6 +2467,7 @@
   "zone": "negociations",
   "nom": "KEMONO_004",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2306,6 +2475,7 @@
   "zone": "negociations",
   "nom": "KEMONO_005",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2313,6 +2483,7 @@
   "zone": "negociations",
   "nom": "KEMONO_006",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2320,6 +2491,7 @@
   "zone": "negociations",
   "nom": "KEMONO_007",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2327,6 +2499,7 @@
   "zone": "negociations",
   "nom": "KEMONO_008",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2334,6 +2507,7 @@
   "zone": "negociations",
   "nom": "KEMONO_009",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2341,6 +2515,7 @@
   "zone": "negociations",
   "nom": "KEMONO_010",
   "repliques": 69,
+  "lisibles": 69,
   "traduites": 69,
   "locuteurs": []
  },
@@ -2348,6 +2523,7 @@
   "zone": "negociations",
   "nom": "KOKURI_001",
   "repliques": 96,
+  "lisibles": 96,
   "traduites": 96,
   "locuteurs": []
  },
@@ -2355,6 +2531,7 @@
   "zone": "negociations",
   "nom": "KOROU_001",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2362,6 +2539,7 @@
   "zone": "negociations",
   "nom": "KOROU_002",
   "repliques": 100,
+  "lisibles": 99,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2369,6 +2547,7 @@
   "zone": "negociations",
   "nom": "KOROU_003",
   "repliques": 100,
+  "lisibles": 99,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2376,6 +2555,7 @@
   "zone": "negociations",
   "nom": "KOROU_004",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2383,6 +2563,7 @@
   "zone": "negociations",
   "nom": "KOROU_005",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2390,6 +2571,7 @@
   "zone": "negociations",
   "nom": "KOROU_006",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2397,6 +2579,7 @@
   "zone": "negociations",
   "nom": "KOROU_007",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2404,6 +2587,7 @@
   "zone": "negociations",
   "nom": "KOROU_008",
   "repliques": 100,
+  "lisibles": 98,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2411,6 +2595,7 @@
   "zone": "negociations",
   "nom": "KOROU_009",
   "repliques": 69,
+  "lisibles": 68,
   "traduites": 69,
   "locuteurs": []
  },
@@ -2418,6 +2603,7 @@
   "zone": "negociations",
   "nom": "KOSIKI_001",
   "repliques": 100,
+  "lisibles": 95,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2425,6 +2611,7 @@
   "zone": "negociations",
   "nom": "KOSIKI_002",
   "repliques": 100,
+  "lisibles": 99,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2432,6 +2619,7 @@
   "zone": "negociations",
   "nom": "KOSIKI_003",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2439,6 +2627,7 @@
   "zone": "negociations",
   "nom": "KOSIKI_004",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2446,6 +2635,7 @@
   "zone": "negociations",
   "nom": "KOSIKI_005",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2453,6 +2643,7 @@
   "zone": "negociations",
   "nom": "KOSIKI_006",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2460,6 +2651,7 @@
   "zone": "negociations",
   "nom": "KOSIKI_007",
   "repliques": 25,
+  "lisibles": 25,
   "traduites": 25,
   "locuteurs": []
  },
@@ -2467,6 +2659,7 @@
   "zone": "negociations",
   "nom": "KOUMAN_001",
   "repliques": 100,
+  "lisibles": 98,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2474,6 +2667,7 @@
   "zone": "negociations",
   "nom": "KOUMAN_002",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2481,6 +2675,7 @@
   "zone": "negociations",
   "nom": "KOUMAN_003",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2488,6 +2683,7 @@
   "zone": "negociations",
   "nom": "KOUMAN_004",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2495,6 +2691,7 @@
   "zone": "negociations",
   "nom": "KOUMAN_005",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2502,6 +2699,7 @@
   "zone": "negociations",
   "nom": "KOUMAN_006",
   "repliques": 100,
+  "lisibles": 99,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2509,6 +2707,7 @@
   "zone": "negociations",
   "nom": "KOUMAN_007",
   "repliques": 100,
+  "lisibles": 99,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2516,6 +2715,7 @@
   "zone": "negociations",
   "nom": "KOUMAN_008",
   "repliques": 100,
+  "lisibles": 99,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2523,6 +2723,7 @@
   "zone": "negociations",
   "nom": "KOUMAN_009",
   "repliques": 93,
+  "lisibles": 91,
   "traduites": 93,
   "locuteurs": []
  },
@@ -2530,6 +2731,7 @@
   "zone": "negociations",
   "nom": "KUTISAKE_001",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2537,6 +2739,7 @@
   "zone": "negociations",
   "nom": "KUTISAKE_002",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2544,6 +2747,7 @@
   "zone": "negociations",
   "nom": "KUTISAKE_003",
   "repliques": 81,
+  "lisibles": 81,
   "traduites": 81,
   "locuteurs": []
  },
@@ -2551,6 +2755,7 @@
   "zone": "negociations",
   "nom": "KYOUKI_001",
   "repliques": 100,
+  "lisibles": 97,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2558,6 +2763,7 @@
   "zone": "negociations",
   "nom": "KYOUKI_002",
   "repliques": 100,
+  "lisibles": 99,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2565,6 +2771,7 @@
   "zone": "negociations",
   "nom": "KYOUKI_003",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2572,6 +2779,7 @@
   "zone": "negociations",
   "nom": "KYOUKI_004",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2579,6 +2787,7 @@
   "zone": "negociations",
   "nom": "KYOUKI_005",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2586,6 +2795,7 @@
   "zone": "negociations",
   "nom": "KYOUKI_006",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2593,6 +2803,7 @@
   "zone": "negociations",
   "nom": "KYOUKI_007",
   "repliques": 23,
+  "lisibles": 23,
   "traduites": 23,
   "locuteurs": []
  },
@@ -2600,6 +2811,7 @@
   "zone": "negociations",
   "nom": "MAYOERU_001",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2607,6 +2819,7 @@
   "zone": "negociations",
   "nom": "MAYOERU_002",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2614,6 +2827,7 @@
   "zone": "negociations",
   "nom": "MAYOERU_003",
   "repliques": 39,
+  "lisibles": 39,
   "traduites": 39,
   "locuteurs": []
  },
@@ -2621,6 +2835,7 @@
   "zone": "negociations",
   "nom": "POLUTAR_001",
   "repliques": 100,
+  "lisibles": 96,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2628,6 +2843,7 @@
   "zone": "negociations",
   "nom": "POLUTAR_002",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2635,6 +2851,7 @@
   "zone": "negociations",
   "nom": "POLUTAR_003",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2642,6 +2859,7 @@
   "zone": "negociations",
   "nom": "POLUTAR_004",
   "repliques": 36,
+  "lisibles": 36,
   "traduites": 36,
   "locuteurs": []
  },
@@ -2649,6 +2867,7 @@
   "zone": "negociations",
   "nom": "QSIRUBA_001",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2656,6 +2875,7 @@
   "zone": "negociations",
   "nom": "QSIRUBA_002",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2663,6 +2883,7 @@
   "zone": "negociations",
   "nom": "QSIRUBA_003",
   "repliques": 20,
+  "lisibles": 20,
   "traduites": 20,
   "locuteurs": []
  },
@@ -2670,6 +2891,7 @@
   "zone": "negociations",
   "nom": "SINSI_001",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2677,6 +2899,7 @@
   "zone": "negociations",
   "nom": "SINSI_002",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2684,6 +2907,7 @@
   "zone": "negociations",
   "nom": "SINSI_003",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2691,6 +2915,7 @@
   "zone": "negociations",
   "nom": "SINSI_004",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2698,6 +2923,7 @@
   "zone": "negociations",
   "nom": "SINSI_005",
   "repliques": 100,
+  "lisibles": 99,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2705,6 +2931,7 @@
   "zone": "negociations",
   "nom": "SINSI_006",
   "repliques": 100,
+  "lisibles": 99,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2712,6 +2939,7 @@
   "zone": "negociations",
   "nom": "SINSI_007",
   "repliques": 36,
+  "lisibles": 36,
   "traduites": 36,
   "locuteurs": []
  },
@@ -2719,6 +2947,7 @@
   "zone": "negociations",
   "nom": "SLIME_001",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2726,6 +2955,7 @@
   "zone": "negociations",
   "nom": "SLIME_002",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2733,6 +2963,7 @@
   "zone": "negociations",
   "nom": "SLIME_003",
   "repliques": 20,
+  "lisibles": 20,
   "traduites": 20,
   "locuteurs": []
  },
@@ -2740,6 +2971,7 @@
   "zone": "negociations",
   "nom": "SYOUJO_001",
   "repliques": 100,
+  "lisibles": 99,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2747,6 +2979,7 @@
   "zone": "negociations",
   "nom": "SYOUJO_002",
   "repliques": 100,
+  "lisibles": 99,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2754,6 +2987,7 @@
   "zone": "negociations",
   "nom": "SYOUJO_003",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2761,6 +2995,7 @@
   "zone": "negociations",
   "nom": "SYOUJO_004",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2768,6 +3003,7 @@
   "zone": "negociations",
   "nom": "SYOUJO_005",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2775,6 +3011,7 @@
   "zone": "negociations",
   "nom": "SYOUJO_006",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2782,6 +3019,7 @@
   "zone": "negociations",
   "nom": "SYOUJO_007",
   "repliques": 9,
+  "lisibles": 9,
   "traduites": 9,
   "locuteurs": []
  },
@@ -2789,6 +3027,7 @@
   "zone": "negociations",
   "nom": "TENSI_001",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2796,6 +3035,7 @@
   "zone": "negociations",
   "nom": "TENSI_002",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2803,6 +3043,7 @@
   "zone": "negociations",
   "nom": "TENSI_003",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2810,6 +3051,7 @@
   "zone": "negociations",
   "nom": "TENSI_004",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2817,6 +3059,7 @@
   "zone": "negociations",
   "nom": "TENSI_005",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2824,6 +3067,7 @@
   "zone": "negociations",
   "nom": "TENSI_006",
   "repliques": 82,
+  "lisibles": 82,
   "traduites": 82,
   "locuteurs": []
  },
@@ -2831,6 +3075,7 @@
   "zone": "negociations",
   "nom": "TINPRA_001",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2838,6 +3083,7 @@
   "zone": "negociations",
   "nom": "TINPRA_002",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2845,6 +3091,7 @@
   "zone": "negociations",
   "nom": "TINPRA_003",
   "repliques": 69,
+  "lisibles": 69,
   "traduites": 69,
   "locuteurs": []
  },
@@ -2852,6 +3099,7 @@
   "zone": "negociations",
   "nom": "TOILET_001",
   "repliques": 100,
+  "lisibles": 98,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2859,6 +3107,7 @@
   "zone": "negociations",
   "nom": "TOILET_002",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2866,6 +3115,7 @@
   "zone": "negociations",
   "nom": "TOILET_003",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2873,6 +3123,7 @@
   "zone": "negociations",
   "nom": "TOILET_004",
   "repliques": 19,
+  "lisibles": 19,
   "traduites": 19,
   "locuteurs": []
  },
@@ -2880,6 +3131,7 @@
   "zone": "negociations",
   "nom": "WORM_001",
   "repliques": 100,
+  "lisibles": 94,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2887,6 +3139,7 @@
   "zone": "negociations",
   "nom": "WORM_002",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2894,6 +3147,7 @@
   "zone": "negociations",
   "nom": "WORM_003",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2901,6 +3155,7 @@
   "zone": "negociations",
   "nom": "WORM_004",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2908,6 +3163,7 @@
   "zone": "negociations",
   "nom": "WORM_005",
   "repliques": 100,
+  "lisibles": 99,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2915,6 +3171,7 @@
   "zone": "negociations",
   "nom": "WORM_006",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2922,6 +3179,7 @@
   "zone": "negociations",
   "nom": "WORM_007",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2929,6 +3187,7 @@
   "zone": "negociations",
   "nom": "WORM_008",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2936,6 +3195,7 @@
   "zone": "negociations",
   "nom": "WORM_009",
   "repliques": 86,
+  "lisibles": 86,
   "traduites": 86,
   "locuteurs": []
  },
@@ -2943,6 +3203,7 @@
   "zone": "negociations",
   "nom": "WTENSI_001",
   "repliques": 80,
+  "lisibles": 80,
   "traduites": 80,
   "locuteurs": []
  },
@@ -2950,6 +3211,7 @@
   "zone": "negociations",
   "nom": "YAKUZA_001",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2957,6 +3219,7 @@
   "zone": "negociations",
   "nom": "YAKUZA_002",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2964,6 +3227,7 @@
   "zone": "negociations",
   "nom": "YAKUZA_003",
   "repliques": 59,
+  "lisibles": 59,
   "traduites": 59,
   "locuteurs": []
  },
@@ -2971,6 +3235,7 @@
   "zone": "negociations",
   "nom": "YOUEN_001",
   "repliques": 100,
+  "lisibles": 98,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2978,6 +3243,7 @@
   "zone": "negociations",
   "nom": "YOUEN_002",
   "repliques": 100,
+  "lisibles": 99,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2985,6 +3251,7 @@
   "zone": "negociations",
   "nom": "YOUEN_003",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2992,6 +3259,7 @@
   "zone": "negociations",
   "nom": "YOUEN_004",
   "repliques": 100,
+  "lisibles": 98,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2999,6 +3267,7 @@
   "zone": "negociations",
   "nom": "YOUEN_005",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -3006,6 +3275,7 @@
   "zone": "negociations",
   "nom": "YOUEN_006",
   "repliques": 87,
+  "lisibles": 86,
   "traduites": 87,
   "locuteurs": []
  },
@@ -3013,6 +3283,7 @@
   "zone": "negociations",
   "nom": "ZMBITYAN_001",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -3020,6 +3291,7 @@
   "zone": "negociations",
   "nom": "ZMBITYAN_002",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -3027,6 +3299,7 @@
   "zone": "negociations",
   "nom": "ZMBITYAN_003",
   "repliques": 22,
+  "lisibles": 22,
   "traduites": 22,
   "locuteurs": []
  },
@@ -3034,6 +3307,7 @@
   "zone": "negociations",
   "nom": "ZOMBIKO_001",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -3041,6 +3315,7 @@
   "zone": "negociations",
   "nom": "ZOMBIKO_002",
   "repliques": 90,
+  "lisibles": 89,
   "traduites": 90,
   "locuteurs": []
  },
@@ -3048,6 +3323,7 @@
   "zone": "negociations",
   "nom": "ZOMB_MAN_001",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -3055,6 +3331,7 @@
   "zone": "negociations",
   "nom": "ZOMB_MAN_002",
   "repliques": 82,
+  "lisibles": 82,
   "traduites": 82,
   "locuteurs": []
  },
@@ -3062,6 +3339,7 @@
   "zone": "noms",
   "nom": "ARMES_001",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -3069,6 +3347,7 @@
   "zone": "noms",
   "nom": "ARMES_002",
   "repliques": 2,
+  "lisibles": 2,
   "traduites": 2,
   "locuteurs": []
  },
@@ -3076,6 +3355,7 @@
   "zone": "noms",
   "nom": "ARMURES_001",
   "repliques": 65,
+  "lisibles": 65,
   "traduites": 65,
   "locuteurs": []
  },
@@ -3083,6 +3363,7 @@
   "zone": "noms",
   "nom": "OBJETS_001",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -3090,6 +3371,7 @@
   "zone": "noms",
   "nom": "OBJETS_002",
   "repliques": 54,
+  "lisibles": 54,
   "traduites": 54,
   "locuteurs": []
  },
@@ -3097,6 +3379,7 @@
   "zone": "noms",
   "nom": "SORTS_001",
   "repliques": 100,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -3104,6 +3387,7 @@
   "zone": "noms",
   "nom": "SORTS_002",
   "repliques": 18,
+  "lisibles": 18,
   "traduites": 18,
   "locuteurs": []
  }

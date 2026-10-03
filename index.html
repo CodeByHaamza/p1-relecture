@@ -25,7 +25,7 @@
       </h1>
     </div>
     <p class="compteur" id="compteur" aria-live="polite">
-      <b>—</b> scripts<br>
+      <b>—</b> relus<br>
       <b>—</b> répliques
     </p>
   </div>
@@ -38,6 +38,9 @@
            placeholder="Chercher un script, un personnage…"
            aria-label="Chercher un script ou un personnage">
     <div class="zones" id="zones" role="group" aria-label="Zones du jeu"></div>
+    <button class="zone zone--priorite" id="priorite" type="button" aria-pressed="false">
+      Pas encore relus
+    </button>
   </div>
 </nav>
 
@@ -53,8 +56,15 @@
     <a href="https://github.com/CodeByHaamza/P1-FR-PSP">CodeByHaamza/P1-FR-PSP</a>.
   </p>
   <p>
-    Ce que vous marquez comme lu reste <b>dans votre navigateur</b> : c'est votre
-    fil, pas celui du projet. Les propositions, elles, partent sur le dépôt.
+    <b>Relu</b> et <b>en cours</b> viennent du dépôt : une relecture ouvre une
+    issue&nbsp;<code>Relecture&nbsp;: …</code> sur P1-FR-PSP, et tout le monde voit
+    la même chose. <b>Lu par vous</b> ne vit que dans votre navigateur : c'est
+    votre fil, pas celui du projet.
+  </p>
+  <p>
+    Les données de cette page se régénèrent automatiquement à partir de
+    <a href="https://github.com/CodeByHaamza/P1-FR-PSP">P1-FR-PSP</a> : ce que vous
+    lisez ici est l'état de la traduction, pas une copie qui vieillit.
   </p>
 </footer>
 

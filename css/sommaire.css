@@ -219,12 +219,47 @@
   text-transform: uppercase;
   color: var(--parchemin-bas);
 }
-.carte[data-etat="lu"] .carte__etat { color: var(--tient); }
-.carte[data-etat="encours"] .carte__etat { color: var(--serre); }
+/* Quatre etats, deux origines. « relu » et « en cours » viennent du depot et
+   valent pour tout le monde ; « lu par vous » ne vit que dans ce navigateur,
+   et sa couleur plus discrete le dit sans l'ecrire. */
+.carte[data-etat="relu"] .carte__etat { color: var(--tient); }
+.carte[data-etat="cours"] .carte__etat { color: var(--or); }
+.carte[data-etat="mien"] .carte__etat { color: var(--violet-vif); }
 
-/* Un script deja relu s'efface un peu : l'oeil doit aller vers ce qui reste. */
-.carte[data-etat="lu"] { opacity: 0.62; }
-.carte[data-etat="lu"]:hover { opacity: 1; }
+/* Un script deja relu s'efface : l'oeil doit aller vers ce qui reste. */
+.carte[data-etat="relu"] { opacity: 0.55; }
+.carte[data-etat="mien"] { opacity: 0.78; }
+.carte[data-etat="relu"]:hover,
+.carte[data-etat="mien"]:hover { opacity: 1; }
+
+/* Celui qui s'en occupe en ce moment : un sceau d'or dans le coin, assez net
+   pour dissuader d'ouvrir le meme script, assez petit pour ne pas crier. */
+.carte[data-etat="cours"] { border-color: color-mix(in srgb, var(--or) 45%, var(--trait)); }
+.carte__qui {
+  flex: 0 0 auto;
+  font-family: var(--machine);
+  font-size: 0.6rem;
+  letter-spacing: 0.05em;
+  color: var(--or);
+  background: color-mix(in srgb, var(--or) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--or) 30%, transparent);
+  border-radius: 999px;
+  padding: 0.14rem 0.45rem;
+  max-width: 7.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.compteur__cours { color: var(--or); }
+
+/* Le filtre qui compte vraiment : il mene au travail qui reste. Un violet
+   plein plutot que l'or des zones, parce qu'il ne filtre pas la meme chose. */
+.zone--priorite[aria-pressed="true"] {
+  color: var(--parchemin);
+  background: var(--violet);
+  border-color: var(--violet-vif);
+}
 
 .vide {
   grid-column: 1 / -1;

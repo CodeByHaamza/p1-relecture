@@ -43,6 +43,10 @@ function enHtml(segments) {
   return segments
     .map((s) => {
       if (s.t) return echappe(s.t);
+      // `[0000]` est une espace, pas un code : on la rend comme telle, avec un
+      // pointille tres pale pour qu'on ne la prenne pas pour un oubli de
+      // frappe en relisant « Salle des profs ».
+      if (s.e) return `<span class="espace-brut" title="espace, écrite en octets"> </span>`;
       if (s.nl) return `<span class="jeton jeton--saut">${echappe(s.nl)}</span>\n`;
       if (s.p) return `<span class="jeton">${echappe(s.p)}</span>`;
       return `<span class="jeton">${echappe(s.j)}</span>`;
@@ -154,13 +158,18 @@ function creerPanier(script) {
   const cle = `${script.zone}__${script.nom}`;
   const mien = tout[cle] || {};
 
-  const compte = $("#panierCompte");
+  const texte = $("#panierTexte");
   const boite = $("#panier");
 
   function rafraichir() {
     const n = Object.keys(mien).length;
-    compte.textContent = n;
     boite.dataset.plein = n ? "oui" : "non";
+    texte.innerHTML = n ? `<b>${n}</b> proposition(s)` : "Lu en entier&nbsp;?";
+    const envoyer = document.getElementById("envoyer");
+    envoyer.textContent = n ? "Envoyer" : "Signaler relu";
+    envoyer.title = n
+      ? "Ouvrir une issue avec vos propositions"
+      : "Dire au projet que ce script est lu, et qu'il n'y a rien a corriger";
     tout[cle] = mien;
     ecrire(RANGEMENT_PANIER, tout);
   }
@@ -176,6 +185,18 @@ function creerPanier(script) {
       rafraichir();
     },
     corps() {
+      // Une relecture sans correction est une relecture : c'est meme le cas le
+      // plus utile a signaler, parce que c'est le seul que personne ne voit
+      // passer. Sans ce message, un script impeccable resterait « a lire »
+      // pour toujours.
+      if (!Object.keys(mien).length) {
+        return (
+          `Relecture de \`${script.nom}\` (${ZONES[script.zone] || script.zone}) : ` +
+          `lu en entier, rien à signaler.\n\n` +
+          `Les ${script.repliques.length} répliques du script ont été parcourues dans ` +
+          `l'outil de relecture. Aucune proposition de modification.\n`
+        );
+      }
       const lignes = Object.values(mien).map(
         (p) =>
           `### \`${p.id}\`${p.loc ? ` — ${p.loc}` : ""}\n\n` +
@@ -212,6 +233,28 @@ async function demarrer() {
     fil.innerHTML = `<p class="chargement">Ce script n'a pas pu être chargé.
       <a href="index.html">Retour au sommaire</a>.</p>`;
     return;
+  }
+
+  // Quelqu'un s'en occupe-t-il deja ? Le dire AVANT la lecture, pas apres :
+  // apres, le temps est deja perdu.
+  try {
+    const etat = (await (await fetch("data/etat.json")).json()).scripts || {};
+    const fiche = etat[cle];
+    if (fiche && fiche.issues && fiche.issues.length) {
+      const d = fiche.issues[fiche.issues.length - 1];
+      const bandeau = document.createElement("p");
+      bandeau.className = "deja";
+      bandeau.dataset.etat = fiche.relu ? "relu" : "cours";
+      bandeau.innerHTML = fiche.relu
+        ? `Ce script a déjà été relu (<a href="${d.url}" target="_blank" rel="noopener">#${d.numero}</a>,
+           ${echappe(d.qui)}, ${echappe(d.le)}). Une seconde paire d'yeux reste utile.`
+        : `<b>${echappe(d.qui)}</b> est en train de le relire
+           (<a href="${d.url}" target="_blank" rel="noopener">#${d.numero}</a>).
+           Mieux vaut en choisir un autre, ou lui écrire.`;
+      fil.before(bandeau);
+    }
+  } catch {
+    /* pas d'etat publie : on lit sans. */
   }
 
   $("#nom").textContent = script.nom;

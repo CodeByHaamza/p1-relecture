@@ -1,10 +1,22 @@
 /* ============================================================================
-   Le sommaire. Charge `data/index.json` et dresse la grille des arcanes.
+   Le sommaire. Charge `data/index.json`, dresse la grille des arcanes, et dit
+   qui est deja passe par la.
 
-   Tout le travail lourd a deja ete fait hors ligne par
-   `generer_relecture.py` : ici on affiche, on filtre, on se souvient. Le
-   fichier d'entree pese 48 Ko, donc pas de pagination ni de chargement
-   paresseux — ce serait de la complexite pour rien.
+   Deux memoires se superposent, et il faut les distinguer sans y penser :
+
+     l'etat DU PROJET    `data/etat.json`, fabrique a partir des issues de
+                         P1-FR-PSP. Tout le monde voit la meme chose.
+     l'etat DU VISITEUR  `localStorage`, son fil a lui, qui ne regarde
+                         personne d'autre.
+
+   Un sceau dore dit « quelqu'un s'en occupe », un sceau plein dit « c'est
+   fait ». Sans cela, trois personnes relisent le meme script et personne ne
+   touche aux cent autres.
+
+   Tout le travail lourd a deja ete fait hors ligne par `outils/generer.py` :
+   ici on affiche, on filtre, on se souvient. Le fichier d'entree pese 50 Ko,
+   donc pas de pagination ni de chargement paresseux — ce serait de la
+   complexite pour rien.
    ========================================================================= */
 
 import { lune } from "./lune.js";
@@ -19,8 +31,7 @@ const ZONES = {
   noms: "Noms",
 };
 
-/** Ce que le visiteur a marque comme lu. Local a son navigateur, et c'est dit
- *  en toutes lettres dans le pied de page : ce n'est pas l'etat du projet. */
+/** Ce que le visiteur a marque comme lu. Local a son navigateur. */
 function lus() {
   try {
     return new Set(JSON.parse(localStorage.getItem(RANGEMENT) || "[]"));
@@ -29,28 +40,71 @@ function lus() {
   }
 }
 
-function carte(s, dejaLus) {
+/** L'etat d'un script, du plus fort au plus faible.
+ *
+ *  Ce que dit le depot l'emporte sur ce que dit le navigateur : si une issue
+ *  de relecture a ete traitee, le script est relu pour tout le monde, meme
+ *  pour quelqu'un qui n'y a jamais mis les pieds.
+ */
+function etatDe(cle, partage, mes) {
+  const f = partage[cle];
+  if (f && f.relu) return "relu";
+  if (f && f.en_cours) return "cours";
+  if (mes.has(cle)) return "mien";
+  return "neuf";
+}
+
+const LIBELLE = {
+  relu: "relu",
+  cours: "en cours",
+  mien: "lu par vous",
+  neuf: "à lire",
+};
+// `lune.js` ne dessine que trois phases : neuve, croissante, pleine. Une
+// relecture en cours et une lecture personnelle sont toutes deux « commencee,
+// pas finie » — la meme phase, et la couleur les distingue.
+const LUNE = { relu: "pleine", cours: "croissante", mien: "croissante", neuf: "neuve" };
+
+function echappe(t) {
+  return String(t).replace(
+    /[&<>"]/g,
+    (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" })[c]
+  );
+}
+
+function carte(s, partage, mes) {
   const cle = `${s.zone}__${s.nom}`;
-  const lu = dejaLus.has(cle);
+  const etat = etatDe(cle, partage, mes);
+  const fiche = partage[cle];
   const voix = s.locuteurs.slice(0, 4);
   const reste = s.locuteurs.length - voix.length;
 
+  // Qui, et ou en discuter : une relecture signee invite a reprendre le fil,
+  // une relecture anonyme ne dit rien a personne.
+  const issues = (fiche && fiche.issues) || [];
+  const derniere = issues[issues.length - 1];
+  const signature =
+    derniere && (etat === "relu" || etat === "cours")
+      ? `<span class="carte__qui">${echappe(derniere.qui)}</span>`
+      : "";
+
   return `<li>
     <a class="carte" href="lecture.html?s=${encodeURIComponent(cle)}"
-       data-etat="${lu ? "lu" : "neuf"}">
+       data-etat="${etat}">
       <div class="carte__haut">
         <div>
           <span class="carte__zone">${ZONES[s.zone] || s.zone}</span>
-          <span class="carte__nom">${s.nom}</span>
+          <span class="carte__nom">${echappe(s.nom)}</span>
         </div>
+        ${signature}
       </div>
       <div class="carte__voix">
-        ${voix.map((v) => `<span class="puce">${v}</span>`).join("")}
+        ${voix.map((v) => `<span class="puce">${echappe(v)}</span>`).join("")}
         ${reste > 0 ? `<span class="puce">+${reste}</span>` : ""}
       </div>
       <div class="carte__bas">
-        <span class="carte__compte"><b>${s.repliques}</b> répliques</span>
-        <span class="carte__etat">${lune(lu ? "pleine" : "neuve")} ${lu ? "relu" : "à lire"}</span>
+        <span class="carte__compte"><b>${s.lisibles == null ? s.repliques : s.lisibles}</b> répliques</span>
+        <span class="carte__etat">${lune(LUNE[etat])} ${LIBELLE[etat]}</span>
       </div>
     </a>
   </li>`;
@@ -61,6 +115,7 @@ async function demarrer() {
   const champ = document.getElementById("cherche");
   const barreZones = document.getElementById("zones");
   const compteur = document.getElementById("compteur");
+  const bPriorite = document.getElementById("priorite");
 
   let scripts;
   try {
@@ -72,22 +127,43 @@ async function demarrer() {
     return;
   }
 
-  const total = scripts.reduce((n, s) => n + s.repliques, 0);
+  // L'etat partage est un bonus : un sommaire sans sceaux reste utilisable,
+  // un sommaire qui ne charge pas ne l'est pas.
+  let partage = {};
+  try {
+    partage = (await (await fetch("data/etat.json")).json()).scripts || {};
+  } catch {
+    /* pas d'etat publie encore : toutes les cartes restent « a lire » */
+  }
+
+  const total = scripts.reduce((n, s) => n + (s.lisibles == null ? s.repliques : s.lisibles), 0);
+  const relus = scripts.filter((s) => (partage[`${s.zone}__${s.nom}`] || {}).relu).length;
+  const cours = scripts.filter((s) => (partage[`${s.zone}__${s.nom}`] || {}).en_cours).length;
   compteur.innerHTML =
-    `<b>${scripts.length}</b> scripts<br><b>${total.toLocaleString("fr-FR")}</b> répliques`;
+    `<b>${relus}</b> relus sur <b>${scripts.length}</b><br>` +
+    `<b>${total.toLocaleString("fr-FR")}</b> répliques` +
+    (cours ? `<br><span class="compteur__cours">${cours} en cours</span>` : "");
 
   const zonesPresentes = [...new Set(scripts.map((s) => s.zone))];
   let zoneActive = null;
+  let seulementNeufs = false;
 
   barreZones.innerHTML = zonesPresentes
-    .map((z) => `<button class="zone" type="button" data-zone="${z}" aria-pressed="false">${ZONES[z] || z}</button>`)
+    .map(
+      (z) =>
+        `<button class="zone" type="button" data-zone="${z}" aria-pressed="false">${ZONES[z] || z}</button>`
+    )
     .join("");
 
   function peindre() {
     const q = champ.value.trim().toLowerCase();
-    const dejaLus = lus();
+    const mes = lus();
     const vus = scripts.filter((s) => {
       if (zoneActive && s.zone !== zoneActive) return false;
+      if (seulementNeufs) {
+        const e = etatDe(`${s.zone}__${s.nom}`, partage, mes);
+        if (e === "relu" || e === "cours") return false;
+      }
       if (!q) return true;
       return (
         s.nom.toLowerCase().includes(q) ||
@@ -96,8 +172,8 @@ async function demarrer() {
     });
 
     grille.innerHTML = vus.length
-      ? vus.map((s) => carte(s, dejaLus)).join("")
-      : `<li class="vide">Rien ne correspond à « ${champ.value} ».</li>`;
+      ? vus.map((s) => carte(s, partage, mes)).join("")
+      : `<li class="vide">Rien ne correspond à « ${echappe(champ.value)} ».</li>`;
 
     // La cascade : on ne la joue que sur les premieres cartes, sinon le bas de
     // la grille se fait attendre pour rien.
@@ -114,6 +190,12 @@ async function demarrer() {
     barreZones.querySelectorAll(".zone").forEach((x) => {
       x.setAttribute("aria-pressed", String(x.dataset.zone === zoneActive));
     });
+    peindre();
+  });
+
+  bPriorite.addEventListener("click", () => {
+    seulementNeufs = !seulementNeufs;
+    bPriorite.setAttribute("aria-pressed", String(seulementNeufs));
     peindre();
   });
 

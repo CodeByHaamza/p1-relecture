@@ -14,23 +14,33 @@ import re
 import sys
 from pathlib import Path
 
+# La console Windows tourne en cp1252 : afficher un caractere du corpus y leve
+# une exception et fait echouer un outil qui n'avait rien trouve a redire.
+# Ecrire en UTF-8, et remplacer ce que le terminal ne sait pas dessiner.
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+
 DATA = Path("data")
 JETON = re.compile(r"(\{[A-Z]+\}|\(\*[^*]*\*\)|\[[0-9A-Fa-f]{4}\])")
 COUPE = re.compile(
     r"\{SAUT\}|\{PAGE\}|\{FERME\}|\{ATTENTE\}|\(\*SPEAKER\*\)|\(\*RESPONSE\*\)"
 )
 ANCHOS = {"…": "...", "’": "'", "‘": "'", "“": '"', "”": '"', "—": "-", "–": "-"}
+ESPACE_BRUT = re.compile(r"\[0000\]")  # l'espace des menus, ecrite en octets
 
 
 def nu(t: str) -> str:
+    t = ESPACE_BRUT.sub(" ", t or "")
     for a, b in ANCHOS.items():
-        t = (t or "").replace(a, b)
+        t = t.replace(a, b)
     return JETON.sub("", t)
 
 
 def lignes(t: str):
+    t = ESPACE_BRUT.sub(" ", t or "")
     for a, b in ANCHOS.items():
-        t = (t or "").replace(a, b)
+        t = t.replace(a, b)
     return [JETON.sub("", m).strip() for m in COUPE.split(t)]
 
 
@@ -67,6 +77,9 @@ def main():
                 # Meme filtre que largeur_pixels.py : on ne mesure que ce que
                 # le jeu affiche. Au-dela d'une soixantaine de signes, ce n'est
                 # pas une ligne rendue.
+                # Meme filtre que `largeur_pixels.py` et `js/mesure.js` : la
+                # ligne arrive rognee, et le remplissage ne se juge donc que
+                # sur son interieur.
                 if not ligne or len(ligne) > 60 or re.search(r"\s{6,}", ligne):
                     continue
                 px = mesurer(ligne)

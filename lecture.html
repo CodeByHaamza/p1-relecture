@@ -23,8 +23,11 @@
     <button class="bascule" id="voirAnglais" type="button" aria-pressed="false">
       Anglais
     </button>
-    <button class="bascule" id="marquerLu" type="button" aria-pressed="false">
-      Marquer relu
+    <!-- Mon fil, pas celui du projet : « signaler relu » (dans le panier) est
+         le geste partage, celui-ci ne sort pas du navigateur. -->
+    <button class="bascule" id="marquerLu" type="button" aria-pressed="false"
+            title="Garder la trace de votre lecture, dans ce navigateur seulement">
+      Lu par moi
     </button>
   </div>
 </header>
@@ -36,9 +39,9 @@
 </main>
 
 <div class="panier" id="panier" data-plein="non" role="status">
-  <span><b id="panierCompte">0</b> proposition(s)</span>
-  <button class="bouton bouton--fort" id="envoyer" type="button">Envoyer</button>
-  <button class="bouton" id="vider" type="button">Vider</button>
+  <span id="panierTexte">Lu en entier&nbsp;?</span>
+  <button class="bouton bouton--fort" id="envoyer" type="button">Signaler relu</button>
+  <button class="bouton" id="vider" type="button" data-vider>Vider</button>
 </div>
 
 <script type="module" src="js/lecture.js"></script>

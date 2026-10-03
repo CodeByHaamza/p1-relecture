@@ -16,6 +16,20 @@
 
 export const JETON = /(\{[A-Z]+\}|\(\*[^*]*\*\)|\[[0-9A-Fa-f]{4}\])/g;
 
+// `[0000]` n'est pas un code de contrôle : c'est L'ESPACE. L'espace ne figure
+// pas dans la table de caracteres, il s'encode sur le code 0, et l'extracteur
+// des menus l'ecrit sous cette forme — d'ou `Teacher's[0000]Lounge`. Trois
+// consequences, et les trois comptent :
+//
+//   il vaut 5 px (`ori $t5, $zero, 5` dans ancho_glifo), pas zero ;
+//   il ne doit pas entrer dans le controle de parite, parce que son nombre
+//   change legitimement d'une langue a l'autre — les menus sont centres au
+//   remplissage, et « Bureau » n'a pas besoin des onze espaces de « Office » ;
+//   il reste dans le texte envoye, parce que c'est l'octet du fichier.
+//
+// Sans cette regle la page refusait 765 traductions deja en jeu.
+const ESPACE_BRUT = /\[0000\]/g;
+
 // Ce que le moteur remplace avant d'encoder : les compter autrement serait
 // mesurer un texte que le jeu n'affiche pas.
 const REMPLACE = [
@@ -29,19 +43,23 @@ const REMPLACE = [
 const COUPE = /\{SAUT\}|\{PAGE\}|\{FERME\}|\{ATTENTE\}|\(\*SPEAKER\*\)|\(\*RESPONSE\*\)/g;
 
 export function nu(texte) {
-  let t = texte || "";
+  let t = (texte || "").replace(ESPACE_BRUT, " ");
   for (const [a, b] of REMPLACE) t = t.split(a).join(b);
   return t.replace(JETON, "");
 }
 
+/** Les codes du jeu, l'espace brut exclu. */
 export function jetons(texte) {
-  return (texte || "").match(JETON) || [];
+  return ((texte || "").match(JETON) || []).filter((j) => j !== "[0000]");
 }
 
 export function lignesAffichees(texte) {
-  let t = texte || "";
+  let t = (texte || "").replace(ESPACE_BRUT, " ");
   for (const [a, b] of REMPLACE) t = t.split(a).join(b);
-  return t.split(COUPE).map((m) => m.replace(JETON, ""));
+  // Rognees : un libelle de menu est centre par des espaces de tete, et les
+  // compter dans sa largeur ferait monter l'etalon a 1 880 px — une limite qui
+  // n'interdit plus rien. Les espaces INTERIEURES comptent, elles.
+  return t.split(COUPE).map((m) => m.replace(JETON, "").trim());
 }
 
 /** Construit un mesureur a partir de la table du jeu.
@@ -75,8 +93,10 @@ export function mesureur(contraintes) {
  *  dire faux. Meme regle que `largeur_pixels.py` cote depot.
  */
 export function estAffichee(ligne) {
-  if (/\s{6,}/.test(ligne)) return false;
   const net = ligne.trim();
+  // Le remplissage ne se juge que sur l'INTERIEUR : un libelle de menu centre
+  // par des espaces de tete est une ligne que le jeu affiche pour de bon.
+  if (/\s{6,}/.test(net)) return false;
   return net.length > 0 && net.length <= 60;
 }
 

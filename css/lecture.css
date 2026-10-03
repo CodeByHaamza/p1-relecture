@@ -326,12 +326,49 @@ body[data-anglais="oui"] .replique__en { display: block; }
   font-family: var(--machine);
   font-size: 0.72rem;
   color: var(--parchemin);
-  transform: translateY(5rem);
-  opacity: 0;
-  transition: transform 0.3s cubic-bezier(.2,.7,.3,1), opacity 0.3s;
+  transition: border-color 0.3s, box-shadow 0.3s, background 0.3s;
 }
-.panier[data-plein="oui"] { transform: none; opacity: 1; }
+/* Vide, il ne disparait pas : il porte « signaler relu », et c'est justement
+   le geste qu'on veut rendre facile — un script impeccable doit pouvoir
+   ressortir relu sans qu'on invente une correction pour le dire. */
+.panier[data-plein="non"] {
+  border-color: var(--trait);
+  background: color-mix(in srgb, var(--velours) 80%, transparent);
+  backdrop-filter: blur(8px);
+  color: var(--parchemin-bas);
+}
+.panier[data-plein="oui"] {
+  animation: panierEntre 0.3s cubic-bezier(.2,.7,.3,1);
+}
+@keyframes panierEntre {
+  from { transform: translateY(0.6rem); opacity: 0.4; }
+}
 .panier b { color: var(--or-pale); font-weight: 400; }
+.panier [data-vider] { display: none; }
+.panier[data-plein="oui"] [data-vider] { display: inline-flex; }
+
+/* L'espace des menus, ecrite `[0000]` dans le fichier. On la rend comme une
+   espace — c'en est une — avec un pointille tres pale, pour que personne ne la
+   prenne pour un oubli de frappe en relisant « Salle des profs ». */
+.espace-brut {
+  border-bottom: 1px dotted color-mix(in srgb, var(--violet-vif) 40%, transparent);
+}
+
+/* Quelqu'un est deja passe : le dire avant la lecture, pas apres. */
+.deja {
+  max-width: var(--lisible);
+  margin: 1.5rem auto -0.5rem;
+  padding: 0.7rem 1rem;
+  border-left: 2px solid var(--or);
+  background: color-mix(in srgb, var(--or) 7%, transparent);
+  font-size: 0.86rem;
+  color: var(--parchemin-mi);
+  border-radius: 0 var(--rayon) var(--rayon) 0;
+}
+.deja[data-etat="relu"] {
+  border-left-color: var(--tient);
+  background: color-mix(in srgb, var(--tient) 7%, transparent);
+}
 
 .chargement {
   text-align: center;
