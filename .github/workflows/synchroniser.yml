@@ -1,0 +1,90 @@
+# Le site suit la traduction, tout seul.
+#
+# Le depot de la traduction est public : ce travail n'a donc besoin d'aucun
+# secret, d'aucun jeton, et d'aucune cooperation de l'autre cote. On clone
+# P1-FR-PSP, on regenere, on verifie, on pousse si quelque chose a bouge.
+#
+# Les deux verifications sont BLOQUANTES, et c'est voulu : publier des donnees
+# qui feraient crier les jauges sur du travail valide serait pire que publier
+# des donnees perimees. Un relecteur a qui l'outil dit faux une fois ne lui
+# fait plus confiance.
+#
+# Pour une mise a jour instantanee plutot qu'une fois par jour, P1-FR-PSP peut
+# appeler le declencheur `repository_dispatch` ci-dessous apres chaque fusion.
+# Cela demande un jeton personnel en secret ; la cadence quotidienne ne demande
+# rien et suffit a une relecture qui se compte en semaines.
+
+name: Synchroniser avec la traduction
+
+on:
+  schedule:
+    - cron: "17 5 * * *"
+  workflow_dispatch:
+  repository_dispatch:
+    types: [traduction-mise-a-jour]
+  push:
+    branches: [main]
+    paths:
+      # Le socle ou le generateur changent : il faut refabriquer les donnees.
+      # Un changement de CSS, non — Pages s'en occupe seul.
+      - "outils/**"
+      - "data/metrique.json"
+      - "data/occurrences.json"
+      - ".github/workflows/synchroniser.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: synchroniser
+  cancel-in-progress: false
+
+jobs:
+  synchroniser:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Le site
+        uses: actions/checkout@v4
+
+      - name: La traduction
+        uses: actions/checkout@v4
+        with:
+          repository: CodeByHaamza/P1-FR-PSP
+          path: traduction
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Refabriquer les donnees
+        run: python outils/generer.py --trad traduction/trad
+
+      - name: Relever qui a deja relu quoi
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python outils/etat_relecture.py
+
+      - name: Le contrat tient-il ?
+        run: python verifier_donnees.py
+
+      - name: La page accepte-t-elle le francais deja ecrit ?
+        run: node outils/verifier_page.mjs
+
+      - name: Publier si quelque chose a bouge
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data
+          if git diff --cached --quiet; then
+            echo "  rien de nouveau du cote de la traduction"
+            exit 0
+          fi
+          # Le message dit CE QUI a change, pas qu'une machine est passee : on
+          # relit cet historique pour savoir quand une relecture est arrivee.
+          scripts=$(git diff --cached --name-only -- data/scripts | wc -l)
+          court=$(cd traduction && git rev-parse --short HEAD)
+          git commit -m "Donnees suivies sur la traduction ${court} (${scripts} script(s) touches)"
+          git push
