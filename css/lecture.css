@@ -98,10 +98,13 @@
   font-size: 0.62rem;
   line-height: 1.9;
   color: var(--parchemin-bas);
-  opacity: 0.55;
+  opacity: 0.5;
   transition: opacity 0.2s;
-  pointer-events: none;
 }
+/* Survolable pour se rafraichir la memoire, mais jamais dans le chemin d'un
+   clic : seules les touches dessinees attrapent le pointeur. */
+.raccourcis { pointer-events: none; }
+.raccourcis kbd { pointer-events: auto; }
 .raccourcis:hover { opacity: 1; }
 kbd {
   font-family: var(--machine);
@@ -135,7 +138,16 @@ kbd {
 }
 
 .scene {
-  margin: 2.2rem 0 1rem;
+  /* Collante : dans une scene de quarante repliques on ne sait plus laquelle
+     on lit. Le fond est opaque, sinon le texte defile dessous. */
+  position: sticky;
+  /* Juste sous la barre, dont `lecture.js` mesure la hauteur reelle : elle
+     change quand ses boutons passent a la ligne. */
+  top: var(--haut-barre, 3.2rem);
+  z-index: 4;
+  background: var(--encre);
+  padding: 0.5rem 0 0.4rem;
+  margin: 2.2rem 0 0.8rem;
   display: flex;
   align-items: center;
   gap: 0.9rem;
@@ -170,7 +182,9 @@ kbd {
   border-radius: var(--rayon);
   border: 1px solid transparent;
   transition: background 0.18s, border-color 0.18s;
-  scroll-margin-top: 5rem;  /* la barre collante ne doit pas manger la replique */
+  /* Ni la barre ni l'en-tete de scene ne doivent manger la replique quand on
+     y saute au clavier. */
+  scroll-margin-top: calc(var(--haut-barre, 3.2rem) + 3rem);
 }
 .replique[data-suite="oui"] { margin-top: 0.1rem; }
 .replique:first-child { margin-top: 0; }
@@ -220,11 +234,18 @@ kbd {
   margin-bottom: 0.15rem;
 }
 
+/* Trois crans de taille. La mesure est en `ch`, donc elle suit : le nombre de
+   SIGNES par ligne reste le meme a toutes les tailles, et c'est lui qui compte
+   pour la lecture — pas une largeur en pixels. */
+body { --corps-px: 1.06rem; }
+body[data-taille="petit"] { --corps-px: 0.95rem; }
+body[data-taille="grand"] { --corps-px: 1.22rem; }
+
 .replique__fr {
   /* La mesure, pas la largeur de l'ecran : la colonne faisait 110 signes, et
      au-dela de 75 l'oeil perd sa ligne en revenant a la marge. */
   max-width: var(--mesure);
-  font-size: 1.06rem;
+  font-size: var(--corps-px);
   line-height: 1.7;
   cursor: text;
 }
@@ -489,6 +510,81 @@ body[data-codes="oui"] .fin { display: none; }
 .espace-brut {
   border-bottom: 1px dotted color-mix(in srgb, var(--violet-vif) 40%, transparent);
 }
+
+/* L'anneau du portrait prend la teinte du locuteur : on le reconnait avant
+   d'avoir lu son nom, et c'est ce qui permet de survoler un fil a vingt voix.
+   Seul l'anneau — teinter le nom ou le texte se battrait avec l'or de la page. */
+.portrait {
+  border-color: hsl(var(--teinte, 270) 45% 42%);
+}
+.portrait--lettre {
+  color: hsl(var(--teinte, 270) 60% 72%);
+}
+
+/* Le nom du heros, a la place de son jeton. Volontairement pointille : c'est
+   un nom d'emprunt, le joueur choisira le sien, et personne ne doit le
+   « corriger » en pensant lire le texte definitif. */
+.nom-heros {
+  border-bottom: 1px dashed color-mix(in srgb, var(--or) 55%, transparent);
+  color: var(--or-pale);
+}
+.jeton--heros { display: none; }
+body[data-codes="oui"] .nom-heros { display: none; }
+body[data-codes="oui"] .jeton--heros { display: inline; }
+
+/* `{PAUSE}` : un temps, pas une fin de ligne. Trois points suspendus plutot
+   qu'une pastille portant un mot au milieu de la phrase. */
+.fin--pause {
+  width: 1.1em;
+  height: auto;
+  margin: 0 0.15em;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  color: var(--parchemin-bas);
+  opacity: 0.75;
+}
+.fin--pause::before { content: "···"; letter-spacing: -0.05em; }
+.fin--autre { color: var(--violet-vif); width: 0.9em; clip-path: none; border-radius: 1px; }
+
+/* Reprendre ou on en etait. On propose, on ne saute pas d'autorite : revenir
+   et se faire teleporter ailleurs est plus desagreable que de rechercher sa
+   place soi-meme. */
+.reprendre {
+  display: block;
+  margin: 1.5rem auto -0.5rem;
+  max-width: var(--lisible);
+  width: 100%;
+  text-align: left;
+  font-family: var(--machine);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  padding: 0.6rem 1rem;
+  background: color-mix(in srgb, var(--violet) 14%, transparent);
+  border: 1px solid var(--violet-sourd);
+  border-radius: var(--rayon);
+  color: var(--parchemin);
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+.reprendre:hover { background: color-mix(in srgb, var(--violet) 26%, transparent); border-color: var(--violet-vif); }
+
+/* Le pied du fil : on enchaine sans repasser par le sommaire. */
+.suite {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 0 var(--gouttiere) 7rem;
+}
+.suite__dit {
+  color: var(--parchemin-bas);
+  font-size: 0.86rem;
+  font-style: italic;
+  border-top: var(--filet);
+  padding-top: 1.4rem;
+  margin: 0 0 1rem;
+}
+.suite__liens { display: flex; gap: 0.6rem; flex-wrap: wrap; align-items: center; }
+.suite__liens .bouton { text-decoration: none; }
 
 /* Quelqu'un est deja passe : le dire avant la lecture, pas apres. */
 .deja {

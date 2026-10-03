@@ -65,7 +65,14 @@ REMPLISSAGE = re.compile(r"\s{6,}")
 # le saut manuel, le changement de page, la fermeture de la boite, l'attente
 # d'une touche, le cadre du locuteur, et `(*RESPONSE*)` — une entree de
 # negociation en contient plusieurs et chacune s'affiche a son tour.
-COUPE = {"{SAUT}", "{PAGE}", "{FERME}", "{ATTENTE}", "(*SPEAKER*)", "(*RESPONSE*)"}
+# Le marqueur de replique suivante n'est pas UN jeton mais une suite de
+# plusieurs (voir SEPARATEUR plus bas) : on le remplace par un jeton de notre
+# cru avant de decouper, pour que la page le voie comme une fin de ligne
+# ordinaire. Le texte brut, lui, n'est jamais touche — c'est celui-la qu'on
+# renvoie au depot.
+REPLIQUE = "{REPLIQUE}"
+
+COUPE = {"{SAUT}", "{PAGE}", "{FERME}", "{ATTENTE}", "(*SPEAKER*)", "(*RESPONSE*)", REPLIQUE}
 # `{PAUSE}` marque un temps, pas une fin de ligne : le texte continue apres.
 PAUSE = {"{PAUSE}"}
 # Le moteur remplace ces signes avant d'encoder : les mesurer autrement serait
@@ -78,6 +85,25 @@ ANCHOS = {"…": "...", "’": "'", "‘": "'", "“": '"', "”": '"', "—": "
 # langue a l'autre : les menus sont centres au remplissage, et « Bureau » n'a
 # pas besoin des onze espaces de « Office ».
 ESPACE_BRUT = re.compile(r"\[0000\]")
+
+# Une entree de negociation contient PLUSIEURS repliques du demon : sa reaction
+# change selon ce que le joueur vient de dire. Elles sont separees par un
+# marqueur encadre — `[FFFD]` un code `[F5xx]` — dont le milieu s'ecrit
+# `[72FF]`, ou sous la forme du caractere que la table donne a ce code : « E »
+# accentue pour 0x00FF, « alpha » pour 0x01FF. Comme il n'est reconnu qu'entre
+# ses crochets, « IMPERATRICE » reste un mot.
+#
+# Il ne figure que dans les negociations, 3 118 fois. Ne pas couper la, c'est
+# afficher `YOU LOVE ME?   AWOOO! YOU SEDUCE ME!` — une question et un
+# rugissement sur la meme ligne — et les mesurer ensemble.
+SEPARATEUR = re.compile(
+    r"\[FFFD\](?:\[[0-9A-Fa-f]{4}\]|[^\[])*?\[F5[0-9A-Fa-f]{2}\](?:\[[0-9A-Fa-f]{4}\])*"
+)
+# Deux entrees collent leurs repliques sans marqueur : ponctuation de fin, deux
+# espaces LITTERALES, une capitale. Nulle part ailleurs dans le corpus. Ne pas
+# confondre avec le trou d'un jeton retire (« teacher for  and the »), qui n'a
+# qu'une espace de chaque cote dans le texte brut.
+COLLAGE = re.compile(r"(?<=[.!?])  +(?=[A-ZÀ-Ý])")
 
 ZONES = ("dialogues", "negociations", "eboot", "donjons", "noms")
 
@@ -105,7 +131,8 @@ def nu(texte: str) -> str:
     rend son espace a `[0000]` ; la zone des dialogues, seule a porter des
     marges de bloc, n'en contient aucun, donc les deux donnent le meme chiffre.
     """
-    texte = ESPACE_BRUT.sub(" ", texte or "")
+    texte = SEPARATEUR.sub("", texte or "")
+    texte = ESPACE_BRUT.sub(" ", texte)
     texte = JETON.sub("", texte)
     for a, b in ANCHOS.items():
         texte = texte.replace(a, b)
@@ -124,6 +151,8 @@ def segmenter(brut: str) -> list[dict]:
     jeton quelconque — que la page montre en pastille et interdit de modifier.
     """
     out = []
+    brut = SEPARATEUR.sub(REPLIQUE, brut or "")
+    brut = COLLAGE.sub(REPLIQUE, brut)
     # `re.split` avec UN groupe capturant rend [texte, code, texte, code, ...] :
     # c'est la POSITION qui dit ce qu'on tient, pas la premiere lettre. Juger
     # sur `startswith("(")` faisait passer pour un code tout texte entre
@@ -159,7 +188,9 @@ def lignes_affichees(texte: str) -> list[str]:
     INTERIEURES comptent, elles — « Salle des profs » est plus large que
     « Salledesprofs », et c'est tout l'interet de rendre son espace a `[0000]`.
     """
-    texte = ESPACE_BRUT.sub(" ", texte or "")
+    texte = SEPARATEUR.sub(REPLIQUE, texte or "")
+    texte = COLLAGE.sub(REPLIQUE, texte)
+    texte = ESPACE_BRUT.sub(" ", texte)
     for a, b in ANCHOS.items():
         texte = texte.replace(a, b)
     coupe = "|".join(re.escape(c) for c in sorted(COUPE))

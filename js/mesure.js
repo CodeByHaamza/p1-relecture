@@ -30,6 +30,24 @@ export const JETON = /(\{[A-Z]+\}|\(\*[^*]*\*\)|\[[0-9A-Fa-f]{4}\])/g;
 // Sans cette regle la page refusait 765 traductions deja en jeu.
 const ESPACE_BRUT = /\[0000\]/g;
 
+// Une entree de negociation contient PLUSIEURS repliques du demon : sa reaction
+// change selon ce que le joueur vient de dire. Elles sont separees par un
+// marqueur encadre — `[FFFD]` un code `[F5xx]` — dont le milieu s'ecrit
+// `[72FF]`, ou sous la forme du caractere que la table donne a ce code : « E »
+// accentue pour 0x00FF, « alpha » pour 0x01FF. Comme il n'est reconnu qu'entre
+// ses crochets, « IMPERATRICE » reste un mot.
+//
+// Ne pas couper la, c'etait mesurer deux repliques comme une seule ligne : la
+// limite des negociations valait 568 px pour une boite qui n'en fait que 426,
+// soit un tiers de trop sur la moitie du corpus.
+const SEPARATEUR = /\[FFFD\](?:\[[0-9A-Fa-f]{4}\]|[^[])*?\[F5[0-9A-Fa-f]{2}\](?:\[[0-9A-Fa-f]{4}\])*/g;
+// Deux entrees collent leurs repliques sans marqueur : ponctuation de fin, deux
+// espaces LITTERALES, une capitale. Nulle part ailleurs dans le corpus.
+const COLLAGE = /(?<=[.!?])  +(?=[A-ZÀ-Ý])/g;
+// Le marqueur n'est pas UN jeton mais une suite : on le remplace par un jeton
+// de notre cru, que `COUPE` reconnait ensuite comme une fin de ligne.
+const REPLIQUE = "{REPLIQUE}";
+
 // Ce que le moteur remplace avant d'encoder : les compter autrement serait
 // mesurer un texte que le jeu n'affiche pas.
 const REMPLACE = [
@@ -40,10 +58,10 @@ const REMPLACE = [
 // Ce qui termine une ligne a l'ecran. {PAUSE} n'en fait pas partie : le texte
 // continue sur la meme ligne apres la pause. `(*RESPONSE*)` si : une entree de
 // negociation en contient plusieurs, et chacune s'affiche a son tour.
-const COUPE = /\{SAUT\}|\{PAGE\}|\{FERME\}|\{ATTENTE\}|\(\*SPEAKER\*\)|\(\*RESPONSE\*\)/g;
+const COUPE = /\{SAUT\}|\{PAGE\}|\{FERME\}|\{ATTENTE\}|\{REPLIQUE\}|\(\*SPEAKER\*\)|\(\*RESPONSE\*\)/g;
 
 export function nu(texte) {
-  let t = (texte || "").replace(ESPACE_BRUT, " ");
+  let t = (texte || "").replace(SEPARATEUR, "").replace(ESPACE_BRUT, " ");
   for (const [a, b] of REMPLACE) t = t.split(a).join(b);
   return t.replace(JETON, "");
 }
@@ -54,7 +72,10 @@ export function jetons(texte) {
 }
 
 export function lignesAffichees(texte) {
-  let t = (texte || "").replace(ESPACE_BRUT, " ");
+  let t = (texte || "")
+    .replace(SEPARATEUR, REPLIQUE)
+    .replace(COLLAGE, REPLIQUE)
+    .replace(ESPACE_BRUT, " ");
   for (const [a, b] of REMPLACE) t = t.split(a).join(b);
   // Rognees : un libelle de menu est centre par des espaces de tete, et les
   // compter dans sa largeur ferait monter l'etalon a 1 880 px — une limite qui

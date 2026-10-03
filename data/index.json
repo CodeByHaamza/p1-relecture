@@ -2387,7 +2387,7 @@
   "zone": "negociations",
   "nom": "HIHO_001",
   "repliques": 100,
-  "lisibles": 99,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2395,7 +2395,7 @@
   "zone": "negociations",
   "nom": "HIHO_002",
   "repliques": 100,
-  "lisibles": 99,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2443,7 +2443,7 @@
   "zone": "negociations",
   "nom": "KEMONO_001",
   "repliques": 100,
-  "lisibles": 93,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2451,7 +2451,7 @@
   "zone": "negociations",
   "nom": "KEMONO_002",
   "repliques": 100,
-  "lisibles": 96,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2459,7 +2459,7 @@
   "zone": "negociations",
   "nom": "KEMONO_003",
   "repliques": 100,
-  "lisibles": 95,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2539,7 +2539,7 @@
   "zone": "negociations",
   "nom": "KOROU_002",
   "repliques": 100,
-  "lisibles": 99,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2547,7 +2547,7 @@
   "zone": "negociations",
   "nom": "KOROU_003",
   "repliques": 100,
-  "lisibles": 99,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2603,7 +2603,7 @@
   "zone": "negociations",
   "nom": "KOSIKI_001",
   "repliques": 100,
-  "lisibles": 95,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2611,7 +2611,7 @@
   "zone": "negociations",
   "nom": "KOSIKI_002",
   "repliques": 100,
-  "lisibles": 99,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2659,7 +2659,7 @@
   "zone": "negociations",
   "nom": "KOUMAN_001",
   "repliques": 100,
-  "lisibles": 98,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2755,7 +2755,7 @@
   "zone": "negociations",
   "nom": "KYOUKI_001",
   "repliques": 100,
-  "lisibles": 97,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2763,7 +2763,7 @@
   "zone": "negociations",
   "nom": "KYOUKI_002",
   "repliques": 100,
-  "lisibles": 99,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2835,7 +2835,7 @@
   "zone": "negociations",
   "nom": "POLUTAR_001",
   "repliques": 100,
-  "lisibles": 96,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2971,7 +2971,7 @@
   "zone": "negociations",
   "nom": "SYOUJO_001",
   "repliques": 100,
-  "lisibles": 99,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -2979,7 +2979,7 @@
   "zone": "negociations",
   "nom": "SYOUJO_002",
   "repliques": 100,
-  "lisibles": 99,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -3099,7 +3099,7 @@
   "zone": "negociations",
   "nom": "TOILET_001",
   "repliques": 100,
-  "lisibles": 98,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -3131,7 +3131,7 @@
   "zone": "negociations",
   "nom": "WORM_001",
   "repliques": 100,
-  "lisibles": 94,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -3235,7 +3235,7 @@
   "zone": "negociations",
   "nom": "YOUEN_001",
   "repliques": 100,
-  "lisibles": 98,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -3243,7 +3243,7 @@
   "zone": "negociations",
   "nom": "YOUEN_002",
   "repliques": 100,
-  "lisibles": 99,
+  "lisibles": 100,
   "traduites": 100,
   "locuteurs": []
  },
@@ -3259,7 +3259,7 @@
   "zone": "negociations",
   "nom": "YOUEN_004",
   "repliques": 100,
-  "lisibles": 98,
+  "lisibles": 99,
   "traduites": 100,
   "locuteurs": []
  },

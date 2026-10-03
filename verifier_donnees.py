@@ -1,18 +1,30 @@
 """Le contrat entre le generateur et la page tient-il ?
 
-On ne peut pas ouvrir un navigateur ici, mais on peut rejouer en Python
-exactement ce que `js/mesure.js` calcule, sur les memes fichiers. Si les deux
-donnent la meme chose, c'est que la page dira la verite.
-
     python verifier_donnees.py
+
+Ce que la page LIT doit exister, et ce qu'elle lit ne doit pas la faire crier
+sur du travail valide. On verifie donc deux choses sur les donnees publiees :
+
+  1. `contraintes.json` porte tous les champs que `js/mesure.js` va chercher ;
+  2. aucune replique francaise deja en jeu ne depasse la limite de sa zone.
+
+Le decoupage en lignes et le retrait des jetons viennent de `outils/generer.py`.
+Ils y etaient recopies, et la copie a pris du retard : elle ignorait le
+separateur de repliques des negociations et signalait vingt lignes valides. Une
+regle de decoupage vit a UN endroit — ici on l'importe.
+
+`outils/verifier_rendu.mjs` et `outils/verifier_page.mjs` font l'autre moitie du
+travail : ils executent le vrai code de la page, pas sa transcription.
 """
 
 from __future__ import annotations
 
 import json
-import re
 import sys
 from pathlib import Path
+
+ICI = Path(__file__).resolve().parent
+sys.path.insert(0, str(ICI / "outils"))
 
 # La console Windows tourne en cp1252 : afficher un caractere du corpus y leve
 # une exception et fait echouer un outil qui n'avait rien trouve a redire.
@@ -21,45 +33,27 @@ if hasattr(sys.stdout, "reconfigure"):
     sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 
-DATA = Path("data")
-JETON = re.compile(r"(\{[A-Z]+\}|\(\*[^*]*\*\)|\[[0-9A-Fa-f]{4}\])")
-COUPE = re.compile(
-    r"\{SAUT\}|\{PAGE\}|\{FERME\}|\{ATTENTE\}|\(\*SPEAKER\*\)|\(\*RESPONSE\*\)"
-)
-ANCHOS = {"…": "...", "’": "'", "‘": "'", "“": '"', "”": '"', "—": "-", "–": "-"}
-ESPACE_BRUT = re.compile(r"\[0000\]")  # l'espace des menus, ecrite en octets
+import generer  # noqa: E402  (le chemin n'existe qu'au-dessus)
 
-
-def nu(t: str) -> str:
-    t = ESPACE_BRUT.sub(" ", t or "")
-    for a, b in ANCHOS.items():
-        t = t.replace(a, b)
-    return JETON.sub("", t)
-
-
-def lignes(t: str):
-    t = ESPACE_BRUT.sub(" ", t or "")
-    for a, b in ANCHOS.items():
-        t = t.replace(a, b)
-    return [JETON.sub("", m).strip() for m in COUPE.split(t)]
+DATA = ICI / "data"
 
 
 def main():
     c = json.loads((DATA / "contraintes.json").read_text(encoding="utf-8"))
     index = json.loads((DATA / "index.json").read_text(encoding="utf-8"))
-    av, espace = c["avances_car"], c["espace_px"]
 
-    # 1. le contrat : tout ce que la page lit doit exister
     for champ in ("avances_car", "espace_px", "limites_px", "marges_bloc"):
         if champ not in c:
             print(f"  MANQUE contraintes.{champ}", file=sys.stderr)
             return 1
+    av, espace = c["avances_car"], c["espace_px"]
 
     def mesurer(ligne):
+        # Les quelques caracteres absents de la table sont des marqueurs de
+        # style : ils ne poussent rien a l'ecran, donc zero. Meme regle que
+        # `mesureur()` dans `js/mesure.js`.
         return sum(espace if ch == " " else av.get(ch, 0) for ch in ligne)
 
-    # 2. aucune replique francaise deja posee ne doit sortir des limites :
-    #    la page afficherait du rouge sur du travail valide.
     pires, manquants, sans_marge = [], set(), 0
     for e in index:
         cle = f"{e['zone']}__{e['nom']}"
@@ -70,28 +64,22 @@ def main():
                 continue
             if r["bloc"] not in c["marges_bloc"] and e["zone"] == "dialogues":
                 sans_marge += 1
-            for ch in nu(r["brut_fr"]):
+            for ch in generer.nu(r["brut_fr"]):
                 if ch != " " and ch not in av:
                     manquants.add(ch)
-            for ligne in lignes(r["brut_fr"]):
-                # Meme filtre que largeur_pixels.py : on ne mesure que ce que
-                # le jeu affiche. Au-dela d'une soixantaine de signes, ce n'est
-                # pas une ligne rendue.
-                # Meme filtre que `largeur_pixels.py` et `js/mesure.js` : la
-                # ligne arrive rognee, et le remplissage ne se juge donc que
-                # sur son interieur.
-                if not ligne or len(ligne) > 60 or re.search(r"\s{6,}", ligne):
+            for ligne in generer.lignes_affichees(r["brut_fr"]):
+                if not ligne or not generer.est_affichee(ligne):
                     continue
                 px = mesurer(ligne)
                 if px > limite:
                     pires.append((px - limite, e["zone"], r["id"], ligne))
 
-    print(f"  {len(index)} scripts, {len(c['avances_car'])} caracteres mesures")
+    print(f"  {len(index)} scripts, {len(av)} caracteres mesures")
     print(f"  limites : {c['limites_px']}")
     print(f"  marges de bloc connues : {len(c['marges_bloc'])}")
 
     if manquants:
-        print(f"  {len(manquants)} caractere(s) hors table : {sorted(manquants)[:14]}")
+        print(f"  {len(manquants)} caractere(s) hors table, comptes pour zero : {sorted(manquants)[:14]}")
     if sans_marge:
         print(f"  {sans_marge} replique(s) de dialogue sans marge de bloc")
     if pires:

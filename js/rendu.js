@@ -31,6 +31,26 @@ const FINS = {
   "{ATTENTE}": { classe: "fin--attente", quoi: "attend une touche" },
   "(*SPEAKER*)": { classe: "fin--qui", quoi: "cadre du nom de celui qui parle" },
   "(*RESPONSE*)": { classe: "fin--reponse", quoi: "réponse suivante" },
+  // Pas un code du jeu mais le notre : une entree de negociation contient
+  // plusieurs reactions du demon, et c'est la frontiere entre deux.
+  "{REPLIQUE}": { classe: "fin--autre", quoi: "autre réaction possible du démon" },
+};
+
+/** Le nom que le joueur donnera au heros, et que le jeu glissera dans la phrase.
+ *
+ *  En pastille monospace, `(*APELLIDO_HEROE*)` casse la lecture : on ne peut
+ *  plus entendre la phrase, donc on ne juge ni son rythme ni son elision. Or
+ *  c'est 331 endroits. On affiche donc un nom — celui que le projet emploie
+ *  partout ailleurs, Naoya Toudou — dans un style qui reste visiblement
+ *  provisoire, et la bascule « Codes » rend le jeton a qui veut le voir.
+ *
+ *  La MESURE, elle, continue de porter sur le jeton : la largeur reelle depend
+ *  du nom que le joueur aura choisi, et nous ne le connaissons pas.
+ */
+const NOMS_HEROS = {
+  "(*APELLIDO_HEROE*)": "Toudou",   // le patronyme : « Oh, Toudou, vous voila reveille. »
+  "(*APODO_HEROE*)": "Naoya",       // le surnom : « Avoue, Naoya... »
+  "(*NOMBRE_HEROE*)": "Naoya",
 };
 
 /** Une replique decoupee comme le jeu la dispose : une entree par ligne.
@@ -92,8 +112,24 @@ export function enHtml(segments) {
           // ne la prenne pas pour un oubli de frappe dans « Salle des profs ».
           if (b.sorte === "espace")
             return `<span class="espace-brut" title="espace, écrite en octets"> </span>`;
-          const quoi = b.sorte === "pause" ? " jeton--pause" : "";
-          return `<span class="jeton${quoi}">${echappe(b.v)}</span>`;
+          // `{PAUSE}` marque un temps, pas une fin de ligne : une pastille
+          // portant un mot coupait la phrase en deux pour dire « attends un
+          // peu ». Un point suffit, et le mot revient avec la bascule.
+          if (b.sorte === "pause") {
+            return (
+              `<i class="fin fin--pause" title="${echappe(b.v)} — un temps d'arrêt" aria-hidden="true"></i>` +
+              `<span class="jeton jeton--fin">${echappe(b.v)}</span>`
+            );
+          }
+          const nom = NOMS_HEROS[b.v];
+          if (nom) {
+            return (
+              `<span class="nom-heros" title="${echappe(b.v)} — le nom que le joueur aura choisi">` +
+              `${echappe(nom)}</span>` +
+              `<span class="jeton jeton--heros">${echappe(b.v)}</span>`
+            );
+          }
+          return `<span class="jeton">${echappe(b.v)}</span>`;
         })
         .join("");
       const f = fin ? FINS[fin] : null;

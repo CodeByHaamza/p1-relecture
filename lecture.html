@@ -5,9 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Lecture — Relecture Persona 1 FR</title>
 <meta name="description" content="Lire un script de la traduction française de Persona 1 PSP et proposer des corrections, avec vérification des contraintes du jeu.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Spectral:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- Les polices sont servies d'ici : aucun appel reseau ne part de cette page.
+     Les deux fichiers qui portent le texte sont precharges, pour que rien ne
+     danse au premier affichage. -->
+<link rel="preload" href="polices/spectral-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="polices/marcellus-sc-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="css/polices.css">
 <link rel="stylesheet" href="css/commun.css">
 <link rel="stylesheet" href="css/lecture.css">
 </head>
@@ -24,6 +27,7 @@
             title="Afficher l'anglais d'origine sous chaque réplique (touche A)">
       Anglais
     </button>
+    <button class="bascule" id="taille" type="button">A 2/3</button>
     <button class="bascule" id="voirCodes" type="button" aria-pressed="false"
             title="Écrire les codes de fin de ligne au lieu de les laisser dire par la mise en page (touche C)">
       Codes
@@ -49,7 +53,8 @@
 <p class="raccourcis">
   <kbd>J</kbd><kbd>K</kbd> ou <kbd>↓</kbd><kbd>↑</kbd> se déplacer ·
   <kbd>E</kbd> proposer · <kbd>Échap</kbd> fermer ·
-  <kbd>A</kbd> anglais · <kbd>C</kbd> codes
+  <kbd>A</kbd> anglais · <kbd>C</kbd> codes ·
+  <kbd>[</kbd><kbd>]</kbd> scène · <kbd>N</kbd><kbd>P</kbd> script
 </p>
 
 <div class="panier" id="panier" data-plein="non" role="status">

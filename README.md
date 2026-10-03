@@ -31,8 +31,13 @@ envoie ses propositions groupées.
    Le français tient la colonne ; l'anglais ne se montre qu'à la demande — lire
    deux colonnes en parallèle, c'est ne lire ni l'une ni l'autre.
 3. Au clavier, sans quitter la position de lecture : <kbd>J</kbd>/<kbd>K</kbd>
-   pour se déplacer, <kbd>E</kbd> pour proposer, <kbd>Échap</kbd> pour fermer,
-   <kbd>A</kbd> et <kbd>C</kbd> pour les deux bascules.
+   pour se déplacer, <kbd>[</kbd>/<kbd>]</kbd> de scène en scène,
+   <kbd>N</kbd>/<kbd>P</kbd> de script en script, <kbd>E</kbd> pour proposer,
+   <kbd>Échap</kbd> pour fermer, <kbd>A</kbd> et <kbd>C</kbd> pour les bascules.
+   Le pied du fil mène au **prochain script que personne n'a pris** — on
+   enchaîne sans repasser par le sommaire, 284 fois.
+   Si vous revenez sur un script quitté en route, un bouton propose de
+   **reprendre où vous en étiez**.
 4. Une réplique à reprendre : **Proposer**. Trois jauges répondent pendant la
    frappe, et le bouton **Garder** reste gris tant qu'une contrainte n'est pas
    tenue. Rien ne part qui ne tienne dans le jeu.
@@ -168,10 +173,45 @@ On relit des heures, donc la lecture passe avant l'effet.
 - **Le bouton « Proposer » n'est jamais invisible.** Il l'était jusqu'au survol :
   sur un écran tactile il n'y a pas de survol, et au clavier un bouton invisible
   est un bouton qui n'existe pas.
+- **Le nom du héros s'affiche au lieu de son code.** `(*APELLIDO_HEROE*)` occupe
+  331 endroits ; en pastille monospace on n'entend plus la phrase, donc on ne
+  juge ni son rythme ni son élision. Le nom apparaît souligné en pointillé —
+  visiblement provisoire, puisque le joueur choisira le sien. La **mesure**, elle,
+  porte toujours sur le code : la largeur réelle dépend de ce nom-là.
+- **`{PAUSE}` est un point de suspension, pas une pastille** (381 occurrences) :
+  c'est un temps d'arrêt, pas une coupure, et un mot au milieu de la phrase
+  disait le contraire.
+- **Trois crans de taille**, mémorisés. La mesure est en `ch`, donc le nombre de
+  signes par ligne ne change pas — c'est lui qui compte, pas une largeur en pixels.
+- **L'en-tête de scène reste collé en haut**, sous la barre dont la hauteur est
+  mesurée pour de vrai : dans une scène de quarante répliques on ne savait plus
+  laquelle on lisait.
+- **Chaque locuteur a sa teinte**, sur l'anneau du portrait seulement. Jusqu'à 21
+  voix par script : on reconnaît l'anneau avant d'avoir lu le nom.
+- **Les polices sont servies d'ici.** Aucun appel réseau ne part d'une page de
+  relecture : une page de relecture n'a pas à dire à un tiers qui relit quoi et
+  quand, et un chargement distant fait danser le texte au premier affichage.
+
+## Une mesure à confirmer en jeu
+
+La limite de chaque zone est la ligne anglaise la plus large qu'on y trouve :
+l'anglais d'origine tient forcément, donc c'est une borne observée et non une
+estimation. Sauf que les **négociations** ne rangent pas une réplique par
+entrée : la réaction du démon change selon ce que le joueur vient de dire, et
+plusieurs réponses tiennent dans la même entrée, séparées par un marqueur
+encadré `[FFFD]…[F5xx]`.
+
+Tant qu'on ne coupait pas là, deux répliques étaient mesurées comme une seule
+ligne — `YOU LOVE ME?   AWOOO! YOU SEDUCE ME!` — et la limite calculée valait
+**568 px pour une boîte qui n'en fait que 426**. La jauge laissait donc passer un
+tiers de trop sur la moitié du corpus. C'est corrigé, et trois lignes françaises
+trop larges sont apparues du même coup.
+
+Reste que 426 px est une borne *déduite*, pas une largeur *vue*. Si quelqu'un
+joue une négociation et constate qu'une ligne est coupée, c'est l'information
+qui manque — dites-le dans une issue.
 
 ## À faire
 
-- héberger les polices au lieu de les charger depuis Google Fonts, comme le fait
-  le site de P2 — aucun appel réseau ne devrait partir d'une page de relecture ;
 - un portrait pour les personnages qui n'en ont pas encore (ils tombent sur
   l'initiale, ce qui marche mais ne raconte rien).

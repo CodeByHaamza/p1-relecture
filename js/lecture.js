@@ -11,6 +11,9 @@ import { enHtml, echappe } from "./rendu.js";
 
 const RANGEMENT_LUS = "p1fr-relecture-lus";
 const RANGEMENT_PANIER = "p1fr-relecture-panier";
+// Ou on en etait, script par script. Un script fait une centaine de repliques :
+// on le quitte et on y revient, c'est la regle, pas l'exception.
+const RANGEMENT_PLACE = "p1fr-relecture-place";
 const DEPOT = "https://github.com/CodeByHaamza/P1-FR-PSP";
 
 const ZONES = {
@@ -37,6 +40,18 @@ function ecrire(cle, valeur) {
   } catch {
     /* tant pis : la page marche sans memoire */
   }
+}
+
+/** Une teinte stable pour un nom. Jusqu'a 21 locuteurs par script : un anneau
+ *  de couleur se reconnait avant qu'on ait lu le nom, et c'est ce qui permet de
+ *  survoler un fil. La teinte vient du nom lui-meme, donc elle ne change jamais
+ *  d'un script a l'autre — et elle reste dans la moitie froide-violette du
+ *  cercle, pour ne pas se battre avec l'or de la page.
+ */
+function teinte(nom) {
+  let h = 0;
+  for (const c of nom || "?") h = (h * 31 + c.codePointAt(0)) % 360;
+  return 200 + (h % 160); // de 200 a 360 : bleus, violets, magentas
 }
 
 function portrait(r) {
@@ -204,11 +219,14 @@ async function demarrer() {
     return;
   }
 
-  let script, contraintes;
+  let script, contraintes, index;
   try {
-    [script, contraintes] = await Promise.all([
+    [script, contraintes, index] = await Promise.all([
       fetch(`data/scripts/${encodeURIComponent(cle)}.json`).then((r) => r.json()),
       fetch("data/contraintes.json").then((r) => r.json()),
+      // Le sommaire, pour enchainer les scripts sans y retourner : 284 fois
+      // l'aller-retour, c'est 284 occasions de s'arreter.
+      fetch("data/index.json").then((r) => r.json()),
     ]);
   } catch {
     fil.innerHTML = `<p class="chargement">Ce script n'a pas pu être chargé.
@@ -217,9 +235,11 @@ async function demarrer() {
   }
 
   // Quelqu'un s'en occupe-t-il deja ? Le dire AVANT la lecture, pas apres :
-  // apres, le temps est deja perdu.
+  // apres, le temps est deja perdu. L'etat sert aussi, plus bas, a designer le
+  // prochain script que personne n'a pris.
+  let etat = {};
   try {
-    const etat = (await (await fetch("data/etat.json")).json()).scripts || {};
+    etat = (await (await fetch("data/etat.json")).json()).scripts || {};
     const fiche = etat[cle];
     if (fiche && fiche.issues && fiche.issues.length) {
       const d = fiche.issues[fiche.issues.length - 1];
@@ -277,6 +297,7 @@ async function demarrer() {
     // `tabindex` : la replique est l'unite de lecture, donc l'unite de
     // deplacement. Sans cela le clavier ne saute que de bouton en bouton.
     morceaux.push(`<article class="replique" tabindex="-1"
+      style="--teinte:${teinte(r.loc)}"
       data-id="${echappe(r.id)}" data-suite="${suite ? "oui" : "non"}">
       ${portrait(r)}
       <p class="replique__qui">${echappe(r.loc || "—")}</p>
@@ -315,6 +336,7 @@ async function demarrer() {
     art.dataset.ici = "oui";
     art.scrollIntoView({ block: "center", behavior: doux ? "smooth" : "auto" });
     art.focus({ preventScroll: true });
+    noterPlace(ici);
     majAvancee();
   }
 
@@ -329,7 +351,6 @@ async function demarrer() {
   });
 
   document.addEventListener("keydown", (e) => {
-    // Dans un champ de saisie, les lettres sont du texte, pas des raccourcis.
     // Dans un champ, les lettres sont du texte. Sur un bouton ou un lien,
     // Entree les active — ce n'est pas a nous de l'intercepter.
     const dansUnChamp = e.target.matches("input, textarea, button, a, select");
@@ -361,8 +382,97 @@ async function demarrer() {
     } else if (e.key === "c" || e.key === "C") {
       bCodes.click();
       e.preventDefault();
+    } else if (e.key === "[" || e.key === "]") {
+      // Une scene est un bloc : s'y deplacer, c'est se deplacer dans le recit
+      // plutot que ligne a ligne.
+      const scenes = [...fil.querySelectorAll(".scene")];
+      const y = window.scrollY + 90;
+      const avant = scenes.filter((s) => s.offsetTop < y - 10);
+      const cible = e.key === "]" ? scenes.find((s) => s.offsetTop > y + 10) : avant[avant.length - 1];
+      if (cible) cible.scrollIntoView({ block: "start", behavior: "smooth" });
+      e.preventDefault();
+    } else if (e.key === "n" || e.key === "N") {
+      const a = pied.querySelector(".bouton--fort") || pied.querySelector(".bouton:last-child");
+      if (a) location.href = a.href;
+      e.preventDefault();
+    } else if (e.key === "p" || e.key === "P") {
+      if (rang > 0) location.href = lien(rang - 1);
+      e.preventDefault();
     }
   });
+
+  /* --- enchainer les scripts -------------------------------------------- */
+  // Le sommaire est un detour : 284 scripts, c'est 284 occasions de s'arreter.
+  // D'ou le pied du fil, et N / P au clavier.
+  const ordre = [...index].sort((a, b) =>
+    a.zone === b.zone ? a.nom.localeCompare(b.nom) : a.zone.localeCompare(b.zone)
+  );
+  const rang = ordre.findIndex((x) => `${x.zone}__${x.nom}` === cle);
+  const lien = (i) => `lecture.html?s=${encodeURIComponent(`${ordre[i].zone}__${ordre[i].nom}`)}`;
+
+  // Le prochain que personne n'a pris : ni relu, ni en cours. C'est celui-la
+  // qu'il faut proposer, pas simplement le suivant dans l'ordre alphabetique.
+  const mesLus = new Set(lire(RANGEMENT_LUS, []));
+  const libre = (x) => {
+    const k = `${x.zone}__${x.nom}`;
+    const f = etat[k];
+    return k !== cle && !(f && (f.relu || f.en_cours)) && !mesLus.has(k);
+  };
+  const apres = ordre.slice(rang + 1).findIndex(libre);
+  const iLibre = apres >= 0 ? rang + 1 + apres : ordre.findIndex(libre);
+
+  const bouts = [];
+  if (rang > 0) bouts.push(`<a class="bouton" href="${lien(rang - 1)}">← ${echappe(ordre[rang - 1].nom)}</a>`);
+  if (iLibre >= 0) {
+    bouts.push(
+      `<a class="bouton bouton--fort" href="${lien(iLibre)}">` +
+        `Prochain à relire : ${echappe(ordre[iLibre].nom)} →</a>`
+    );
+  }
+  if (rang >= 0 && rang < ordre.length - 1) {
+    bouts.push(`<a class="bouton" href="${lien(rang + 1)}">${echappe(ordre[rang + 1].nom)} →</a>`);
+  }
+  const pied = document.createElement("nav");
+  pied.className = "suite";
+  pied.setAttribute("aria-label", "Passer à un autre script");
+  pied.innerHTML =
+    `<p class="suite__dit">Fin de <b>${echappe(script.nom)}</b>. ` +
+    `${rang + 1}<sup>e</sup> script sur ${ordre.length}.</p>` +
+    `<div class="suite__liens">${bouts.join("")}</div>`;
+  fil.after(pied);
+
+  /* --- reprendre ou on en etait ----------------------------------------- */
+  // Une centaine de repliques par script : on le quitte et on y revient. Mais
+  // on ne saute pas d'autorite — on propose, et c'est le lecteur qui decide.
+  const places = lire(RANGEMENT_PLACE, {});
+  function noterPlace(i) {
+    if (i <= 0) delete places[cle];
+    else places[cle] = i;
+    ecrire(RANGEMENT_PLACE, places);
+  }
+  const reprise = places[cle];
+  if (reprise > 0 && reprise < toutes.length) {
+    const b = document.createElement("button");
+    b.type = "button";
+    b.className = "reprendre";
+    b.textContent = `Reprendre à la réplique ${reprise + 1} sur ${toutes.length}`;
+    b.addEventListener("click", () => {
+      allerA(reprise, false);
+      b.remove();
+    });
+    fil.before(b);
+  }
+
+  /* --- la hauteur de la barre, mesuree ---------------------------------- */
+  // La barre du haut et les en-tetes de scene sont tous deux collants. Sans
+  // connaitre la hauteur REELLE de la barre — qui change quand ses boutons
+  // passent a la ligne —, la scene se glisse dessous et devient illisible.
+  const barre = document.querySelector(".barre");
+  const mesurerBarre = () =>
+    document.documentElement.style.setProperty("--haut-barre", `${barre.offsetHeight}px`);
+  mesurerBarre();
+  if (window.ResizeObserver) new ResizeObserver(mesurerBarre).observe(barre);
+  else addEventListener("resize", mesurerBarre);
 
   /* --- l'avancee dans le script ----------------------------------------- */
   // Un script de trois cents repliques sans repere, c'est un puits : on ne sait
@@ -404,6 +514,21 @@ async function demarrer() {
   const bCodes = $("#voirCodes");
   bascule(bAnglais, "anglais", "p1fr-relecture-anglais");
   bascule(bCodes, "codes", "p1fr-relecture-codes");
+
+  // Trois crans de taille, memorises. Pas un reglage continu : trois choix
+  // nets valent mieux qu'un curseur dont on ne retrouve jamais le bon point.
+  const CRANS = ["petit", "moyen", "grand"];
+  const bTaille = $("#taille");
+  function poserTaille(v) {
+    document.body.dataset.taille = v;
+    bTaille.textContent = `A ${CRANS.indexOf(v) + 1}/3`;
+    bTaille.title = `Taille du texte : ${v}. Cliquer pour changer.`;
+    ecrire("p1fr-relecture-taille", v);
+  }
+  poserTaille(CRANS.includes(lire("p1fr-relecture-taille", "")) ? lire("p1fr-relecture-taille", "") : "moyen");
+  bTaille.addEventListener("click", () => {
+    poserTaille(CRANS[(CRANS.indexOf(document.body.dataset.taille) + 1) % CRANS.length]);
+  });
 
   const bLu = $("#marquerLu");
   const lus = new Set(lire(RANGEMENT_LUS, []));
