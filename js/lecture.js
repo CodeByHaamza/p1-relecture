@@ -7,6 +7,7 @@
    ========================================================================= */
 
 import { verifier, mesureur, jetons } from "./mesure.js";
+import { enHtml, echappe } from "./rendu.js";
 
 const RANGEMENT_LUS = "p1fr-relecture-lus";
 const RANGEMENT_PANIER = "p1fr-relecture-panier";
@@ -36,26 +37,6 @@ function ecrire(cle, valeur) {
   } catch {
     /* tant pis : la page marche sans memoire */
   }
-}
-
-/* --- rendu d'une replique --------------------------------------------------- */
-function enHtml(segments) {
-  return segments
-    .map((s) => {
-      if (s.t) return echappe(s.t);
-      // `[0000]` est une espace, pas un code : on la rend comme telle, avec un
-      // pointille tres pale pour qu'on ne la prenne pas pour un oubli de
-      // frappe en relisant « Salle des profs ».
-      if (s.e) return `<span class="espace-brut" title="espace, écrite en octets"> </span>`;
-      if (s.nl) return `<span class="jeton jeton--saut">${echappe(s.nl)}</span>\n`;
-      if (s.p) return `<span class="jeton">${echappe(s.p)}</span>`;
-      return `<span class="jeton">${echappe(s.j)}</span>`;
-    })
-    .join("");
-}
-
-function echappe(t) {
-  return t.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[c]);
 }
 
 function portrait(r) {
@@ -267,6 +248,7 @@ async function demarrer() {
 
   // Les repliques, groupees par bloc : un bloc est une scene.
   let caches = 0;
+  let scene = 0;
   let blocCourant = null;
   let locPrecedent = null;
   const morceaux = [];
@@ -280,12 +262,22 @@ async function demarrer() {
     if (r.bloc !== blocCourant) {
       blocCourant = r.bloc;
       locPrecedent = null;
-      morceaux.push(`<p class="scene">${echappe(r.bloc)}</p>`);
+      scene++;
+      // Un bloc est une scene. Son nom technique (`E0.BIN:003`) ne dit rien a
+      // un relecteur : on compte les scenes, et on garde l'identifiant a cote
+      // en petit, pour celui qui doit en parler dans une issue.
+      morceaux.push(
+        `<p class="scene"><span>Scène ${scene}</span>` +
+          `<code class="scene__bloc">${echappe(r.bloc)}</code></p>`
+      );
     }
     const suite = r.loc && r.loc === locPrecedent;
     locPrecedent = r.loc;
 
-    morceaux.push(`<article class="replique" data-id="${echappe(r.id)}" data-suite="${suite ? "oui" : "non"}">
+    // `tabindex` : la replique est l'unite de lecture, donc l'unite de
+    // deplacement. Sans cela le clavier ne saute que de bouton en bouton.
+    morceaux.push(`<article class="replique" tabindex="-1"
+      data-id="${echappe(r.id)}" data-suite="${suite ? "oui" : "non"}">
       ${portrait(r)}
       <p class="replique__qui">${echappe(r.loc || "—")}</p>
       <div class="replique__fr">${enHtml(r.fr)}</div>
@@ -300,20 +292,118 @@ async function demarrer() {
 
   const parId = new Map(script.repliques.map((r) => [r.id, r]));
 
+  const ouvrir = (art) =>
+    art && ouvrirEditeur(art, parId.get(art.dataset.id), contraintes, mesurer, panier);
+
   fil.addEventListener("click", (e) => {
     const b = e.target.closest(".corriger");
     if (!b) return;
-    const art = b.closest(".replique");
-    ouvrirEditeur(art, parId.get(art.dataset.id), contraintes, mesurer, panier);
+    ouvrir(b.closest(".replique"));
   });
 
-  /* --- la barre --------------------------------------------------------- */
-  const bAnglais = $("#voirAnglais");
-  bAnglais.addEventListener("click", () => {
-    const on = document.body.dataset.anglais !== "oui";
-    document.body.dataset.anglais = on ? "oui" : "non";
-    bAnglais.setAttribute("aria-pressed", String(on));
+  /* --- le clavier -------------------------------------------------------- */
+  // Relire trois cents repliques a la souris est epuisant : on vise, on clique,
+  // on revient. Au clavier la main ne quitte pas la position de lecture.
+  const toutes = [...fil.querySelectorAll(".replique")];
+  let ici = -1;
+
+  function allerA(i, doux = true) {
+    if (!toutes.length) return;
+    ici = Math.max(0, Math.min(toutes.length - 1, i));
+    for (const a of toutes) a.removeAttribute("data-ici");
+    const art = toutes[ici];
+    art.dataset.ici = "oui";
+    art.scrollIntoView({ block: "center", behavior: doux ? "smooth" : "auto" });
+    art.focus({ preventScroll: true });
+    majAvancee();
+  }
+
+  // Cliquer, c'est aussi dire « je suis ici » : le clavier reprend la ou la
+  // souris s'est arretee, au lieu de renvoyer en haut du fil.
+  fil.addEventListener("mousedown", (e) => {
+    const art = e.target.closest(".replique");
+    if (!art) return;
+    ici = toutes.indexOf(art);
+    for (const a of toutes) a.removeAttribute("data-ici");
+    art.dataset.ici = "oui";
   });
+
+  document.addEventListener("keydown", (e) => {
+    // Dans un champ de saisie, les lettres sont du texte, pas des raccourcis.
+    // Dans un champ, les lettres sont du texte. Sur un bouton ou un lien,
+    // Entree les active — ce n'est pas a nous de l'intercepter.
+    const dansUnChamp = e.target.matches("input, textarea, button, a, select");
+    if (e.key === "Escape") {
+      const ed = document.querySelector(".editeur");
+      if (ed) {
+        const art = ed.closest(".replique");
+        ed.remove();
+        art.dataset.ouvert = "non";
+        art.focus({ preventScroll: true });
+        e.preventDefault();
+      }
+      return;
+    }
+    if (dansUnChamp || e.ctrlKey || e.metaKey || e.altKey) return;
+
+    const bas = e.key === "j" || e.key === "J" || e.key === "ArrowDown";
+    const haut = e.key === "k" || e.key === "K" || e.key === "ArrowUp";
+    if (bas || haut) {
+      allerA(ici < 0 ? (bas ? 0 : toutes.length - 1) : ici + (bas ? 1 : -1));
+      e.preventDefault();
+    } else if (e.key === "e" || e.key === "E" || e.key === "Enter") {
+      if (ici < 0) allerA(0);
+      ouvrir(toutes[ici]);
+      e.preventDefault();
+    } else if (e.key === "a" || e.key === "A") {
+      bAnglais.click();
+      e.preventDefault();
+    } else if (e.key === "c" || e.key === "C") {
+      bCodes.click();
+      e.preventDefault();
+    }
+  });
+
+  /* --- l'avancee dans le script ----------------------------------------- */
+  // Un script de trois cents repliques sans repere, c'est un puits : on ne sait
+  // ni ou on en est ni combien il reste.
+  const jauge = $("#avancee");
+  let attente = 0;
+  function majAvancee() {
+    const h = document.documentElement;
+    const course = h.scrollHeight - h.clientHeight;
+    const part = course > 0 ? (h.scrollTop / course) * 100 : 100;
+    jauge.style.width = `${Math.max(0, Math.min(100, part))}%`;
+  }
+  addEventListener("scroll", () => {
+    // Un seul calcul par image : la barre n'a pas besoin d'etre recalculee
+    // trois fois entre deux rendus.
+    if (attente) return;
+    attente = requestAnimationFrame(() => {
+      attente = 0;
+      majAvancee();
+    });
+  }, { passive: true });
+  majAvancee();
+
+  /* --- la barre --------------------------------------------------------- */
+  // Deux bascules de confort, et elles se gardent d'une page a l'autre : on
+  // relit cent scripts, pas un, et recocher « anglais » cent fois est une
+  // friction qu'on remarque.
+  function bascule(bouton, champ, cleRangement) {
+    const poser = (on) => {
+      document.body.dataset[champ] = on ? "oui" : "non";
+      bouton.setAttribute("aria-pressed", String(on));
+      ecrire(cleRangement, on);
+    };
+    poser(lire(cleRangement, false) === true);
+    bouton.addEventListener("click", () => poser(document.body.dataset[champ] !== "oui"));
+  }
+
+  const bAnglais = $("#voirAnglais");
+  const bCodes = $("#voirCodes");
+  bascule(bAnglais, "anglais", "p1fr-relecture-anglais");
+  bascule(bCodes, "codes", "p1fr-relecture-codes");
 
   const bLu = $("#marquerLu");
   const lus = new Set(lire(RANGEMENT_LUS, []));

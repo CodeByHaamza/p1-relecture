@@ -23,13 +23,20 @@ envoie ses propositions groupées.
 
 1. Le [sommaire](https://codebyhaamza.github.io/p1-relecture/) montre les 284 scripts.
    Le filtre **Pas encore relus** mène directement au travail qui reste.
-2. On lit le fil du script. Le français tient la colonne ; l'anglais ne se montre
-   qu'à la demande — lire deux colonnes en parallèle, c'est ne lire ni l'une ni
-   l'autre.
-3. Une réplique à reprendre : **Proposer**. Trois jauges répondent pendant la
+2. On lit le fil du script. **Chaque ligne à l'écran est une ligne du jeu** :
+   le jeu ne renvoie jamais à la ligne tout seul, donc une coupure que vous voyez
+   est une coupure qu'il fera. Une petite marque en fin de ligne dit laquelle
+   (saut, nouvelle page, boîte qui se referme) ; la bascule **Codes** les écrit
+   en clair si vous préférez.
+   Le français tient la colonne ; l'anglais ne se montre qu'à la demande — lire
+   deux colonnes en parallèle, c'est ne lire ni l'une ni l'autre.
+3. Au clavier, sans quitter la position de lecture : <kbd>J</kbd>/<kbd>K</kbd>
+   pour se déplacer, <kbd>E</kbd> pour proposer, <kbd>Échap</kbd> pour fermer,
+   <kbd>A</kbd> et <kbd>C</kbd> pour les deux bascules.
+4. Une réplique à reprendre : **Proposer**. Trois jauges répondent pendant la
    frappe, et le bouton **Garder** reste gris tant qu'une contrainte n'est pas
    tenue. Rien ne part qui ne tienne dans le jeu.
-4. En bas à droite, **Envoyer** ouvre une issue préremplie sur le dépôt de la
+5. En bas à droite, **Envoyer** ouvre une issue préremplie sur le dépôt de la
    traduction. Sans proposition, le même bouton dit **Signaler relu** : un script
    impeccable doit pouvoir ressortir relu sans qu'on invente une correction.
 
@@ -105,17 +112,22 @@ métrique de sa lettre de base — règle de Zenshou, appliquée par le build.
 
 ## Vérifier avant de publier
 
-Deux contrôles, tous deux bloquants dans le workflow :
+Trois contrôles, tous bloquants dans le workflow :
 
 ```bash
 python verifier_donnees.py        # le contrat entre les données et la page
 node outils/verifier_page.mjs     # js/mesure.js lui-même, sur les 24 000 répliques
+node outils/verifier_rendu.mjs    # ce qu'on MONTRE est-il ce qu'on MESURE ?
 ```
 
-Le second est le plus utile : il importe le fichier que le navigateur exécutera et
-lui soumet tout le français **déjà en jeu**. Si la page refusait une seule de ces
-répliques, elle dirait faux — et un relecteur à qui l'outil dit faux une fois ne
-lui fait plus confiance.
+Les deux derniers importent les fichiers que le navigateur exécutera, au lieu
+d'en rejouer une transcription — une transcription peut être fidèle à un calcul
+faux. `verifier_page` soumet tout le français **déjà en jeu** : si la page
+refusait une seule de ces répliques, elle dirait faux, et un relecteur à qui
+l'outil dit faux une fois ne lui fait plus confiance. `verifier_rendu` compare le
+découpage en lignes de `rendu.js` à celui de `mesure.js`, parce qu'une page qui
+montre trois lignes et en contrôle quatre laisse passer la quatrième sans un
+mot.
 
 ## Les portraits
 
@@ -135,6 +147,27 @@ python -m http.server 8731
 
 Ouvrir `index.html` directement depuis le disque ne marche pas : les modules
 JavaScript et `fetch` exigent un vrai serveur, fût-il local.
+
+## Lisibilité : les choix, et pourquoi
+
+On relit des heures, donc la lecture passe avant l'effet.
+
+- **La mesure est bridée à 62 signes.** La colonne en faisait 110 : au-delà de
+  75, l'œil perd sa ligne en revenant à la marge.
+- **Une ligne du jeu = une ligne à l'écran.** Avant, les codes de coupure
+  s'affichaient en pastille au milieu du texte et c'était la fenêtre qui coupait
+  le reste — on ne pouvait pas distinguer une coupure du jeu d'une coupure du
+  navigateur, ce qui est pourtant la seule chose à vérifier.
+- **Contrastes mesurés, pas estimés.** Le gris des textes secondaires était à
+  3,7:1 alors qu'il portait l'anglais en petit italique, et le rouge du
+  dépassement — la couleur qui doit crier — était le plus faible de la palette.
+  Tous deux sont remontés au-dessus de 4,5:1.
+- **Les codes de substitution restent visibles** (`(*NOMBRE_HEROE*)`), parce que
+  les masquer rendrait la phrase incompréhensible ; mais ils ne portent plus de
+  bordure et sont à la taille du texte, pour ne pas le hacher.
+- **Le bouton « Proposer » n'est jamais invisible.** Il l'était jusqu'au survol :
+  sur un écran tactile il n'y a pas de survol, et au clavier un bouton invisible
+  est un bouton qui n'existe pas.
 
 ## À faire
 

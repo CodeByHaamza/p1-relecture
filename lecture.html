@@ -20,8 +20,13 @@
       <small id="zone">—</small>
       <span id="nom">Chargement…</span>
     </h1>
-    <button class="bascule" id="voirAnglais" type="button" aria-pressed="false">
+    <button class="bascule" id="voirAnglais" type="button" aria-pressed="false"
+            title="Afficher l'anglais d'origine sous chaque réplique (touche A)">
       Anglais
+    </button>
+    <button class="bascule" id="voirCodes" type="button" aria-pressed="false"
+            title="Écrire les codes de fin de ligne au lieu de les laisser dire par la mise en page (touche C)">
+      Codes
     </button>
     <!-- Mon fil, pas celui du projet : « signaler relu » (dans le panier) est
          le geste partage, celui-ci ne sort pas du navigateur. -->
@@ -30,6 +35,7 @@
       Lu par moi
     </button>
   </div>
+  <div class="avancee" aria-hidden="true"><div class="avancee__fait" id="avancee"></div></div>
 </header>
 
 <main>
@@ -37,6 +43,14 @@
     <p class="chargement">Ouverture du script…</p>
   </div>
 </main>
+
+<!-- Relire trois cents repliques a la souris est epuisant. Le clavier fait le
+     meme travail sans quitter la position de lecture. -->
+<p class="raccourcis">
+  <kbd>J</kbd><kbd>K</kbd> ou <kbd>↓</kbd><kbd>↑</kbd> se déplacer ·
+  <kbd>E</kbd> proposer · <kbd>Échap</kbd> fermer ·
+  <kbd>A</kbd> anglais · <kbd>C</kbd> codes
+</p>
 
 <div class="panier" id="panier" data-plein="non" role="status">
   <span id="panierTexte">Lu en entier&nbsp;?</span>

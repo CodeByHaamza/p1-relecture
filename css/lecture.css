@@ -72,6 +72,55 @@
 .bascule:hover { color: var(--parchemin); border-color: var(--violet-sourd); }
 .bascule[aria-pressed="true"] { color: var(--encre); background: var(--or); border-color: var(--or); }
 
+/* L'avancee dans le script. Un fil de trois cents repliques sans repere est un
+   puits : on ne sait ni ou on en est, ni combien il reste. */
+.avancee {
+  height: 2px;
+  background: var(--trait);
+}
+.avancee__fait {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--violet), var(--or));
+  transition: width 0.1s linear;
+}
+
+/* Les raccourcis, posés en bas : lus une fois, oubliés ensuite, et jamais dans
+   le chemin de la lecture. */
+.raccourcis {
+  position: fixed;
+  left: var(--gouttiere);
+  bottom: var(--gouttiere);
+  z-index: 15;
+  margin: 0;
+  max-width: 24rem;
+  font-family: var(--machine);
+  font-size: 0.62rem;
+  line-height: 1.9;
+  color: var(--parchemin-bas);
+  opacity: 0.55;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+.raccourcis:hover { opacity: 1; }
+kbd {
+  font-family: var(--machine);
+  font-size: 0.9em;
+  border: 1px solid var(--trait);
+  border-bottom-width: 2px;
+  border-radius: 3px;
+  padding: 0.05em 0.35em;
+  margin-right: 0.15em;
+  color: var(--parchemin-mi);
+  background: var(--encre-haute);
+}
+
+/* Sous 900 px le panier et les raccourcis se disputeraient le bas de l'ecran,
+   et c'est le panier qui gagne. */
+@media (max-width: 900px) {
+  .raccourcis { display: none; }
+}
+
 /* --- le fil ---------------------------------------------------------------- */
 .fil {
   max-width: 62rem;
@@ -79,7 +128,10 @@
   padding: 2.5rem var(--gouttiere) 8rem;
   display: flex;
   flex-direction: column;
-  gap: 0.35rem;
+  /* Pas d'ecart uniforme : c'est le groupement qui fait qu'un fil se lit comme
+     une scene. Les repliques d'un meme personnage se serrent, le changement de
+     locuteur respire. */
+  gap: 0;
 }
 
 .scene {
@@ -99,18 +151,40 @@
   height: 1px;
   background: linear-gradient(90deg, var(--or-brume), transparent);
 }
+/* L'identifiant du bloc : inutile pour lire, indispensable pour en parler. */
+.scene__bloc {
+  font-family: var(--machine);
+  font-size: 0.92em;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--parchemin-bas);
+  opacity: 0.7;
+}
 
 .replique {
   display: grid;
   grid-template-columns: 3.5rem 1fr;
   gap: 0 1rem;
-  padding: 0.55rem 0.7rem;
+  padding: 0.3rem 0.7rem;
+  margin-top: 1.15rem;
   border-radius: var(--rayon);
   border: 1px solid transparent;
   transition: background 0.18s, border-color 0.18s;
+  scroll-margin-top: 5rem;  /* la barre collante ne doit pas manger la replique */
 }
+.replique[data-suite="oui"] { margin-top: 0.1rem; }
+.replique:first-child { margin-top: 0; }
 .replique:hover { background: rgba(130, 87, 196, 0.07); border-color: var(--trait); }
 .replique[data-ouvert="oui"] { background: var(--encre-haute); border-color: var(--violet-sourd); }
+
+/* Celle ou on est, au clavier. Un filet d'or a gauche : assez pour ne pas
+   perdre sa place en remontant, pas assez pour distraire de la lecture. */
+.replique:focus { outline: none; }
+.replique:focus-visible,
+.replique[data-ici="oui"] {
+  background: rgba(130, 87, 196, 0.1);
+  box-shadow: inset 2px 0 0 var(--or);
+}
 
 /* Deux répliques du même personnage à la suite : on ne répète ni le portrait
    ni le nom. C'est ce qui fait qu'un fil se lit comme une scène et pas comme
@@ -147,9 +221,11 @@
 }
 
 .replique__fr {
-  font-size: 1.02rem;
-  line-height: 1.55;
-  white-space: pre-wrap;
+  /* La mesure, pas la largeur de l'ecran : la colonne faisait 110 signes, et
+     au-dela de 75 l'oeil perd sa ligne en revenant a la marge. */
+  max-width: var(--mesure);
+  font-size: 1.06rem;
+  line-height: 1.7;
   cursor: text;
 }
 .replique__fr:empty::before {
@@ -158,33 +234,87 @@
   font-style: italic;
 }
 
-.replique__en {
-  margin-top: 0.3rem;
-  font-size: 0.86rem;
-  line-height: 1.45;
-  color: var(--parchemin-bas);
-  font-style: italic;
+/* Une ligne du JEU. Elle fait au plus une quarantaine de signes et la colonne
+   en tient soixante-deux : elle ne se recoupe donc jamais, et ce qu'on voit
+   est ce que le jeu affichera. Si elle se recoupait quand meme, le retrait
+   negatif ferait rentrer la suite — une vraie coupure part de la marge, une
+   coupure de fenetre est en retrait, et on ne les confond pas. */
+.ligne {
+  display: block;
+  /* Les negociations centrent leurs lignes avec des espaces de tete : les
+     garder, sinon on ne comprend pas pourquoi le texte est decale, et on
+     « corrige » un alignement voulu. */
   white-space: pre-wrap;
+  /* Si une ligne se recoupait malgre tout, la suite rentre : une vraie coupure
+     du jeu part de la marge, une coupure de fenetre est en retrait. On ne les
+     confond donc jamais. */
+  text-indent: -1.1em;
+  padding-left: 1.1em;
+}
+
+/* La marque de ce que le code fait a la boite. Discrete : on lit du dialogue,
+   pas du balisage. Survol = le nom du code et son effet. */
+.fin {
+  display: inline-block;
+  width: 0.5em;
+  height: 0.5em;
+  margin-left: 0.5em;
+  vertical-align: 0.1em;
+  opacity: 0.4;
+  border-radius: 1px;
+  background: currentColor;
+  color: var(--parchemin-bas);
+}
+.fin--saut { background: none; box-shadow: inset 0 -1px 0 currentColor; width: 0.7em; }
+.fin--page { color: var(--violet-vif); opacity: 0.55; }
+.fin--ferme { color: var(--or); border-radius: 50%; }
+.fin--attente { color: var(--or); clip-path: polygon(50% 100%, 0 0, 100% 0); border-radius: 0; }
+.fin--qui { color: var(--or-pale); opacity: 0.35; }
+.fin--reponse { color: var(--violet-vif); clip-path: polygon(100% 50%, 0 0, 0 100%); }
+
+/* `{PAGE}` vide la boite : c'est une respiration, pas un saut de ligne. */
+.ligne:has(.fin--page) { margin-bottom: 0.55rem; }
+.ligne:has(.fin--ferme) { margin-bottom: 0.3rem; }
+
+.replique__en {
+  max-width: var(--mesure);
+  margin-top: 0.55rem;
+  padding-left: 0.7rem;
+  border-left: 1px solid var(--trait);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  /* 7.2:1 au lieu de 3.7:1. C'etait le texte le plus dur de la page — petit,
+     italique — et le moins contraste. */
+  color: var(--parchemin-mi);
+  font-style: italic;
   display: none;
 }
 body[data-anglais="oui"] .replique__en { display: block; }
 
-/* Les jetons du moteur : visibles, mais jamais confondus avec du texte. */
+/* Les jetons du moteur : reconnaissables, mais ils ne doivent pas hacher la
+   phrase. Plus de bordure et une taille proche du texte : un dialogue qui
+   nomme le heros trois fois se lisait en pointille. */
 .jeton {
   font-family: var(--machine);
-  font-size: 0.6rem;
-  letter-spacing: 0.02em;
+  font-size: 0.72em;
+  letter-spacing: 0.01em;
   color: var(--violet-vif);
   background: var(--violet-brume);
-  border: 1px solid color-mix(in srgb, var(--violet-sourd) 70%, transparent);
   border-radius: 2px;
-  padding: 0 0.25em;
-  margin: 0 0.1em;
-  vertical-align: 0.08em;
+  padding: 0.05em 0.3em;
+  margin: 0 0.06em;
+  vertical-align: 0.06em;
   user-select: none;
   white-space: nowrap;
 }
-.jeton--saut { color: var(--parchemin-bas); background: transparent; border-style: dashed; }
+.jeton--pause { color: var(--parchemin-bas); background: rgba(0, 0, 0, 0.25); }
+
+/* Les codes de fin de ligne, eux, sont DEJA dits par la mise en page : la
+   ligne s'arrete, et une petite marque dit pourquoi. Les ecrire en plus serait
+   les dire deux fois. La bascule « Codes » les rend a qui veut les voir. */
+.jeton--fin { display: none; margin-left: 0.35em; }
+body[data-codes="oui"] .jeton--fin { display: inline; }
+body[data-codes="oui"] .fin { display: none; }
 
 .corriger {
   grid-column: 2;
@@ -200,10 +330,16 @@ body[data-anglais="oui"] .replique__en { display: block; }
   color: var(--parchemin-bas);
   padding: 0.25rem 0.6rem;
   cursor: pointer;
-  opacity: 0;
+  /* Jamais a zero : sur un ecran tactile il n'y a pas de survol, et au clavier
+     un bouton invisible est un bouton qui n'existe pas. Assez pale pour ne pas
+     peser sur la lecture, assez present pour qu'on sache qu'il est la. */
+  opacity: 0.3;
   transition: opacity 0.18s, color 0.18s, border-color 0.18s;
 }
-.replique:hover .corriger, .replique:focus-within .corriger { opacity: 1; }
+.replique:hover .corriger,
+.replique:focus-within .corriger,
+.replique[data-ici="oui"] .corriger { opacity: 1; }
+@media (hover: none) { .corriger { opacity: 0.75; } }
 .corriger:hover { color: var(--or-pale); border-color: var(--or); border-style: solid; }
 
 /* --- l'éditeur ------------------------------------------------------------- */

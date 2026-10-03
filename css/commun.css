@@ -30,20 +30,29 @@
   --or-brume:     rgba(201, 162, 39, 0.14);
 
   /* --- le texte ---------------------------------------------------------- */
-  --parchemin:    #e9e2d6;
-  --parchemin-mi: #b6ab9e;
-  --parchemin-bas:#817767;
+  /* Contraste verifie sur le fond le plus clair qu'ils touchent (--velours) :
+     4.5:1 est le minimum pour du petit texte, et on relit des heures.
+     `--parchemin-bas` etait a 3.70:1 alors qu'il portait l'anglais en 0.86rem
+     italique — le texte le plus difficile de la page etait le moins contraste. */
+  --parchemin:    #e9e2d6;   /* 12.7:1 */
+  --parchemin-mi: #b6ab9e;   /*  7.2:1 */
+  --parchemin-bas:#928776;   /*  4.6:1 */
 
   /* --- les verdicts ------------------------------------------------------ */
-  --tient:        #5fa97f;   /* la ligne tient dans la boite */
-  --serre:        #d4a04a;   /* elle frole la limite */
-  --deborde:      #c0566a;   /* elle deborde */
+  --tient:        #5fa97f;   /* la ligne tient dans la boite — 5.8:1 */
+  --serre:        #d4a04a;   /* elle frole la limite        — 6.9:1 */
+  /* Celle qui doit crier etait la plus faible de la palette, a 3.71:1. */
+  --deborde:      #c96d7e;   /* elle deborde                — 4.6:1 */
 
   /* --- mesures ----------------------------------------------------------- */
   --rayon:        3px;
   --filet:        1px solid var(--trait);
   --gouttiere:    clamp(1rem, 2.5vw, 2rem);
   --lisible:      68ch;
+  /* La mesure du fil de dialogue. Au-dela de 75 signes l'oeil perd la ligne
+     en revenant a la marge ; le fil en faisait 110, parce que la colonne
+     etait bridee en `rem` et le texte, jamais. */
+  --mesure:       62ch;
 
   --titre: "Marcellus SC", "Palatino Linotype", Georgia, serif;
   --corps: "Spectral", Georgia, "Times New Roman", serif;

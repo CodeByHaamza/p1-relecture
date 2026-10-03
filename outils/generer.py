@@ -124,10 +124,18 @@ def segmenter(brut: str) -> list[dict]:
     jeton quelconque — que la page montre en pastille et interdit de modifier.
     """
     out = []
-    for morceau in JETON.split(brut or ""):
+    # `re.split` avec UN groupe capturant rend [texte, code, texte, code, ...] :
+    # c'est la POSITION qui dit ce qu'on tient, pas la premiere lettre. Juger
+    # sur `startswith("(")` faisait passer pour un code tout texte entre
+    # parentheses — « (Tch... guess he won't go down that », « (Toggles Persona
+    # summoning and », « (What should I do...?) ». Or dans Persona 1 la
+    # parenthese porte les pensees du heros et les choix de negociation : ces
+    # repliques s'affichaient en pastille monospace, et on ne pouvait pas les
+    # corriger.
+    for i, morceau in enumerate(JETON.split(brut or "")):
         if not morceau:
             continue
-        if not morceau.startswith(("{", "(", "[")):
+        if i % 2 == 0:
             out.append({"t": morceau})
         elif morceau == "[0000]":
             # Une espace, pas un code : la page la rend comme telle, avec un

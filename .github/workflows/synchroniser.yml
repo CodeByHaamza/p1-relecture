@@ -73,6 +73,9 @@ jobs:
       - name: La page accepte-t-elle le francais deja ecrit ?
         run: node outils/verifier_page.mjs
 
+      - name: Montre-t-elle les lignes qu'elle mesure ?
+        run: node outils/verifier_rendu.mjs
+
       - name: Publier si quelque chose a bouge
         run: |
           git config user.name "github-actions[bot]"
