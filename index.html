@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Relecture — Persona 1 FR</title>
+<meta name="description" content="Relire la traduction française de Shin Megami Tensei: Persona (PSP), script par script, et proposer des corrections sans rien installer.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Spectral:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/commun.css">
+<link rel="stylesheet" href="css/sommaire.css">
+</head>
+<body>
+
+<header class="entete">
+  <div class="entete__rang">
+    <div>
+      <h1 class="titre">
+        Relecture
+        <span class="titre__sous">
+          La traduction française de <i>Shin Megami Tensei: Persona</i> est écrite.
+          Elle attend maintenant d'être lue — et c'est un autre travail.
+        </span>
+      </h1>
+    </div>
+    <p class="compteur" id="compteur" aria-live="polite">
+      <b>—</b> scripts<br>
+      <b>—</b> répliques
+    </p>
+  </div>
+  <hr class="filet">
+</header>
+
+<nav class="outils" aria-label="Filtrer les scripts">
+  <div class="outils__dedans">
+    <input class="cherche" id="cherche" type="search" autocomplete="off"
+           placeholder="Chercher un script, un personnage…"
+           aria-label="Chercher un script ou un personnage">
+    <div class="zones" id="zones" role="group" aria-label="Zones du jeu"></div>
+  </div>
+</nav>
+
+<main>
+  <ul class="grille" id="grille" aria-live="polite"></ul>
+</main>
+
+<footer class="pied">
+  <p>
+    Projet de fans, gratuit et non commercial.
+    <i>Shin Megami Tensei: Persona</i> © Atlus / SEGA.
+    La traduction vit dans
+    <a href="https://github.com/CodeByHaamza/P1-FR-PSP">CodeByHaamza/P1-FR-PSP</a>.
+  </p>
+  <p>
+    Ce que vous marquez comme lu reste <b>dans votre navigateur</b> : c'est votre
+    fil, pas celui du projet. Les propositions, elles, partent sur le dépôt.
+  </p>
+</footer>
+
+<script type="module" src="js/sommaire.js"></script>
+</body>
+</html>

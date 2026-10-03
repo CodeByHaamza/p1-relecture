@@ -1,0 +1,3110 @@
+[
+ {
+  "zone": "dialogues",
+  "nom": "E0_001",
+  "repliques": 99,
+  "traduites": 99,
+  "locuteurs": [
+   "Arbre Agastya",
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Femme en blouse blanche",
+   "Fille en blanc",
+   "Mark",
+   "Mme Saeko",
+   "Nanjo",
+   "Natsumi",
+   "Prof inquiète",
+   "Yukino",
+   "Élève arrogant",
+   "Élève au chapeau",
+   "Élève posée",
+   "Élève à couettes",
+   "Élève à lunettes",
+   "Élève étourdie"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_002",
+  "repliques": 92,
+  "traduites": 92,
+  "locuteurs": [
+   "Ayase",
+   "Elly",
+   "Mark",
+   "Membre du club",
+   "Membre du conseil",
+   "Nanjo",
+   "Professeur",
+   "Proviseure Ooishi",
+   "Président du conseil",
+   "Présidente",
+   "Reiji",
+   "Tsutomu Kurouri",
+   "Yukino",
+   "Élève",
+   "Élève bibliothécaire",
+   "Élève sérieux"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_003",
+  "repliques": 40,
+  "traduites": 40,
+  "locuteurs": [
+   "Elly",
+   "Homme en noir",
+   "Mark",
+   "Nanjo",
+   "Reiji",
+   "Vieil homme en livrée",
+   "Yamaoka",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_004",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_005",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_006",
+  "repliques": 18,
+  "traduites": 18,
+  "locuteurs": [
+   "Mark"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_007",
+  "repliques": 97,
+  "traduites": 97,
+  "locuteurs": [
+   "Elly",
+   "Homme blond",
+   "Homme trop joyeux",
+   "Joueur accro",
+   "Mark",
+   "Nanjo",
+   "Reiji",
+   "Vendeur",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_008",
+  "repliques": 93,
+  "traduites": 93,
+  "locuteurs": [
+   "Blessé",
+   "Client",
+   "Docteur",
+   "Elly",
+   "Femme enceinte",
+   "Fille alitée",
+   "Infirmière",
+   "Maki",
+   "Mark",
+   "Mère de Reiji",
+   "Nanjo",
+   "Réceptionniste",
+   "Salarié épuisé",
+   "Vendeur",
+   "Yamaoka",
+   "Yukino",
+   "Étudiante"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_009",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": [
+   "Elly",
+   "Homme hagard",
+   "Infirmière affolée",
+   "Infirmière blessée",
+   "Mark",
+   "Nanjo",
+   "Voix de femme",
+   "Yamaoka",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_010",
+  "repliques": 86,
+  "traduites": 86,
+  "locuteurs": [
+   "Elly",
+   "Fille de garde",
+   "Garçon de garde",
+   "Mark",
+   "Mme Saeko",
+   "Mère de Maki",
+   "Nanjo",
+   "Natsumi",
+   "Papillon mystérieux",
+   "Setsuko Sonomura",
+   "Yukino",
+   "Élève"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_011",
+  "repliques": 67,
+  "traduites": 67,
+  "locuteurs": [
+   "Adjoint Hanya",
+   "Membre du club",
+   "Membre du conseil",
+   "Proviseure Ooishi",
+   "Président du conseil",
+   "Présidente",
+   "Tsutomu",
+   "Tsutomu Kurouri",
+   "Élève"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_012",
+  "repliques": 55,
+  "traduites": 55,
+  "locuteurs": [
+   "Ayase",
+   "Mme Saeko",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_013",
+  "repliques": 85,
+  "traduites": 85,
+  "locuteurs": [
+   "Ayase",
+   "Démon",
+   "Fille timide",
+   "Maki",
+   "Nanjo",
+   "Yuko"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_014",
+  "repliques": 91,
+  "traduites": 91,
+  "locuteurs": [
+   "Brown",
+   "Lieutenant",
+   "Lieutenant démon",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Policier",
+   "Policier démon"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_015",
+  "repliques": 66,
+  "traduites": 66,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Maki",
+   "Mark",
+   "Nanjo"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_016",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Voix de Maki"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_017",
+  "repliques": 56,
+  "traduites": 56,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Homme suspect",
+   "Homme sévère",
+   "Kandori",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Takeda"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_018",
+  "repliques": 83,
+  "traduites": 83,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Dr. Nicholai",
+   "Elly",
+   "Fille en noir",
+   "Kandori",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Voix de Kandori",
+   "Voix de Nicholai"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_019",
+  "repliques": 58,
+  "traduites": 58,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Fille affolée",
+   "Garçon agité",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Élève"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_020",
+  "repliques": 87,
+  "traduites": 87,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Démon",
+   "Elly",
+   "Fille attaquée",
+   "Garçon blessé",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Reiji",
+   "Voix de fille",
+   "Yosuke"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_021",
+  "repliques": 89,
+  "traduites": 89,
+  "locuteurs": [
+   "Aki",
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Fille attaquée",
+   "Fille en noir",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Reiji",
+   "Tesso"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_022",
+  "repliques": 52,
+  "traduites": 52,
+  "locuteurs": [
+   "Aki",
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Reiji",
+   "Yosuke"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_023",
+  "repliques": 65,
+  "traduites": 65,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Reiji",
+   "Tous",
+   "Trish",
+   "Tsutomu",
+   "Yosuke"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_024",
+  "repliques": 96,
+  "traduites": 96,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Homme étrange",
+   "Igor",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Reiji"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_025",
+  "repliques": 93,
+  "traduites": 93,
+  "locuteurs": [
+   "Aki",
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Maki",
+   "Mark",
+   "Monstre",
+   "Nanjo",
+   "Reiji",
+   "Voix de fille",
+   "Yog-Sothoth Jr."
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_026",
+  "repliques": 77,
+  "traduites": 77,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Femme abattue",
+   "Femme à l'afro orange",
+   "Homme à l'afro rose",
+   "Homme à l'afro rouge",
+   "Ivrogne à l'afro",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Patron",
+   "Reiji"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_027",
+  "repliques": 40,
+  "traduites": 40,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Jeune homme",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Reiji"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_028",
+  "repliques": 78,
+  "traduites": 78,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Patron",
+   "Reiji",
+   "Reine Harem"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_029",
+  "repliques": 55,
+  "traduites": 55,
+  "locuteurs": [
+   "Aki",
+   "Ayase",
+   "Brown",
+   "Chisato",
+   "Elly",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Reiji",
+   "Reine Harem",
+   "Yosuke"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_030",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": [
+   "Aki",
+   "Ayase",
+   "Brown",
+   "Chisato",
+   "Elly",
+   "Jeunes gens",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Reiji",
+   "Yosuke"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_031",
+  "repliques": 74,
+  "traduites": 74,
+  "locuteurs": [
+   "Aki",
+   "Ayase",
+   "Brown",
+   "Chisato",
+   "Elly",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Reiji",
+   "Yosuke"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_032",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Fille en blanc",
+   "Mai",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Reiji"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_033",
+  "repliques": 74,
+  "traduites": 74,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Mai",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Reiji"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_034",
+  "repliques": 70,
+  "traduites": 70,
+  "locuteurs": [
+   "Aki",
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Kandori",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Reiji",
+   "Saurva"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_035",
+  "repliques": 57,
+  "traduites": 57,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Reiji"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_036",
+  "repliques": 53,
+  "traduites": 53,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Hariti",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Reiji",
+   "Setsuko Sonomura"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_037",
+  "repliques": 99,
+  "traduites": 99,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Dr. Nicholai",
+   "Elly",
+   "Kandori",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Reiji"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_038",
+  "repliques": 79,
+  "traduites": 79,
+  "locuteurs": [
+   "Aki",
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Kandori",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Reiji"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_039",
+  "repliques": 56,
+  "traduites": 56,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Kandori",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Reiji"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_040",
+  "repliques": 89,
+  "traduites": 89,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Reiji"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_041",
+  "repliques": 89,
+  "traduites": 89,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Mark",
+   "Nanjo",
+   "Reiji",
+   "Trish"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_042",
+  "repliques": 82,
+  "traduites": 82,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Reiji",
+   "Setsuko Sonomura",
+   "Voix de Mai"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_043",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Reiji",
+   "Setsuko Sonomura"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_044",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Papillon mystérieux",
+   "Reiji",
+   "Setsuko Sonomura"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_045",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": [
+   "(*APODO_HEROE*)",
+   "Kandori",
+   "Maki",
+   "Trish",
+   "Voix de (*APODO_HEROE*)"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_046",
+  "repliques": 92,
+  "traduites": 92,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Chisato",
+   "Elly",
+   "Igor",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Papillon mystérieux",
+   "Reiji",
+   "Trish",
+   "Yosuke"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_047",
+  "repliques": 69,
+  "traduites": 69,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Maki",
+   "Mark",
+   "Monstre gigantesque",
+   "Nanjo",
+   "Pandora",
+   "Pandore",
+   "Reiji",
+   "{[103C][0C0F]}"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E0_048",
+  "repliques": 50,
+  "traduites": 50,
+  "locuteurs": [
+   "Brown",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Reiji",
+   "Voix de Maki"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E1_001",
+  "repliques": 80,
+  "traduites": 77,
+  "locuteurs": [
+   "Ayase",
+   "Masque",
+   "Mme Saeko",
+   "Reine des Neiges",
+   "Voix de la Reine",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E1_002",
+  "repliques": 100,
+  "traduites": 99,
+  "locuteurs": [
+   "Ayase",
+   "Elly",
+   "Nanjo",
+   "Natsumi",
+   "Setsuko Sonomura",
+   "Tsutomu",
+   "Yukino",
+   "Élève"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E1_003",
+  "repliques": 94,
+  "traduites": 94,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Nanjo",
+   "Toro",
+   "Yukino",
+   "Élève"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E1_004",
+  "repliques": 87,
+  "traduites": 87,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Nanjo",
+   "Raiho",
+   "Reiho",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E1_005",
+  "repliques": 81,
+  "traduites": 76,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Nanjo",
+   "Papillon mystérieux",
+   "Tadashi",
+   "Tamaki",
+   "Tsutomu",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E1_006",
+  "repliques": 77,
+  "traduites": 74,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Nanjo",
+   "Natsumi",
+   "Papillon mystérieux",
+   "Tadashi",
+   "Tamaki",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E1_007",
+  "repliques": 97,
+  "traduites": 97,
+  "locuteurs": [
+   "Adjoint Hanya",
+   "Adjointe Ooishi",
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Nanjo",
+   "Papillon mystérieux",
+   "Proviseur Hanya",
+   "Proviseure Ooishi",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E1_008",
+  "repliques": 74,
+  "traduites": 74,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Copain de Natsumi",
+   "Elly",
+   "Nanjo",
+   "Natsumi",
+   "Tadashi",
+   "Tamaki",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E1_009",
+  "repliques": 75,
+  "traduites": 75,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Homme en toge",
+   "Hypnos",
+   "Kumi",
+   "Membre du club",
+   "Nanjo",
+   "Présidente",
+   "Yukino",
+   "Élève à lunettes"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E1_010",
+  "repliques": 63,
+  "traduites": 63,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Hypnos",
+   "Kumi",
+   "Nanjo",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E1_011",
+  "repliques": 87,
+  "traduites": 87,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Nanjo",
+   "Natsumi",
+   "Tadashi",
+   "Tamaki",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E1_012",
+  "repliques": 83,
+  "traduites": 83,
+  "locuteurs": [
+   "Adjoint Hanya",
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Nanjo",
+   "Proviseure Ooishi",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E1_013",
+  "repliques": 60,
+  "traduites": 60,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Kumi",
+   "Nanjo",
+   "Yukino",
+   "Élève à lunettes"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E1_014",
+  "repliques": 43,
+  "traduites": 43,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Kumi",
+   "Nanjo",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E1_015",
+  "repliques": 65,
+  "traduites": 65,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Lycéenne hautaine",
+   "Michiko",
+   "Nanjo",
+   "Voix hautaine",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E1_016",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "M. Diabolique",
+   "Michiko",
+   "Nanjo",
+   "Toro",
+   "Tsutomu",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E1_017",
+  "repliques": 38,
+  "traduites": 38,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Nanjo",
+   "Toro",
+   "Tsutomu",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E1_018",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Michiko",
+   "Nanjo",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E1_019",
+  "repliques": 46,
+  "traduites": 46,
+  "locuteurs": [
+   "Ayase",
+   "Elly",
+   "Michiko",
+   "Nanjo",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E1_020",
+  "repliques": 67,
+  "traduites": 67,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Michiko",
+   "Nanjo",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E1_021",
+  "repliques": 66,
+  "traduites": 66,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Nanjo",
+   "Yukino",
+   "Yuriko",
+   "Élève enjouée"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E1_022",
+  "repliques": 95,
+  "traduites": 95,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Nanjo",
+   "Yukino",
+   "Yuriko"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E1_023",
+  "repliques": 96,
+  "traduites": 96,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Cerbère",
+   "Elly",
+   "Fille photo",
+   "Grande bête",
+   "Mariko",
+   "Nanjo",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E1_024",
+  "repliques": 93,
+  "traduites": 93,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Mariko",
+   "Nanjo",
+   "Yukino",
+   "Yuriko"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E1_025",
+  "repliques": 86,
+  "traduites": 86,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Nanjo",
+   "Yukino",
+   "Yuriko"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E1_026",
+  "repliques": 97,
+  "traduites": 97,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Membre du club",
+   "Mme Saeko",
+   "Nanjo",
+   "Reine des Neiges",
+   "Saeko",
+   "Tomomi",
+   "Voix de la Reine",
+   "Yukino",
+   "Élève brûlée"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E1_027",
+  "repliques": 89,
+  "traduites": 89,
+  "locuteurs": [
+   "Arbre Agastya",
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Mme Saeko",
+   "Nanjo",
+   "Reine",
+   "Reine de la Nuit",
+   "Tomomi",
+   "Voix de femme",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E1_028",
+  "repliques": 79,
+  "traduites": 79,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Nanjo",
+   "Raiho",
+   "Reiho",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E1_029",
+  "repliques": 99,
+  "traduites": 99,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Fille en blanc",
+   "Fille en noir",
+   "Fille masquée",
+   "Homme masqué",
+   "Mai",
+   "Nanjo",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E1_030",
+  "repliques": 96,
+  "traduites": 96,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Fille masquée",
+   "Homme masqué",
+   "Mark",
+   "Mme Saeko",
+   "Nanjo",
+   "Reine de la Nuit",
+   "Tous",
+   "Voix de la Reine de la Nuit",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E1_031",
+  "repliques": 97,
+  "traduites": 97,
+  "locuteurs": [
+   "Adjoint Hanya",
+   "Amoureuse",
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Fille timide",
+   "Fille à tresses",
+   "Mark",
+   "Nanjo",
+   "Reine",
+   "Reine de la Nuit",
+   "Toro",
+   "Voix",
+   "Yukino",
+   "Yuko",
+   "Élève",
+   "Élève au courant",
+   "Élève châtain"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E2_001",
+  "repliques": 95,
+  "traduites": 95,
+  "locuteurs": [
+   "Archer",
+   "Artiste",
+   "Candidat",
+   "Candidate",
+   "Danseuse",
+   "Fan de rumeurs",
+   "Fille coupe courte",
+   "Garçon assis",
+   "Mark",
+   "Membre du club",
+   "Nanjo",
+   "Tadashi",
+   "Tamaki",
+   "Yukino",
+   "Élève",
+   "Élève au régime"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E2_002",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": [
+   "Accro au jeu",
+   "Elly",
+   "Fan de rumeurs",
+   "Homme",
+   "Homme sévère",
+   "Kandori",
+   "Kaneda",
+   "Lieutenant",
+   "Mark",
+   "Membre du club",
+   "Nanjo",
+   "Policière",
+   "Takeda",
+   "Voix d'homme",
+   "Yukino",
+   "Élève"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E2_003",
+  "repliques": 96,
+  "traduites": 96,
+  "locuteurs": [
+   "Docteur",
+   "Elly",
+   "Fan de jeux",
+   "Fille",
+   "Homme",
+   "Infirmière",
+   "Mark",
+   "Mère de Mark",
+   "Nanjo",
+   "Réceptionniste",
+   "Vendeur",
+   "Vendeur souriant",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E2_004",
+  "repliques": 97,
+  "traduites": 97,
+  "locuteurs": [
+   "Accro au jeu",
+   "Commerçant",
+   "Docteur",
+   "Elly",
+   "Fan de rumeurs",
+   "Homme dragueur",
+   "Infirmière",
+   "Mark",
+   "Nanjo",
+   "Vendeur",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E2_005",
+  "repliques": 92,
+  "traduites": 92,
+  "locuteurs": [
+   "Arbre Agastya",
+   "Client",
+   "Elly",
+   "Igor",
+   "Infirmière",
+   "Mark",
+   "Nanjo",
+   "Patient",
+   "Vendeur",
+   "Vieil homme",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E2_006",
+  "repliques": 92,
+  "traduites": 92,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Docteur",
+   "Elly",
+   "Esprit du policier",
+   "Infirmière",
+   "Kaneda",
+   "Katsue",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Patient",
+   "Policier",
+   "Vendeur",
+   "Vieil homme",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E2_007",
+  "repliques": 99,
+  "traduites": 99,
+  "locuteurs": [
+   "Amoureuse",
+   "Ayase",
+   "Brown",
+   "Candidat",
+   "Candidate",
+   "Client",
+   "Docteur",
+   "Elly",
+   "Fan de rumeurs",
+   "Fille coupe courte",
+   "Garçon assis",
+   "Infirmière",
+   "Maki",
+   "Mark",
+   "Membre du club",
+   "Nanjo",
+   "Professeur",
+   "Tadashi",
+   "Tamaki",
+   "Toro",
+   "Élève"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E2_008",
+  "repliques": 99,
+  "traduites": 99,
+  "locuteurs": [
+   "Accro au jeu",
+   "Amateur de ragots",
+   "Artiste",
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Employé SEBEC",
+   "Employé furieux",
+   "Maki",
+   "Mark",
+   "Membre du club",
+   "Nanjo",
+   "Reiji",
+   "Réceptionniste",
+   "Savant",
+   "Trish",
+   "Élève"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E2_009",
+  "repliques": 97,
+  "traduites": 97,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Maki",
+   "Mark",
+   "Membre du conseil",
+   "Mme Saeko",
+   "Nanjo",
+   "Natsumi",
+   "Président du conseil",
+   "Reiji",
+   "Savant",
+   "Yuko",
+   "Élève"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E2_010",
+  "repliques": 97,
+  "traduites": 97,
+  "locuteurs": [
+   "Adjoint Hanya",
+   "Amoureuse",
+   "Ayase",
+   "Brown",
+   "Danseuse",
+   "Elly",
+   "Fille apeurée",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Proviseure Ooishi",
+   "Reiji",
+   "Yukino",
+   "Élève"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E2_011",
+  "repliques": 90,
+  "traduites": 90,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Kaneda",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Natsumi",
+   "Reiji",
+   "Yuko",
+   "Élève"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E2_012",
+  "repliques": 91,
+  "traduites": 91,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Habitant",
+   "Habitante",
+   "Homme",
+   "Jeune homme",
+   "Lycéenne",
+   "Maki",
+   "Mannequin",
+   "Mark",
+   "Nanjo",
+   "Petite fille",
+   "Reiji",
+   "Vendeur"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E2_013",
+  "repliques": 88,
+  "traduites": 88,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Client",
+   "Elly",
+   "Habitant",
+   "Khamenturun",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Petite fille",
+   "Reiji",
+   "Turunkhamen",
+   "Vendeur"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E2_014",
+  "repliques": 95,
+  "traduites": 95,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Client",
+   "Docteur",
+   "Elly",
+   "Infirmière",
+   "Jeune homme",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Reiji",
+   "Vendeur"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E2_015",
+  "repliques": 91,
+  "traduites": 91,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Jeune homme",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Police secrète",
+   "Reiji",
+   "Savant"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E2_016",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Commerçant",
+   "Elly",
+   "Habitant",
+   "Habitante",
+   "Jeune homme",
+   "Kogal",
+   "Lycéenne",
+   "Maki",
+   "Mannequin",
+   "Mark",
+   "Nanjo",
+   "Petite fille",
+   "Police secrète",
+   "Reiji",
+   "Savant",
+   "Vendeur"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E2_017",
+  "repliques": 80,
+  "traduites": 80,
+  "locuteurs": [
+   "Adjoint Hanya",
+   "Ayase",
+   "Brown",
+   "Docteur",
+   "Elly",
+   "Infirmière",
+   "Kiichi",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Proviseure Ooishi",
+   "Reiji",
+   "Trish",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E3_001",
+  "repliques": 93,
+  "traduites": 93,
+  "locuteurs": [
+   "Accro au jeu",
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Fille timide",
+   "Jeune fille",
+   "Membre du club",
+   "Nanjo",
+   "Professeur",
+   "Président du conseil",
+   "Vendeur",
+   "Yukino",
+   "Yuko",
+   "Élève"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E3_002",
+  "repliques": 97,
+  "traduites": 97,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Etudiant morose",
+   "Fro[003C]Man",
+   "Grenouille",
+   "Nanjo",
+   "Prof de chimie",
+   "Satori",
+   "Vendeur",
+   "Yukino",
+   "Élève"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E3_003",
+  "repliques": 70,
+  "traduites": 70,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Fille blessée",
+   "Nanjo",
+   "Natsumi",
+   "Setsuko Sonomura",
+   "Yukino",
+   "Élève"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E3_004",
+  "repliques": 95,
+  "traduites": 95,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Fan de rumeurs",
+   "Nanjo",
+   "Raiho",
+   "Reiho",
+   "Toro",
+   "Yukino",
+   "Élève"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E3_005",
+  "repliques": 97,
+  "traduites": 97,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Mariko",
+   "Nanjo",
+   "Raiho",
+   "Reiho",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E3_006",
+  "repliques": 98,
+  "traduites": 98,
+  "locuteurs": [
+   "Arbre Agastya",
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Esprit d'élève",
+   "Homme masqué",
+   "Kumi",
+   "Mariko",
+   "Mme Saeko",
+   "Nanjo",
+   "Père de Kumi",
+   "Trish",
+   "Voix de Mlle Natsumi",
+   "Voix de Toro",
+   "Voix de Tsutomu",
+   "Voix de la Reine de la Nuit",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E3_007",
+  "repliques": 96,
+  "traduites": 96,
+  "locuteurs": [
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Mariko",
+   "Nanjo",
+   "Trish",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "dialogues",
+  "nom": "E3_008",
+  "repliques": 66,
+  "traduites": 66,
+  "locuteurs": [
+   "Arbre Agastya",
+   "Ayase",
+   "Brown",
+   "Elly",
+   "Nanjo",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "donjons",
+  "nom": "DNG_001",
+  "repliques": 99,
+  "traduites": 99,
+  "locuteurs": [
+   "Ayase",
+   "Maki",
+   "Mark",
+   "Nanjo",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "donjons",
+  "nom": "DNG_002",
+  "repliques": 31,
+  "traduites": 31,
+  "locuteurs": [
+   "Ayase",
+   "Yukino"
+  ]
+ },
+ {
+  "zone": "eboot",
+  "nom": "EBOOT_001",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "eboot",
+  "nom": "EBOOT_002",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "eboot",
+  "nom": "EBOOT_003",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "eboot",
+  "nom": "EBOOT_004",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "eboot",
+  "nom": "EBOOT_005",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "eboot",
+  "nom": "EBOOT_006",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "eboot",
+  "nom": "EBOOT_007",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "eboot",
+  "nom": "EBOOT_008",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "eboot",
+  "nom": "EBOOT_009",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "eboot",
+  "nom": "EBOOT_010",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "eboot",
+  "nom": "EBOOT_011",
+  "repliques": 60,
+  "traduites": 60,
+  "locuteurs": []
+ },
+ {
+  "zone": "eboot",
+  "nom": "EBOOT_012",
+  "repliques": 58,
+  "traduites": 58,
+  "locuteurs": []
+ },
+ {
+  "zone": "eboot",
+  "nom": "EBOOT_013",
+  "repliques": 82,
+  "traduites": 82,
+  "locuteurs": []
+ },
+ {
+  "zone": "eboot",
+  "nom": "EBOOT_014",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "eboot",
+  "nom": "EBOOT_015",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "eboot",
+  "nom": "EBOOT_016",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "eboot",
+  "nom": "EBOOT_017",
+  "repliques": 18,
+  "traduites": 18,
+  "locuteurs": []
+ },
+ {
+  "zone": "eboot",
+  "nom": "EBOOT_018",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "eboot",
+  "nom": "EBOOT_019",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "eboot",
+  "nom": "EBOOT_020",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "eboot",
+  "nom": "EBOOT_021",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "eboot",
+  "nom": "EBOOT_022",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "eboot",
+  "nom": "EBOOT_023",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "eboot",
+  "nom": "EBOOT_024",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "eboot",
+  "nom": "EBOOT_025",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "eboot",
+  "nom": "EBOOT_026",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "eboot",
+  "nom": "EBOOT_027",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "eboot",
+  "nom": "EBOOT_028",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "eboot",
+  "nom": "EBOOT_029",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "eboot",
+  "nom": "EBOOT_030",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "eboot",
+  "nom": "EBOOT_031",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "eboot",
+  "nom": "EBOOT_032",
+  "repliques": 38,
+  "traduites": 38,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "ALIEN_001",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "ALIEN_002",
+  "repliques": 5,
+  "traduites": 5,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "BASKET_001",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "BASKET_002",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "BASKET_003",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "BASKET_004",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "BASKET_005",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "BASKET_006",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "BASKET_007",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "BASKET_008",
+  "repliques": 56,
+  "traduites": 56,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "DOPPEL_001",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "DOPPEL_002",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "DOPPEL_003",
+  "repliques": 14,
+  "traduites": 14,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "ETC_001",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "ETC_002",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "ETC_003",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "ETC_004",
+  "repliques": 24,
+  "traduites": 24,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "GAKI_001",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "GAKI_002",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "GAKI_003",
+  "repliques": 28,
+  "traduites": 28,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "HIHO_001",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "HIHO_002",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "HIHO_003",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "HIHO_004",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "HIHO_005",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "HIHO_006",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "HIHO_007",
+  "repliques": 68,
+  "traduites": 68,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KEMONO_001",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KEMONO_002",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KEMONO_003",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KEMONO_004",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KEMONO_005",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KEMONO_006",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KEMONO_007",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KEMONO_008",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KEMONO_009",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KEMONO_010",
+  "repliques": 69,
+  "traduites": 69,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KOKURI_001",
+  "repliques": 96,
+  "traduites": 96,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KOROU_001",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KOROU_002",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KOROU_003",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KOROU_004",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KOROU_005",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KOROU_006",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KOROU_007",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KOROU_008",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KOROU_009",
+  "repliques": 69,
+  "traduites": 69,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KOSIKI_001",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KOSIKI_002",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KOSIKI_003",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KOSIKI_004",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KOSIKI_005",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KOSIKI_006",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KOSIKI_007",
+  "repliques": 25,
+  "traduites": 25,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KOUMAN_001",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KOUMAN_002",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KOUMAN_003",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KOUMAN_004",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KOUMAN_005",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KOUMAN_006",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KOUMAN_007",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KOUMAN_008",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KOUMAN_009",
+  "repliques": 93,
+  "traduites": 93,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KUTISAKE_001",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KUTISAKE_002",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KUTISAKE_003",
+  "repliques": 81,
+  "traduites": 81,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KYOUKI_001",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KYOUKI_002",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KYOUKI_003",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KYOUKI_004",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KYOUKI_005",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KYOUKI_006",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "KYOUKI_007",
+  "repliques": 23,
+  "traduites": 23,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "MAYOERU_001",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "MAYOERU_002",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "MAYOERU_003",
+  "repliques": 39,
+  "traduites": 39,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "POLUTAR_001",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "POLUTAR_002",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "POLUTAR_003",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "POLUTAR_004",
+  "repliques": 36,
+  "traduites": 36,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "QSIRUBA_001",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "QSIRUBA_002",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "QSIRUBA_003",
+  "repliques": 20,
+  "traduites": 20,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "SINSI_001",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "SINSI_002",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "SINSI_003",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "SINSI_004",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "SINSI_005",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "SINSI_006",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "SINSI_007",
+  "repliques": 36,
+  "traduites": 36,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "SLIME_001",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "SLIME_002",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "SLIME_003",
+  "repliques": 20,
+  "traduites": 20,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "SYOUJO_001",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "SYOUJO_002",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "SYOUJO_003",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "SYOUJO_004",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "SYOUJO_005",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "SYOUJO_006",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "SYOUJO_007",
+  "repliques": 9,
+  "traduites": 9,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "TENSI_001",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "TENSI_002",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "TENSI_003",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "TENSI_004",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "TENSI_005",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "TENSI_006",
+  "repliques": 82,
+  "traduites": 82,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "TINPRA_001",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "TINPRA_002",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "TINPRA_003",
+  "repliques": 69,
+  "traduites": 69,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "TOILET_001",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "TOILET_002",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "TOILET_003",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "TOILET_004",
+  "repliques": 19,
+  "traduites": 19,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "WORM_001",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "WORM_002",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "WORM_003",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "WORM_004",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "WORM_005",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "WORM_006",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "WORM_007",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "WORM_008",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "WORM_009",
+  "repliques": 86,
+  "traduites": 86,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "WTENSI_001",
+  "repliques": 80,
+  "traduites": 80,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "YAKUZA_001",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "YAKUZA_002",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "YAKUZA_003",
+  "repliques": 59,
+  "traduites": 59,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "YOUEN_001",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "YOUEN_002",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "YOUEN_003",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "YOUEN_004",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "YOUEN_005",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "YOUEN_006",
+  "repliques": 87,
+  "traduites": 87,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "ZMBITYAN_001",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "ZMBITYAN_002",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "ZMBITYAN_003",
+  "repliques": 22,
+  "traduites": 22,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "ZOMBIKO_001",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "ZOMBIKO_002",
+  "repliques": 90,
+  "traduites": 90,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "ZOMB_MAN_001",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "negociations",
+  "nom": "ZOMB_MAN_002",
+  "repliques": 82,
+  "traduites": 82,
+  "locuteurs": []
+ },
+ {
+  "zone": "noms",
+  "nom": "ARMES_001",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "noms",
+  "nom": "ARMES_002",
+  "repliques": 2,
+  "traduites": 2,
+  "locuteurs": []
+ },
+ {
+  "zone": "noms",
+  "nom": "ARMURES_001",
+  "repliques": 65,
+  "traduites": 65,
+  "locuteurs": []
+ },
+ {
+  "zone": "noms",
+  "nom": "OBJETS_001",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "noms",
+  "nom": "OBJETS_002",
+  "repliques": 54,
+  "traduites": 54,
+  "locuteurs": []
+ },
+ {
+  "zone": "noms",
+  "nom": "SORTS_001",
+  "repliques": 100,
+  "traduites": 100,
+  "locuteurs": []
+ },
+ {
+  "zone": "noms",
+  "nom": "SORTS_002",
+  "repliques": 18,
+  "traduites": 18,
+  "locuteurs": []
+ }
+]

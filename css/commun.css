@@ -1,0 +1,163 @@
+/* ============================================================================
+   P1-FR Relecture — socle commun
+   ----------------------------------------------------------------------------
+   Direction : « Grimoire violet ». Persona 1 n'est pas le bleu froid de P2 :
+   c'est l'occulte, les arcanes, le rituel de convocation. D'ou l'aubergine
+   profond, le violet, et l'or des cartes.
+
+   Contrainte qui prime sur l'esthetique : on relit des heures. Le fond reste
+   sombre mais jamais noir pur, le texte parchemin jamais blanc pur, et le
+   corps du dialogue est en Spectral, dessine pour la lecture a l'ecran.
+   ========================================================================= */
+
+:root {
+  /* --- l'encre et le velours ------------------------------------------- */
+  --encre:        #140f1c;   /* fond, aubergine presque noir */
+  --encre-haute:  #1c1528;   /* panneaux */
+  --velours:      #251b36;   /* cartes */
+  --velours-haut: #302344;   /* cartes au survol */
+  --trait:        #3a2b52;   /* filets */
+
+  /* --- le violet, par paliers ------------------------------------------- */
+  --violet-sourd: #5b3d8c;
+  --violet:       #8257c4;
+  --violet-vif:   #a87ee8;
+  --violet-brume: rgba(130, 87, 196, 0.16);
+
+  /* --- l'or des arcanes -------------------------------------------------- */
+  --or:           #c9a227;
+  --or-pale:      #e4c866;
+  --or-brume:     rgba(201, 162, 39, 0.14);
+
+  /* --- le texte ---------------------------------------------------------- */
+  --parchemin:    #e9e2d6;
+  --parchemin-mi: #b6ab9e;
+  --parchemin-bas:#817767;
+
+  /* --- les verdicts ------------------------------------------------------ */
+  --tient:        #5fa97f;   /* la ligne tient dans la boite */
+  --serre:        #d4a04a;   /* elle frole la limite */
+  --deborde:      #c0566a;   /* elle deborde */
+
+  /* --- mesures ----------------------------------------------------------- */
+  --rayon:        3px;
+  --filet:        1px solid var(--trait);
+  --gouttiere:    clamp(1rem, 2.5vw, 2rem);
+  --lisible:      68ch;
+
+  --titre: "Marcellus SC", "Palatino Linotype", Georgia, serif;
+  --corps: "Spectral", Georgia, "Times New Roman", serif;
+  --machine: "IBM Plex Mono", "Consolas", monospace;
+}
+
+/* Un theme clair n'aurait pas de sens ici : le jeu se joue dans le noir, et le
+   grimoire ne s'eclaire pas. On force donc le schema sombre plutot que de
+   fabriquer une seconde identite tiede. */
+:root { color-scheme: dark; }
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--encre);
+  color: var(--parchemin);
+  font-family: var(--corps);
+  font-size: clamp(0.95rem, 0.9rem + 0.2vw, 1.05rem);
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  min-height: 100vh;
+}
+
+/* Le grain et la lueur : un fond uni ferait papier peint. Deux couches, pas
+   plus — l'une donne la profondeur, l'autre la matiere. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(70rem 40rem at 50% -14rem, rgba(130, 87, 196, 0.22), transparent 70%),
+    radial-gradient(40rem 30rem at 92% 8%, rgba(201, 162, 39, 0.06), transparent 65%);
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+}
+
+main, header, footer { position: relative; z-index: 1; }
+
+a { color: var(--violet-vif); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: var(--or-pale); }
+
+h1, h2, h3 {
+  font-family: var(--titre);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* --- le filet orne, qui revient comme separateur -------------------------- */
+.filet {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--trait) 12%, var(--trait) 88%, transparent);
+  position: relative;
+  margin: 2.5rem 0;
+}
+.filet::after {
+  content: "✦";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--encre);
+  color: var(--or);
+  padding: 0 0.7rem;
+  font-size: 0.7rem;
+}
+
+/* --- la lune, indicateur d'etat ------------------------------------------ */
+/* P1 compte ses jours en phases de lune : c'est le seul cadran qui ait du sens
+   ici. Pleine = relu, nouvelle = jamais ouvert. */
+.lune { display: inline-block; vertical-align: middle; }
+.lune circle { transition: fill 0.3s ease; }
+
+/* --- utilitaires sobres --------------------------------------------------- */
+.sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+
+.puce {
+  display: inline-block;
+  font-family: var(--machine);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  padding: 0.12em 0.5em;
+  border: 1px solid var(--trait);
+  border-radius: var(--rayon);
+  color: var(--parchemin-mi);
+  background: rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+}
+
+:focus-visible {
+  outline: 2px solid var(--or-pale);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

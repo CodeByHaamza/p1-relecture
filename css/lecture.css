@@ -1,0 +1,347 @@
+/* ============================================================================
+   La lecture : un fil de répliques, et sous chacune la possibilité d'en
+   proposer une autre.
+
+   Le parti pris : on lit d'abord, on corrige ensuite. Le français occupe la
+   colonne, l'anglais ne se montre qu'au survol ou à la demande. Un relecteur
+   qui lit deux colonnes en parallèle ne lit ni l'une ni l'autre.
+   ========================================================================= */
+
+.barre {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--encre) 90%, transparent);
+  backdrop-filter: blur(12px);
+  border-bottom: var(--filet);
+}
+
+.barre__dedans {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 0.75rem var(--gouttiere);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.retour {
+  font-family: var(--machine);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--parchemin-bas);
+  border: var(--filet);
+  border-radius: var(--rayon);
+  padding: 0.4rem 0.7rem;
+  transition: color 0.2s, border-color 0.2s;
+}
+.retour:hover { color: var(--or-pale); border-color: var(--violet-sourd); }
+
+.barre__titre {
+  font-family: var(--titre);
+  font-size: 1.05rem;
+  letter-spacing: 0.08em;
+  margin-right: auto;
+}
+.barre__titre small {
+  display: block;
+  font-family: var(--machine);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--or);
+  opacity: 0.8;
+}
+
+.bascule {
+  font-family: var(--machine);
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: transparent;
+  color: var(--parchemin-bas);
+  border: var(--filet);
+  border-radius: var(--rayon);
+  padding: 0.4rem 0.7rem;
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.bascule:hover { color: var(--parchemin); border-color: var(--violet-sourd); }
+.bascule[aria-pressed="true"] { color: var(--encre); background: var(--or); border-color: var(--or); }
+
+/* --- le fil ---------------------------------------------------------------- */
+.fil {
+  max-width: 62rem;
+  margin: 0 auto;
+  padding: 2.5rem var(--gouttiere) 8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.scene {
+  margin: 2.2rem 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  color: var(--or);
+  font-family: var(--machine);
+  font-size: 0.66rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.scene::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--or-brume), transparent);
+}
+
+.replique {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr;
+  gap: 0 1rem;
+  padding: 0.55rem 0.7rem;
+  border-radius: var(--rayon);
+  border: 1px solid transparent;
+  transition: background 0.18s, border-color 0.18s;
+}
+.replique:hover { background: rgba(130, 87, 196, 0.07); border-color: var(--trait); }
+.replique[data-ouvert="oui"] { background: var(--encre-haute); border-color: var(--violet-sourd); }
+
+/* Deux répliques du même personnage à la suite : on ne répète ni le portrait
+   ni le nom. C'est ce qui fait qu'un fil se lit comme une scène et pas comme
+   un tableau. */
+.replique[data-suite="oui"] .replique__qui { visibility: hidden; height: 0; }
+.replique[data-suite="oui"] .portrait { opacity: 0; }
+
+.portrait {
+  grid-row: span 2;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--trait);
+  background: var(--velours);
+  transition: opacity 0.18s;
+}
+
+.portrait--lettre {
+  display: grid;
+  place-items: center;
+  font-family: var(--titre);
+  font-size: 1.1rem;
+  color: var(--violet-vif);
+  background: radial-gradient(circle at 35% 25%, var(--velours-haut), var(--velours));
+}
+
+.replique__qui {
+  font-family: var(--titre);
+  font-size: 0.86rem;
+  letter-spacing: 0.08em;
+  color: var(--or-pale);
+  margin-bottom: 0.15rem;
+}
+
+.replique__fr {
+  font-size: 1.02rem;
+  line-height: 1.55;
+  white-space: pre-wrap;
+  cursor: text;
+}
+.replique__fr:empty::before {
+  content: "— pas encore traduit —";
+  color: var(--parchemin-bas);
+  font-style: italic;
+}
+
+.replique__en {
+  margin-top: 0.3rem;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: var(--parchemin-bas);
+  font-style: italic;
+  white-space: pre-wrap;
+  display: none;
+}
+body[data-anglais="oui"] .replique__en { display: block; }
+
+/* Les jetons du moteur : visibles, mais jamais confondus avec du texte. */
+.jeton {
+  font-family: var(--machine);
+  font-size: 0.6rem;
+  letter-spacing: 0.02em;
+  color: var(--violet-vif);
+  background: var(--violet-brume);
+  border: 1px solid color-mix(in srgb, var(--violet-sourd) 70%, transparent);
+  border-radius: 2px;
+  padding: 0 0.25em;
+  margin: 0 0.1em;
+  vertical-align: 0.08em;
+  user-select: none;
+  white-space: nowrap;
+}
+.jeton--saut { color: var(--parchemin-bas); background: transparent; border-style: dashed; }
+
+.corriger {
+  grid-column: 2;
+  justify-self: start;
+  margin-top: 0.35rem;
+  font-family: var(--machine);
+  font-size: 0.64rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: transparent;
+  border: 1px dashed var(--trait);
+  border-radius: var(--rayon);
+  color: var(--parchemin-bas);
+  padding: 0.25rem 0.6rem;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.18s, color 0.18s, border-color 0.18s;
+}
+.replique:hover .corriger, .replique:focus-within .corriger { opacity: 1; }
+.corriger:hover { color: var(--or-pale); border-color: var(--or); border-style: solid; }
+
+/* --- l'éditeur ------------------------------------------------------------- */
+.editeur {
+  grid-column: 2;
+  margin-top: 0.8rem;
+  padding: 0.9rem;
+  background: var(--encre);
+  border: 1px solid var(--violet-sourd);
+  border-radius: var(--rayon);
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  animation: deplie 0.25s cubic-bezier(.2,.7,.3,1);
+}
+@keyframes deplie { from { opacity: 0; transform: translateY(-0.4rem); } }
+
+.editeur__champ {
+  width: 100%;
+  min-height: 4.5rem;
+  resize: vertical;
+  background: var(--encre-haute);
+  border: var(--filet);
+  border-radius: var(--rayon);
+  color: var(--parchemin);
+  font-family: var(--corps);
+  font-size: 1rem;
+  line-height: 1.55;
+  padding: 0.6rem 0.7rem;
+}
+.editeur__champ:focus { outline: none; border-color: var(--violet); box-shadow: 0 0 0 3px var(--violet-brume); }
+
+.jauges { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+.jauge {
+  flex: 1 1 11rem;
+  border: var(--filet);
+  border-radius: var(--rayon);
+  padding: 0.45rem 0.6rem;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.jauge__titre {
+  font-family: var(--machine);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--parchemin-bas);
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.jauge__valeur { color: var(--parchemin-mi); }
+
+.jauge__barre {
+  height: 3px;
+  margin-top: 0.4rem;
+  background: var(--trait);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.jauge__remplie {
+  height: 100%;
+  width: 0;
+  background: var(--tient);
+  transition: width 0.2s ease, background 0.2s ease;
+}
+
+.jauge[data-etat="serre"] .jauge__remplie { background: var(--serre); }
+.jauge[data-etat="serre"] .jauge__valeur { color: var(--serre); }
+.jauge[data-etat="deborde"] .jauge__remplie { background: var(--deborde); }
+.jauge[data-etat="deborde"] .jauge__valeur { color: var(--deborde); }
+.jauge[data-etat="deborde"] { border-color: color-mix(in srgb, var(--deborde) 50%, var(--trait)); }
+
+.editeur__bas { display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+.editeur__note {
+  font-size: 0.78rem;
+  color: var(--parchemin-bas);
+  font-style: italic;
+  margin-right: auto;
+}
+
+.bouton {
+  font-family: var(--machine);
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: var(--rayon);
+  padding: 0.45rem 0.9rem;
+  cursor: pointer;
+  border: var(--filet);
+  background: transparent;
+  color: var(--parchemin-mi);
+  transition: all 0.18s;
+}
+.bouton:hover { color: var(--parchemin); border-color: var(--violet-sourd); }
+.bouton--fort {
+  background: var(--or);
+  border-color: var(--or);
+  color: var(--encre);
+  font-weight: 600;
+}
+.bouton--fort:hover { background: var(--or-pale); border-color: var(--or-pale); color: var(--encre); }
+.bouton[disabled] { opacity: 0.4; cursor: not-allowed; }
+
+/* --- le panier -------------------------------------------------------------- */
+.panier {
+  position: fixed;
+  right: var(--gouttiere);
+  bottom: var(--gouttiere);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.6rem 1rem;
+  background: var(--velours);
+  border: 1px solid var(--or);
+  border-radius: var(--rayon);
+  box-shadow: 0 14px 34px -16px #000;
+  font-family: var(--machine);
+  font-size: 0.72rem;
+  color: var(--parchemin);
+  transform: translateY(5rem);
+  opacity: 0;
+  transition: transform 0.3s cubic-bezier(.2,.7,.3,1), opacity 0.3s;
+}
+.panier[data-plein="oui"] { transform: none; opacity: 1; }
+.panier b { color: var(--or-pale); font-weight: 400; }
+
+.chargement {
+  text-align: center;
+  color: var(--parchemin-bas);
+  font-style: italic;
+  padding: 6rem 0;
+}
+
+@media (max-width: 560px) {
+  .replique { grid-template-columns: 2.5rem 1fr; }
+  .portrait { width: 2.5rem; height: 2.5rem; }
+  .panier { left: var(--gouttiere); right: var(--gouttiere); justify-content: center; }
+}

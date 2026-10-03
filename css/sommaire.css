@@ -1,0 +1,249 @@
+/* ============================================================================
+   Le sommaire : 284 scripts, qu'il faut pouvoir balayer d'un oeil.
+   Chaque script est une carte d'arcane ; son etat de relecture est sa lune.
+   ========================================================================= */
+
+.entete {
+  padding: clamp(2.5rem, 7vw, 5rem) var(--gouttiere) 0;
+  max-width: 78rem;
+  margin: 0 auto;
+}
+
+.entete__rang {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.titre {
+  font-size: clamp(1.9rem, 1.1rem + 3.4vw, 3.6rem);
+  letter-spacing: 0.1em;
+  background: linear-gradient(170deg, var(--parchemin) 20%, var(--violet-vif) 115%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.titre__sous {
+  display: block;
+  font-family: var(--corps);
+  font-style: italic;
+  font-size: clamp(0.85rem, 0.8rem + 0.3vw, 1rem);
+  letter-spacing: 0.02em;
+  color: var(--parchemin-bas);
+  margin-top: 0.6rem;
+  max-width: 46ch;
+  -webkit-text-fill-color: var(--parchemin-bas);
+}
+
+.compteur {
+  font-family: var(--machine);
+  font-size: 0.75rem;
+  color: var(--parchemin-bas);
+  text-align: right;
+  line-height: 1.8;
+}
+.compteur b { color: var(--or-pale); font-weight: 400; font-size: 1.05rem; }
+
+/* --- la barre d'outils ---------------------------------------------------- */
+.outils {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: color-mix(in srgb, var(--encre) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: var(--filet);
+  margin-top: 2.5rem;
+}
+
+.outils__dedans {
+  max-width: 78rem;
+  margin: 0 auto;
+  padding: 0.9rem var(--gouttiere);
+  display: flex;
+  gap: 0.9rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cherche {
+  flex: 1 1 15rem;
+  background: var(--encre-haute);
+  border: var(--filet);
+  border-radius: var(--rayon);
+  color: var(--parchemin);
+  font-family: var(--corps);
+  font-size: 0.92rem;
+  padding: 0.5rem 0.8rem;
+}
+.cherche::placeholder { color: var(--parchemin-bas); font-style: italic; }
+.cherche:focus { border-color: var(--violet); outline: none; box-shadow: 0 0 0 3px var(--violet-brume); }
+
+.zones { display: flex; gap: 0.35rem; flex-wrap: wrap; }
+
+.zone {
+  font-family: var(--machine);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.42rem 0.7rem;
+  background: transparent;
+  color: var(--parchemin-bas);
+  border: var(--filet);
+  border-radius: var(--rayon);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.zone:hover { color: var(--parchemin); border-color: var(--violet-sourd); }
+.zone[aria-pressed="true"] {
+  color: var(--encre);
+  background: var(--or);
+  border-color: var(--or);
+  font-weight: 600;
+}
+
+/* --- la grille des arcanes ------------------------------------------------ */
+.grille {
+  max-width: 78rem;
+  margin: 0 auto;
+  padding: 2rem var(--gouttiere) 5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15.5rem, 1fr));
+  gap: 1rem;
+  list-style: none;
+}
+
+.carte {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  padding: 1rem 1rem 0.9rem;
+  background: linear-gradient(165deg, var(--velours), var(--encre-haute) 85%);
+  border: 1px solid var(--trait);
+  border-radius: var(--rayon);
+  color: inherit;
+  text-decoration: none;
+  overflow: hidden;
+  transition: transform 0.22s cubic-bezier(.2,.7,.3,1), border-color 0.22s, box-shadow 0.22s;
+  /* Les cartes entrent en cascade : un seul moment orchestre vaut mieux que
+     vingt micro-animations. */
+  animation: monte 0.5s cubic-bezier(.2,.7,.3,1) backwards;
+}
+
+@keyframes monte {
+  from { opacity: 0; transform: translateY(0.8rem); }
+}
+
+/* Le liseré d'or au survol, et la carte qui se souleve a peine. */
+.carte::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(160deg, var(--or), transparent 45%);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.22s;
+  pointer-events: none;
+}
+.carte:hover, .carte:focus-visible {
+  transform: translateY(-3px);
+  border-color: var(--violet-sourd);
+  box-shadow: 0 10px 28px -14px rgba(0, 0, 0, 0.9), 0 0 0 1px var(--violet-brume);
+}
+.carte:hover::before, .carte:focus-visible::before { opacity: 1; }
+
+.carte__haut {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.6rem;
+}
+
+.carte__nom {
+  font-family: var(--titre);
+  font-size: 1.02rem;
+  letter-spacing: 0.07em;
+  color: var(--parchemin);
+}
+
+.carte__zone {
+  font-family: var(--machine);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--or);
+  opacity: 0.8;
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.carte__voix {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  min-height: 2.9rem;
+  align-content: flex-start;
+}
+
+.carte__bas {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.6rem;
+  border-top: 1px solid color-mix(in srgb, var(--trait) 60%, transparent);
+  padding-top: 0.6rem;
+  margin-top: auto;
+}
+
+.carte__compte {
+  font-family: var(--machine);
+  font-size: 0.72rem;
+  color: var(--parchemin-bas);
+}
+.carte__compte b { color: var(--parchemin-mi); font-weight: 400; }
+
+.carte__etat {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--machine);
+  font-size: 0.64rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--parchemin-bas);
+}
+.carte[data-etat="lu"] .carte__etat { color: var(--tient); }
+.carte[data-etat="encours"] .carte__etat { color: var(--serre); }
+
+/* Un script deja relu s'efface un peu : l'oeil doit aller vers ce qui reste. */
+.carte[data-etat="lu"] { opacity: 0.62; }
+.carte[data-etat="lu"]:hover { opacity: 1; }
+
+.vide {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: var(--parchemin-bas);
+  font-style: italic;
+  padding: 4rem 0;
+}
+
+.pied {
+  max-width: 78rem;
+  margin: 0 auto;
+  padding: 0 var(--gouttiere) 4rem;
+  color: var(--parchemin-bas);
+  font-size: 0.82rem;
+  max-width: var(--lisible);
+}
+
+@media (max-width: 480px) {
+  .grille { grid-template-columns: 1fr; }
+  .compteur { text-align: left; }
+}

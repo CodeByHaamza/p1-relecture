@@ -1,0 +1,4 @@
+# Les donnees SONT le site : elles doivent etre versionnees pour que Pages les serve.
+# (Le depot P2 fait pareil.) Seules les traces locales sont ignorees.
+node_modules/
+.DS_Store

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lecture — Relecture Persona 1 FR</title>
+<meta name="description" content="Lire un script de la traduction française de Persona 1 PSP et proposer des corrections, avec vérification des contraintes du jeu.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Marcellus+SC&family=Spectral:ital,wght@0,300;0,400;0,600;1,300;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/commun.css">
+<link rel="stylesheet" href="css/lecture.css">
+</head>
+<body data-anglais="non">
+
+<header class="barre">
+  <div class="barre__dedans">
+    <a class="retour" href="index.html">← Sommaire</a>
+    <h1 class="barre__titre" id="titre">
+      <small id="zone">—</small>
+      <span id="nom">Chargement…</span>
+    </h1>
+    <button class="bascule" id="voirAnglais" type="button" aria-pressed="false">
+      Anglais
+    </button>
+    <button class="bascule" id="marquerLu" type="button" aria-pressed="false">
+      Marquer relu
+    </button>
+  </div>
+</header>
+
+<main>
+  <div class="fil" id="fil">
+    <p class="chargement">Ouverture du script…</p>
+  </div>
+</main>
+
+<div class="panier" id="panier" data-plein="non" role="status">
+  <span><b id="panierCompte">0</b> proposition(s)</span>
+  <button class="bouton bouton--fort" id="envoyer" type="button">Envoyer</button>
+  <button class="bouton" id="vider" type="button">Vider</button>
+</div>
+
+<script type="module" src="js/lecture.js"></script>
+</body>
+</html>
