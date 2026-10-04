@@ -2,5 +2,19 @@
  "_source": "issues « Relecture : … » de CodeByHaamza/P1-FR-PSP",
  "_regle": "issue fermee = relu ; issue ouverte = quelqu'un s'en occupe",
  "depot": "CodeByHaamza/P1-FR-PSP",
- "scripts": {}
+ "scripts": {
+  "dialogues__E0_001": {
+   "relu": false,
+   "en_cours": true,
+   "issues": [
+    {
+     "numero": 127,
+     "url": "https://github.com/CodeByHaamza/P1-FR-PSP/issues/127",
+     "qui": "Yo-3DS",
+     "ouverte": true,
+     "le": "2026-10-04"
+    }
+   ]
+  }
+ }
 }
