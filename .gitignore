@@ -2,3 +2,7 @@
 # (Le depot P2 fait pareil.) Seules les traces locales sont ignorees.
 node_modules/
 .DS_Store
+
+# Python laisse ses caches derriere lui des qu'un outil importe un autre.
+__pycache__/
+*.pyc
