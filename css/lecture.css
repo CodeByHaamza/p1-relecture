@@ -70,6 +70,20 @@
   transition: color 0.2s, border-color 0.2s, background 0.2s;
 }
 .bascule:hover { color: var(--parchemin); border-color: var(--violet-sourd); }
+
+/* « Je prends ce script » : la seule action de la barre qui engage quelque
+   chose vis-a-vis des autres. Elle se voit donc, sans crier — et elle
+   disparait des que le script est pris ou relu. */
+.bascule--prendre {
+  color: var(--or-pale);
+  border-color: color-mix(in srgb, var(--or) 45%, var(--trait));
+}
+.bascule--prendre:hover {
+  color: var(--encre);
+  background: var(--or);
+  border-color: var(--or);
+}
+.bascule--prendre[hidden] { display: none; }
 .bascule[aria-pressed="true"] { color: var(--encre); background: var(--or); border-color: var(--or); }
 
 /* L'avancee dans le script. Un fil de trois cents repliques sans repere est un

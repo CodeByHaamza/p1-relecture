@@ -8,6 +8,7 @@
 
 import { verifier, mesureur, jetons } from "./mesure.js";
 import { enHtml, echappe } from "./rendu.js";
+import { chargerEtat, lienPrendre } from "./etat.js";
 
 const RANGEMENT_LUS = "p1fr-relecture-lus";
 const RANGEMENT_PANIER = "p1fr-relecture-panier";
@@ -239,7 +240,7 @@ async function demarrer() {
   // prochain script que personne n'a pris.
   let etat = {};
   try {
-    etat = (await (await fetch("data/etat.json")).json()).scripts || {};
+    etat = await chargerEtat(index);
     const fiche = etat[cle];
     if (fiche && fiche.issues && fiche.issues.length) {
       const d = fiche.issues[fiche.issues.length - 1];
@@ -529,6 +530,23 @@ async function demarrer() {
   bTaille.addEventListener("click", () => {
     poserTaille(CRANS[(CRANS.indexOf(document.body.dataset.taille) + 1) % CRANS.length]);
   });
+
+  // « Je prends ce script ». Sans lui, le suivi ne demarrait qu'a l'ENVOI des
+  // propositions : entre l'ouverture d'un script et l'envoi, personne ne voyait
+  // que quelqu'un etait dessus, et deux personnes pouvaient lire la meme chose
+  // toute une soiree. L'issue ouverte tout de suite, meme vide, c'est ce qui
+  // reserve — et `etat.js` la voit dans la seconde, pas au lendemain.
+  const bPrendre = $("#prendre");
+  const fichePrise = etat[cle];
+  if (fichePrise && (fichePrise.relu || fichePrise.en_cours)) {
+    // Deja pris ou deja relu : on n'invite plus a le prendre. Le bandeau
+    // au-dessus du fil dit qui et ou en est.
+    bPrendre.hidden = true;
+  } else {
+    bPrendre.addEventListener("click", () => {
+      window.open(lienPrendre(script.nom, ZONES[script.zone] || script.zone), "_blank", "noopener");
+    });
+  }
 
   const bLu = $("#marquerLu");
   const lus = new Set(lire(RANGEMENT_LUS, []));

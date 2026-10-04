@@ -23,14 +23,19 @@ envoie ses propositions groupées.
 
 1. Le [sommaire](https://codebyhaamza.github.io/p1-relecture/) montre les 284 scripts.
    Le filtre **Pas encore relus** mène directement au travail qui reste.
-2. On lit le fil du script. **Chaque ligne à l'écran est une ligne du jeu** :
+2. **Je prends ce script** ouvre une issue sur le dépôt, même vide : c'est elle
+   qui réserve. Sans ce geste, le suivi ne démarrait qu'à l'**envoi** des
+   propositions, et deux personnes pouvaient lire le même script toute une
+   soirée sans le savoir. Le sceau apparaît dans la seconde : la page relit les
+   issues au chargement, en plus de la base régénérée chaque jour.
+3. On lit le fil du script. **Chaque ligne à l'écran est une ligne du jeu** :
    le jeu ne renvoie jamais à la ligne tout seul, donc une coupure que vous voyez
    est une coupure qu'il fera. Une petite marque en fin de ligne dit laquelle
    (saut, nouvelle page, boîte qui se referme) ; la bascule **Codes** les écrit
    en clair si vous préférez.
    Le français tient la colonne ; l'anglais ne se montre qu'à la demande — lire
    deux colonnes en parallèle, c'est ne lire ni l'une ni l'autre.
-3. Au clavier, sans quitter la position de lecture : <kbd>J</kbd>/<kbd>K</kbd>
+4. Au clavier, sans quitter la position de lecture : <kbd>J</kbd>/<kbd>K</kbd>
    pour se déplacer, <kbd>[</kbd>/<kbd>]</kbd> de scène en scène,
    <kbd>N</kbd>/<kbd>P</kbd> de script en script, <kbd>E</kbd> pour proposer,
    <kbd>Échap</kbd> pour fermer, <kbd>A</kbd> et <kbd>C</kbd> pour les bascules.
@@ -38,10 +43,10 @@ envoie ses propositions groupées.
    enchaîne sans repasser par le sommaire, 284 fois.
    Si vous revenez sur un script quitté en route, un bouton propose de
    **reprendre où vous en étiez**.
-4. Une réplique à reprendre : **Proposer**. Trois jauges répondent pendant la
+5. Une réplique à reprendre : **Proposer**. Trois jauges répondent pendant la
    frappe, et le bouton **Garder** reste gris tant qu'une contrainte n'est pas
    tenue. Rien ne part qui ne tienne dans le jeu.
-5. En bas à droite, **Envoyer** ouvre une issue préremplie sur le dépôt de la
+6. En bas à droite, **Envoyer** ouvre une issue préremplie sur le dépôt de la
    traduction. Sans proposition, le même bouton dit **Signaler relu** : un script
    impeccable doit pouvoir ressortir relu sans qu'on invente une correction.
 
@@ -60,8 +65,22 @@ Elle vient donc des issues de **P1-FR-PSP**, celles que cet outil ouvre lui-mêm
 | **lu par moi** | votre propre trace, dans **ce navigateur seulement** |
 | *à lire* | personne n'y est encore passé |
 
-`outils/etat_relecture.py` relit ces issues et en fait `data/etat.json`. Rien à
-tenir à jour à la main, et l'état survit à un changement de machine.
+`outils/etat_relecture.py` relit ces issues et en fait `data/etat.json`, que le
+workflow régénère chaque jour. Rien à tenir à jour à la main, et l'état survit à
+un changement de machine.
+
+Mais une base quotidienne ne réserve rien : un sceau qui n'apparaîtrait que le
+lendemain laisserait deux personnes lire le même script le même soir, ce qui est
+exactement le problème. `js/etat.js` superpose donc les issues **lues au
+chargement** à cette base — un appel à l'API de recherche de GitHub, et un échec
+qui ne se voit pas. La base d'abord, parce que la page doit s'ouvrir sans rien
+demander à personne ; l'API par-dessus, parce qu'une réservation doit se voir
+tout de suite.
+
+La recherche plutôt que la liste des issues, et ce n'est pas un détail :
+l'endpoint `/issues` rend aussi les pull requests, et ce dépôt en compte plus de
+cent vingt. Mesuré — sur cent entrées renvoyées, **quatre-vingt-quinze étaient
+des PR**. Les relectures y auraient été noyées.
 
 ## Les trois contraintes
 

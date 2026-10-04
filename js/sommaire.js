@@ -20,6 +20,7 @@
    ========================================================================= */
 
 import { lune } from "./lune.js";
+import { chargerEtat } from "./etat.js";
 
 const RANGEMENT = "p1fr-relecture-lus";
 
@@ -128,13 +129,9 @@ async function demarrer() {
   }
 
   // L'etat partage est un bonus : un sommaire sans sceaux reste utilisable,
-  // un sommaire qui ne charge pas ne l'est pas.
-  let partage = {};
-  try {
-    partage = (await (await fetch("data/etat.json")).json()).scripts || {};
-  } catch {
-    /* pas d'etat publie encore : toutes les cartes restent « a lire » */
-  }
+  // un sommaire qui ne charge pas ne l'est pas. `chargerEtat` s'en occupe —
+  // la base versionnee d'abord, les issues du jour par-dessus.
+  const partage = await chargerEtat(scripts);
 
   const total = scripts.reduce((n, s) => n + (s.lisibles == null ? s.repliques : s.lisibles), 0);
   const relus = scripts.filter((s) => (partage[`${s.zone}__${s.nom}`] || {}).relu).length;
