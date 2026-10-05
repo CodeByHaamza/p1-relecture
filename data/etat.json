@@ -3,6 +3,58 @@
  "_regle": "issue fermee = relu ; issue ouverte = quelqu'un s'en occupe",
  "depot": "CodeByHaamza/P1-FR-PSP",
  "scripts": {
+  "noms__ARMES_002": {
+   "relu": false,
+   "en_cours": true,
+   "issues": [
+    {
+     "numero": 132,
+     "url": "https://github.com/CodeByHaamza/P1-FR-PSP/issues/132",
+     "qui": "Uolil-Raccoon",
+     "ouverte": true,
+     "le": "2026-10-05"
+    }
+   ]
+  },
+  "noms__ARMES_001": {
+   "relu": false,
+   "en_cours": true,
+   "issues": [
+    {
+     "numero": 131,
+     "url": "https://github.com/CodeByHaamza/P1-FR-PSP/issues/131",
+     "qui": "Uolil-Raccoon",
+     "ouverte": true,
+     "le": "2026-10-05"
+    }
+   ]
+  },
+  "noms__SORTS_002": {
+   "relu": false,
+   "en_cours": true,
+   "issues": [
+    {
+     "numero": 129,
+     "url": "https://github.com/CodeByHaamza/P1-FR-PSP/issues/129",
+     "qui": "FrankoPaulo",
+     "ouverte": true,
+     "le": "2026-10-04"
+    }
+   ]
+  },
+  "noms__SORTS_001": {
+   "relu": false,
+   "en_cours": true,
+   "issues": [
+    {
+     "numero": 128,
+     "url": "https://github.com/CodeByHaamza/P1-FR-PSP/issues/128",
+     "qui": "FrankoPaulo",
+     "ouverte": true,
+     "le": "2026-10-04"
+    }
+   ]
+  },
   "dialogues__E0_001": {
    "relu": false,
    "en_cours": true,
