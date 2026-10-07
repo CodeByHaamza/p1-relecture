@@ -65,6 +65,32 @@ function portrait(r) {
 }
 
 /* --- l'editeur -------------------------------------------------------------- */
+/** Les regles de nommage, au moment ou l'on ecrit un nom.
+ *
+ *  Elles existaient, elles etaient publiees dans `docs/REGLES.md`, et un
+ *  relecteur travaillant ici ne les croisait jamais. Resultat le 07/10/2026 :
+ *  sur 381 propositions, 102 violaient « Majuscule au premier mot seulement ».
+ *  Ce n'etait pas leur faute — c'etait celle d'un outil muet.
+ *
+ *  Affichees seulement sur les entrees qui ont un slot : ce sont les noms et
+ *  les libelles, et ces regles ne valent que pour eux. Sur un dialogue, elles
+ *  seraient du bruit.
+ */
+function reglesDeNommage(contraintes) {
+  const regles = contraintes.regles_noms || [];
+  if (!regles.length) return "";
+  const puces = regles
+    .map((r) => `<li>${echappe(r).replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")}</li>`)
+    .join("");
+  return `<details class="regles">
+    <summary>Les règles des noms — <b>à lire une fois</b></summary>
+    <ul>${puces}</ul>
+    <p>Le texte complet :
+      <a href="https://github.com/CodeByHaamza/P1-FR-PSP/blob/main/docs/REGLES.md"
+         target="_blank" rel="noopener">docs/REGLES.md</a>.</p>
+  </details>`;
+}
+
 function ouvrirEditeur(bloc, r, contraintes, mesurer, panier) {
   if (bloc.querySelector(".editeur")) return;
   bloc.dataset.ouvert = "oui";
@@ -73,6 +99,7 @@ function ouvrirEditeur(bloc, r, contraintes, mesurer, panier) {
   const ed = document.createElement("div");
   ed.className = "editeur";
   ed.innerHTML = `
+    ${r.max ? reglesDeNommage(contraintes) : ""}
     <textarea class="editeur__champ" spellcheck="true"
       aria-label="Proposer une autre traduction">${echappe(depart)}</textarea>
     <div class="jauges">

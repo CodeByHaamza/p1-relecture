@@ -139,6 +139,35 @@ def nu(texte: str) -> str:
     return texte
 
 
+def regles_des_noms(chemin: Path) -> list[str]:
+    """Les regles de nommage, LUES dans `docs/REGLES.md` du depot public.
+
+    Pas recopiees : lues. Deux copies d'une regle, et c'est la perimee qu'on
+    lit — on vient de le payer. Le 07/10/2026, 102 propositions de relecture
+    sur 381 violaient « Majuscule au premier mot seulement », une regle qui
+    existait, qui etait publiee, et qu'un relecteur travaillant dans l'outil ne
+    croisait jamais. Elle s'affiche donc maintenant la ou il ecrit.
+
+    On ne prend que les puces de la section, et on garde leur gras : c'est la
+    partie qu'on lit en diagonale quand on cherche vite.
+    """
+    if not chemin.exists():
+        return []
+    dedans, out = False, []
+    for ligne in chemin.read_text(encoding="utf-8").splitlines():
+        if ligne.startswith("## "):
+            if dedans:
+                break
+            dedans = "noms d'objets" in ligne.lower()
+            continue
+        if dedans and ligne.startswith("- "):
+            out.append(ligne[2:].strip())
+        elif dedans and out and ligne.startswith("  ") and ligne.strip():
+            # Une puce qui continue sur la ligne suivante.
+            out[-1] += " " + ligne.strip()
+    return out
+
+
 def bloc_de(identifiant: str) -> str:
     """`E0.BIN:000:0054` -> `E0.BIN:000`, le bloc de 2048 octets qui la porte."""
     return ":".join(identifiant.split(":")[:2])
@@ -243,6 +272,12 @@ def main(argv=None):
         help="le dossier trad/ d'un clone de P1-FR-PSP",
     )
     ap.add_argument("--sortie", type=Path, default=RACINE / "data")
+    ap.add_argument(
+        "--regles",
+        type=Path,
+        default=None,
+        help="docs/REGLES.md du depot public ; defaut : a cote de --trad",
+    )
     args = ap.parse_args(argv)
 
     if not args.trad.is_dir():
@@ -257,6 +292,8 @@ def main(argv=None):
         print(f"  socle manquant : {e.filename}", file=sys.stderr)
         print("  il est versionne ; relancez exporter_relecture_socle.py cote prive", file=sys.stderr)
         return 2
+
+    regles = regles_des_noms(args.regles or args.trad.parent / "docs" / "REGLES.md")
 
     (args.sortie / "scripts").mkdir(parents=True, exist_ok=True)
 
@@ -360,6 +397,9 @@ def main(argv=None):
                 "espace_px": metrique["espace_px"],
                 "limites_px": metrique["limites_px"],
                 "marges_bloc": marges,
+                # Les regles de nommage, pour que la page les montre a qui
+                # ecrit un nom. Lues dans le depot public, jamais recopiees.
+                "regles_noms": regles,
             },
             ensure_ascii=False,
         ),
@@ -371,6 +411,7 @@ def main(argv=None):
         n = sum(1 for i in index if i["zone"] == zone)
         if n:
             print(f"    {zone:14} {n:>4} scripts, limite {metrique['limites_px'].get(zone, 0)} px")
+    print(f"  {len(regles)} regle(s) de nommage reprise(s) de docs/REGLES.md")
     serres = sum(1 for m in marges.values() if m < 64)
     print(f"  {len(marges)} blocs ; {serres} a moins de 64 octets de marge")
     if any(m < 0 for m in marges.values()):

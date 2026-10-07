@@ -377,6 +377,28 @@ body[data-codes="oui"] .fin { display: none; }
 @media (hover: none) { .corriger { opacity: 0.75; } }
 .corriger:hover { color: var(--or-pale); border-color: var(--or); border-style: solid; }
 
+/* Les regles de nommage, repliees par defaut : lues une fois, elles ne doivent
+   pas peser sur les cinquante lignes suivantes. */
+.regles {
+  font-size: 0.82rem;
+  border-left: 2px solid var(--or);
+  background: color-mix(in srgb, var(--or) 6%, transparent);
+  border-radius: 0 var(--rayon) var(--rayon) 0;
+  padding: 0.5rem 0.8rem;
+}
+.regles summary {
+  cursor: pointer;
+  font-family: var(--machine);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--or-pale);
+}
+.regles ul { margin: 0.6rem 0 0; padding-left: 1.1rem; color: var(--parchemin-mi); }
+.regles li { margin-bottom: 0.35rem; }
+.regles strong { color: var(--parchemin); }
+.regles p { margin: 0.6rem 0 0; color: var(--parchemin-bas); font-size: 0.78rem; }
+
 /* --- l'éditeur ------------------------------------------------------------- */
 .editeur {
   grid-column: 2;
