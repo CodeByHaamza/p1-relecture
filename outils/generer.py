@@ -292,6 +292,13 @@ def main(argv=None):
                         "fr": segmenter(fr),
                         "brut_en": en,
                         "brut_fr": fr,
+                        # Le slot : l'EBOOT et les noms vivent a un emplacement
+                        # de taille FIXE, et un caractere de trop est tronque en
+                        # jeu sans erreur. 3 394 entrees sur 24 584 en ont un —
+                        # et ce sont justement celles qu'on a donnees a relire
+                        # en premier. La jauge l'ignorait : 173 propositions de
+                        # bonne foi debordaient leur slot en croyant tenir.
+                        "max": e.get("max") or 0,
                         "japonais": bool(CJK.search(en)),
                         # Un bloc de mise en scene n'est pas du dialogue : le
                         # jeu ne l'affiche pas, et le donner a relire ferait

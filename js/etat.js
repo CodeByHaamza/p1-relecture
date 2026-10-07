@@ -33,7 +33,10 @@
    ========================================================================= */
 
 const DEPOT = "CodeByHaamza/P1-FR-PSP";
-const TITRE = /^\s*Relecture\s*:\s*(.+?)\s*$/i;
+// « Relecture : X » mais aussi « Relecture de `X` » : un relecteur
+// reecrit le titre, et une issue passe a cote du suivi pour un
+// deux-points manquant.
+const TITRE = /^\s*Relecture\s*(?::|de)\s*(.+?)\s*$/i;
 
 /** Un nom de script réduit à ce qui l'identifie : sans accents, sans casse,
  *  sans ponctuation. Le titre est tapé par un humain, qui peut ajouter une

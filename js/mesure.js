@@ -128,6 +128,26 @@ export function verifier(propose, replique, contraintes, mesurer) {
   const memesJetons =
     attendus.length === donnes.length && attendus.every((j, i) => j === donnes[i]);
 
+  // LE SLOT. Certaines entrees ne vivent pas dans une boite mais a un
+  // emplacement de taille fixe dans l'executable : un caractere de trop est
+  // tronque en jeu, sans message. C'est une contrainte PLUS DURE que la
+  // largeur, et elle ne se voit pas a l'oeil.
+  //
+  // `[0000]` compte pour un caractere : c'est une espace, encodee sur le
+  // code 0. L'oublier faisait passer une proposition a la limite pour tenante.
+  const slot = replique.max || 0;
+  const signes = slot ? nu(propose).length : 0;
+  // 290 entrees de l'EBOOT depassent DEJA leur slot : c'est connu, consigne,
+  // et ce sont elles qu'on veut justement pouvoir corriger. Refuser tout ce
+  // qui depasse le max bloquerait donc precisement le travail utile.
+  //
+  // On ne reproche que ce que la proposition AJOUTE : au-dela du max mais pas
+  // plus long que l'actuel, elle n'aggrave rien et passe avec un
+  // avertissement. Plus longue que l'actuel ET au-dela du max, elle est
+  // refusee. Meme logique que la largeur cote validateur : on ne reproche pas
+  // au relecteur un depassement qu'il n'a pas cree.
+  const dejaLong = slot ? nu(replique.brut_fr).length : 0;
+
   const limite = contraintes.limites_px[replique.zone] || 375;
   const lignes = lignesAffichees(propose)
     .map((l) => ({ texte: l.trim(), px: mesurer(l.trim()) }))
@@ -142,6 +162,25 @@ export function verifier(propose, replique, contraintes, mesurer) {
   const marge = contraintes.marges_bloc[replique.bloc];
 
   return {
+    slot: slot
+      ? {
+          connu: true,
+          signes,
+          max: slot,
+          etat:
+            signes <= slot
+              ? signes === slot
+                ? "serre"
+                : "tient"
+              : signes <= dejaLong
+                ? "serre"
+                : "deborde",
+          texte:
+            signes > slot && signes <= dejaLong
+              ? `${signes} / ${slot} signes — déjà au-delà, non aggravé`
+              : `${signes} / ${slot} signes`,
+        }
+      : { connu: false, texte: "" },
     jetons: {
       ok: memesJetons,
       attendus,

@@ -443,6 +443,14 @@ body[data-codes="oui"] .fin { display: none; }
   transition: width 0.2s ease, background 0.2s ease;
 }
 
+/* Le slot est la contrainte la plus dure : elle tronque sans rien dire, et
+   elle ne se voit pas a l'oeil. Son cadre est donc plus marque que les autres,
+   et la jauge disparait quand l'entree n'a pas de slot. */
+.jauge[data-jauge="slot"] {
+  border-color: color-mix(in srgb, var(--or) 35%, var(--trait));
+}
+.jauge[data-jauge="slot"][hidden] { display: none; }
+
 .jauge[data-etat="serre"] .jauge__remplie { background: var(--serre); }
 .jauge[data-etat="serre"] .jauge__valeur { color: var(--serre); }
 .jauge[data-etat="deborde"] .jauge__remplie { background: var(--deborde); }

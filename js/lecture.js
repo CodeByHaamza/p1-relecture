@@ -79,6 +79,10 @@ function ouvrirEditeur(bloc, r, contraintes, mesurer, panier) {
       <div class="jauge" data-jauge="jetons">
         <div class="jauge__titre"><span>Jetons</span><span class="jauge__valeur">—</span></div>
       </div>
+      <div class="jauge" data-jauge="slot" hidden>
+        <div class="jauge__titre"><span>Slot</span><span class="jauge__valeur">—</span></div>
+        <div class="jauge__barre"><div class="jauge__remplie"></div></div>
+      </div>
       <div class="jauge" data-jauge="largeur">
         <div class="jauge__titre"><span>Largeur</span><span class="jauge__valeur">—</span></div>
         <div class="jauge__barre"><div class="jauge__remplie"></div></div>
@@ -106,6 +110,17 @@ function ouvrirEditeur(bloc, r, contraintes, mesurer, panier) {
     jj.dataset.etat = v.jetons.ok ? "tient" : "deborde";
     jj.querySelector(".jauge__valeur").textContent = v.jetons.texte;
 
+    // Le slot passe devant la largeur : c'est la contrainte la plus dure, et
+    // la seule qui tronque sans rien dire. Masquee quand l'entree n'en a pas.
+    const js = ed.querySelector('[data-jauge="slot"]');
+    js.hidden = !v.slot.connu;
+    if (v.slot.connu) {
+      js.dataset.etat = v.slot.etat;
+      js.querySelector(".jauge__valeur").textContent = v.slot.texte;
+      js.querySelector(".jauge__remplie").style.width =
+        `${Math.min(100, (v.slot.signes / v.slot.max) * 100)}%`;
+    }
+
     const jl = ed.querySelector('[data-jauge="largeur"]');
     jl.dataset.etat = v.largeur.etat;
     jl.querySelector(".jauge__valeur").textContent = v.largeur.texte;
@@ -121,12 +136,17 @@ function ouvrirEditeur(bloc, r, contraintes, mesurer, panier) {
     }
 
     const bloquant =
-      !v.jetons.ok || v.largeur.etat === "deborde" || (v.bloc.connu && v.bloc.etat === "deborde");
+      !v.jetons.ok ||
+      (v.slot.connu && v.slot.etat === "deborde") ||
+      v.largeur.etat === "deborde" ||
+      (v.bloc.connu && v.bloc.etat === "deborde");
     garder.disabled = bloquant || champ.value.trim() === r.brut_fr.trim();
     note.textContent = bloquant
       ? !v.jetons.ok
         ? "Les codes du jeu doivent rester les mêmes, dans le même ordre."
-        : v.largeur.etat === "deborde"
+        : v.slot.connu && v.slot.etat === "deborde"
+          ? `Cette entrée tient dans ${v.slot.max} signes : le jeu tronque le reste sans rien dire.`
+          : v.largeur.etat === "deborde"
           ? "Cette ligne sera coupée à l'écran."
           : "Ce bloc n'a plus de place : tout le fichier retomberait en anglais."
       : champ.value.trim() === r.brut_fr.trim()
@@ -203,7 +223,8 @@ function creerPanier(script) {
       return (
         `Relecture de \`${script.nom}\` (${ZONES[script.zone] || script.zone}).\n\n` +
         `Les ${lignes.length} proposition(s) ci-dessous ont été vérifiées dans l'outil de ` +
-        `relecture : parité des jetons, largeur en pixels, et marge du bloc.\n\n` +
+        `relecture : parité des jetons, **taille du slot**, largeur en pixels, et marge ` +
+        `du bloc.\n\n` +
         lignes.join("\n")
       );
     },

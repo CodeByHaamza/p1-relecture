@@ -42,7 +42,10 @@ from pathlib import Path
 RACINE = Path(__file__).resolve().parent.parent
 DEPOT = "CodeByHaamza/P1-FR-PSP"
 # Le titre que `js/lecture.js` met dans l'issue qu'il prepare.
-TITRE = re.compile(r"^\s*Relecture\s*:\s*(.+?)\s*$")
+# « Relecture : X » mais aussi « Relecture de `X` » : un relecteur
+# reecrit le titre, et #133 est passee a cote du suivi pour un
+# deux-points manquant.
+TITRE = re.compile(r"^\s*Relecture\s*(?::|de)\s*(.+?)\s*$", re.I)
 
 
 def cle(nom: str) -> str:
