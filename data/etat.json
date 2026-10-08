@@ -4,145 +4,145 @@
  "depot": "CodeByHaamza/P1-FR-PSP",
  "scripts": {
   "eboot__EBOOT_003": {
-   "relu": false,
-   "en_cours": true,
+   "relu": true,
+   "en_cours": false,
    "issues": [
     {
      "numero": 138,
      "url": "https://github.com/CodeByHaamza/P1-FR-PSP/issues/138",
      "qui": "Uolil-Raccoon",
-     "ouverte": true,
-     "le": "2026-10-06"
+     "ouverte": false,
+     "le": "2026-10-08"
     }
    ]
   },
   "eboot__EBOOT_002": {
-   "relu": false,
-   "en_cours": true,
+   "relu": true,
+   "en_cours": false,
    "issues": [
     {
      "numero": 137,
      "url": "https://github.com/CodeByHaamza/P1-FR-PSP/issues/137",
      "qui": "Uolil-Raccoon",
-     "ouverte": true,
-     "le": "2026-10-06"
+     "ouverte": false,
+     "le": "2026-10-08"
     }
    ]
   },
   "eboot__EBOOT_001": {
-   "relu": false,
-   "en_cours": true,
+   "relu": true,
+   "en_cours": false,
    "issues": [
     {
      "numero": 136,
      "url": "https://github.com/CodeByHaamza/P1-FR-PSP/issues/136",
      "qui": "Uolil-Raccoon",
-     "ouverte": true,
-     "le": "2026-10-06"
+     "ouverte": false,
+     "le": "2026-10-08"
     }
    ]
   },
   "noms__OBJETS_002": {
-   "relu": false,
-   "en_cours": true,
+   "relu": true,
+   "en_cours": false,
    "issues": [
     {
      "numero": 135,
      "url": "https://github.com/CodeByHaamza/P1-FR-PSP/issues/135",
      "qui": "Uolil-Raccoon",
-     "ouverte": true,
-     "le": "2026-10-06"
+     "ouverte": false,
+     "le": "2026-10-08"
     }
    ]
   },
   "noms__OBJETS_001": {
-   "relu": false,
-   "en_cours": true,
+   "relu": true,
+   "en_cours": false,
    "issues": [
     {
      "numero": 134,
      "url": "https://github.com/CodeByHaamza/P1-FR-PSP/issues/134",
      "qui": "Uolil-Raccoon",
-     "ouverte": true,
-     "le": "2026-10-06"
+     "ouverte": false,
+     "le": "2026-10-08"
     }
    ]
   },
   "noms__ARMURES_001": {
-   "relu": false,
-   "en_cours": true,
+   "relu": true,
+   "en_cours": false,
    "issues": [
     {
      "numero": 133,
      "url": "https://github.com/CodeByHaamza/P1-FR-PSP/issues/133",
      "qui": "Uolil-Raccoon",
-     "ouverte": true,
-     "le": "2026-10-05"
+     "ouverte": false,
+     "le": "2026-10-08"
     }
    ]
   },
   "noms__ARMES_002": {
-   "relu": false,
-   "en_cours": true,
+   "relu": true,
+   "en_cours": false,
    "issues": [
     {
      "numero": 132,
      "url": "https://github.com/CodeByHaamza/P1-FR-PSP/issues/132",
      "qui": "Uolil-Raccoon",
-     "ouverte": true,
-     "le": "2026-10-05"
+     "ouverte": false,
+     "le": "2026-10-08"
     }
    ]
   },
   "noms__ARMES_001": {
-   "relu": false,
-   "en_cours": true,
+   "relu": true,
+   "en_cours": false,
    "issues": [
     {
      "numero": 131,
      "url": "https://github.com/CodeByHaamza/P1-FR-PSP/issues/131",
      "qui": "Uolil-Raccoon",
-     "ouverte": true,
-     "le": "2026-10-05"
+     "ouverte": false,
+     "le": "2026-10-08"
     }
    ]
   },
   "noms__SORTS_002": {
-   "relu": false,
-   "en_cours": true,
+   "relu": true,
+   "en_cours": false,
    "issues": [
     {
      "numero": 129,
      "url": "https://github.com/CodeByHaamza/P1-FR-PSP/issues/129",
      "qui": "FrankoPaulo",
-     "ouverte": true,
-     "le": "2026-10-04"
+     "ouverte": false,
+     "le": "2026-10-08"
     }
    ]
   },
   "noms__SORTS_001": {
-   "relu": false,
-   "en_cours": true,
+   "relu": true,
+   "en_cours": false,
    "issues": [
     {
      "numero": 128,
      "url": "https://github.com/CodeByHaamza/P1-FR-PSP/issues/128",
      "qui": "FrankoPaulo",
-     "ouverte": true,
-     "le": "2026-10-04"
+     "ouverte": false,
+     "le": "2026-10-08"
     }
    ]
   },
   "dialogues__E0_001": {
-   "relu": false,
-   "en_cours": true,
+   "relu": true,
+   "en_cours": false,
    "issues": [
     {
      "numero": 127,
      "url": "https://github.com/CodeByHaamza/P1-FR-PSP/issues/127",
      "qui": "Yo-3DS",
-     "ouverte": true,
-     "le": "2026-10-04"
+     "ouverte": false,
+     "le": "2026-10-08"
     }
    ]
   }
